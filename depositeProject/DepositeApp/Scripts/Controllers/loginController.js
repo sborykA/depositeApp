@@ -4,7 +4,9 @@
             function ($scope, authorizationFactory, $location) {
             $scope.loginData = { login: "", password: "" };
                 $scope.loginClick = function () {
-                    var authorizationInformation = authorizationFactory.login($scope.loginData.login, $scope.loginData.password);   
+                    var authorizationInformation = authorizationFactory.login($scope.loginData.login, $scope.loginData.password);
+                    //console.log(authorizationInformation);
+                    //console.log(authorizationInformation.status);
                     if (authorizationInformation.status) {
                         if (authorizationInformation.type==0) {
                             $location.path('/clientDeclaration');
@@ -12,9 +14,9 @@
                             $location.path('/acceptDepositInformation');
                         }
                     
-                } else {
-                    alert('Pass is 123456!');
-                }
+                    } else {
+                        alert('Pass is 123456!');
+                    }
             }
 
         /*$scope.LoginData = { login: "", password: "" };

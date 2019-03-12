@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    var app = angular.module('DepositeApp', ["ngRoute", "authorizationModule", 'LocalStorageModule']);
+    var app = angular.module('DepositeApp', ["ngRoute", "authorizationModule"]);
     var config = function ($routeProvider) {
         $routeProvider
             .when("/login",

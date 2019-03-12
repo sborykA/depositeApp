@@ -241,6 +241,7 @@
     <Content Include="DepositeApp\Scripts\Modules\authorizationModule.js" />
     <Content Include="DepositeApp\Scripts\Modules\securityModule.js" />
     <Content Include="DepositeApp\Scripts\Services\authorizationFactory.js" />
+    <Content Include="DepositeApp\Scripts\Services\checkRolesService.js" />
     <Content Include="DepositeApp\Scripts\Services\clientOperationService.js" />
     <Content Include="DepositeApp\Scripts\Services\pagesSecurityService.js" />
     <Content Include="DepositeApp\Scripts\Services\userDataService.js" />

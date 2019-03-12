@@ -1,26 +1,41 @@
 ﻿(function (authorizationModule) {
-    authorizationModule.factory('authorizationFactory', ['$userProvider', 'userDataService', 'localStorageService',
-    function ($userProvider,userDataService,localStorageService) {
+    authorizationModule.factory('authorizationFactory', ['$userProvider', 'userDataService'/*,'checkRolesService'*/,
+        function ($userProvider, userDataService/*, checkRolesService*/) {
         var accountInfo = {};
         
-        var login = function (login, pass) {
-            //Не возвращает обьект
-            /*userDataService.checkUser(login, pass)
-                .then(function successCallback(response) {
-                    console.log(response.data);
-                    accountInfo = response.data;
-                }, function errorCallback(response) {
-                    return false;
-                });
+            var login = function (login, pass) {
+                /*console.log(checkRolesService.checkRole(login, pass));
+                return checkRolesService.checkRole(login, pass);*/
             
-           
-            console.log(accountInfo);
-            if (accountInfo.Type.toLowerCase() === 'front') {
-                $userProvider.setUser({ Login: login, Roles: [$userProvider.rolesEnum.Front] });
-            } else if (accountInfo.Type.toLowerCase() === 'back') {
-                $userProvider.setUser({ Login: login, Roles: [$userProvider.rolesEnum.Back] });
-            }
-            return true;*/
+            
+            /*var res = {};
+            //Не возвращает обьект res
+            
+            userDataService.checkUser(login, pass)
+                .then(function successCallback(response) {
+                    accountInfo = response.data;
+                    if (accountInfo.Type.toLowerCase() == 'front') {
+                        $userProvider.setUser({ Login: login, Roles: [$userProvider.rolesEnum.Front] });
+                    } else if (accountInfo.Type.toLowerCase() == 'back') {
+                        $userProvider.setUser({ Login: login, Roles: [$userProvider.rolesEnum.Back] });
+                    }
+                    res = {
+                        status: true,
+                        type: $userProvider.getUser().Roles
+                    };
+                    
+                }, function errorCallback(response) {
+                    res = {
+                        status: false,
+                        type: ""
+                    };
+                    
+                });
+            console.log(res);
+            return res;
+           */
+            
+            
             if (pass !== '123456') {
                 return false;
             }
@@ -37,5 +52,6 @@
             return {
                 login: login,
             }
+        
     }]);
 }(angular.module("authorizationModule")));
