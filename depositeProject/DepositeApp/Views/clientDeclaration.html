@@ -1,0 +1,91 @@
+﻿    <div ng-controller="clientDeclarationController">
+    <form role="form">
+        <h2 class="form-login-heading">Введіть ІПН клієнта</h2>
+        <input type="text" class="form-control" placeholder="Username" ng-model="ipn" required autofocus>
+        <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="checkClientType(ipn)">Пошук клієнта</button>
+        <div class="alert alert-danger" ng-show="messageStatus">
+            {{message}}
+        </div>
+    </form>
+    <div class="form" ng-show="showInputForm">
+        <form form-horizontal" role="form" ng-submit="submit()">
+            <div class="inputDiv">
+                <div class="form-group">
+                    <div class="row">
+                        <label for="inputName" class=" col-md-offset-3 col-md-2 control-label">Найменування клієнта банку</label>
+                        <div class=" col-md-7">
+                            <input type="text" class="form-control" placeholder="Найменування клієнта банку" name="inputName" ng-model="user.Name">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="inputIdentificationCode" class="col-md-offset-3 col-md-2 control-label">Код ІПН</label>
+                        <div class="col-md-7">
+                            <input type="text" class="form-control" placeholder="Код ІПН" name="inputIdentificationCode" ng-model="user.Ipn">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="inputDepositeType" class="col-md-offset-3 col-md-2">Тип депозиту</label>
+                        <select class="form-control   col-md-7" id="inputDepositeType" ng-model="user.DepositeType">
+                            <option value="urgent">Строковий</option>
+                            <option value="onRequest">На вимогу</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="inputRegistrationPlace" class="col-md-offset-3 col-md-2 control-label">Місце реєстрації</label>
+                        <div class="col-md-7">
+                            <input type="text" class="form-control" placeholder="RegistrationPlace" name="inputRegistrationPlace" ng-model="user.RegistrationPlace">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="inputEAName" class="col-md-offset-3 col-md-2 control-label">Назва економічної діяльності</label>
+                        <div class="col-md-7">
+                            <input type="text" class="form-control" placeholder="EAName" name="inputEAName" ng-model="user.EAName">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="inputEACode" class="col-md-offset-3 col-md-2 control-label">Код економічної діальності</label>
+                        <div class="col-md-7">
+                            <input type="text" class="form-control" placeholder="EACode" name="inputEACode" ng-model="user.EACode">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="inputstartDepositeDate" class="col-md-offset-3 col-md-2 control-label">Початок депозитного сроку</label>
+                        <div class="col-md-7">
+                            <input type="date" class="form-control" placeholder="startDepositeDate" name="inputstartDepositeDate" ng-model="user.StartDepositeDate">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="inputendDepositeDate" class="col-md-offset-3 col-md-2 control-label">Кінець депозитного сроку</label>
+                        <div class="col-md-7">
+                            <input type="date" class="form-control" placeholder="" name="inputendDepositeDate" ng-model="user.EndDepositeDate">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-offset-3  col-md-6">
+                            <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="saveData(user)">Зберегти дані клієнта</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+            
+</div>

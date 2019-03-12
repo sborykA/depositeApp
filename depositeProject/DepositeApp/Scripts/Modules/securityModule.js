@@ -1,0 +1,1 @@
+﻿var securityModule=angular.module('securityModule', ['authorizationModule']);
