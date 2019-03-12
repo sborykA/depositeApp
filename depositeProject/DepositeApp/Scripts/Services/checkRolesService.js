@@ -2,6 +2,7 @@
     authorizationModule.factory('checkRolesService', '$userProvider', 'userDataService', function ($userProvider, userDataService) {
         return {
             checkRole: function (login, pass) {
+                //Check method
                  userDataService.checkUser(login, pass)
                     .then(function successCallback(response) {
                         accountInfo = response.data;

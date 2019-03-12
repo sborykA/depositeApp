@@ -1,7 +1,7 @@
 ﻿(function (authorizationModule) {
     authorizationModule.factory('authorizationFactory', ['$userProvider', 'userDataService'/*,'checkRolesService'*/,
         function ($userProvider, userDataService/*, checkRolesService*/) {
-        var accountInfo = {};
+        //var accountInfo = {};
         
             var login = function (login, pass) {
                 /*console.log(checkRolesService.checkRole(login, pass));
