@@ -44,12 +44,12 @@ namespace depositeProject.Migrations
                             Id = 1,
                             Ipn = "ipn1",
                             Name = "name1",
-                            DepositType = "urgent",
                             RegistrationPlace="Kyiv",
                             EAName="Eaname",
-                            EACode="000000",
+                            EACode= "000000"
+                            /*,
                             StartDepositeDate= new DateTime(2019, 7, 20),
-                            EndDepositeDate= new  DateTime(2019, 8, 15)
+                            EndDepositeDate= new  DateTime(2019, 8, 15)*/
                         }
                     );
         }

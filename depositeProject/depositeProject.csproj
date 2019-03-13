@@ -51,9 +51,6 @@
     <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
     </Reference>
-    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
-      <HintPath>..\packages\Oracle.ManagedDataAccess.18.3.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -219,6 +216,8 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ClientInfo.cs" />
+    <Compile Include="Models\Deposite.cs" />
+    <Compile Include="Models\DepositeInfo.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UsersDB.cs" />
@@ -243,6 +242,7 @@
     <Content Include="DepositeApp\Scripts\Services\authorizationFactory.js" />
     <Content Include="DepositeApp\Scripts\Services\checkRolesService.js" />
     <Content Include="DepositeApp\Scripts\Services\clientOperationService.js" />
+    <Content Include="DepositeApp\Scripts\Services\depositeDataService.js" />
     <Content Include="DepositeApp\Scripts\Services\pagesSecurityService.js" />
     <Content Include="DepositeApp\Scripts\Services\userDataService.js" />
     <Content Include="DepositeApp\Scripts\Services\userProvider.js" />
