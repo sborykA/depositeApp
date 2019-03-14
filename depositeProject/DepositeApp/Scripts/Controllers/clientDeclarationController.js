@@ -6,11 +6,13 @@
             $scope.showInputForm= false;
             $scope.cientInSys = false;
             $scope.user = {};
+            $scope.deposite.user = $scope.user;
             clientOperationService.checkClient(ipn)
                 .then(function successCallback(response) {
                     $scope.user = response.data;
-                    $scope.user.StartDepositeDate = new Date($scope.user.StartDepositeDate);
-                    $scope.user.EndDepositeDate = new Date($scope.user.EndDepositeDate);
+                    //move this to deposite
+                    /*$scope.deposite.StartDepositeDate = new Date($scope.deposite.StartDepositeDate);
+                    $scope.deposite.EndDepositeDate = new Date($scope.deposite.EndDepositeDate);*/
                     $scope.message = "Клієнта знайдено";
                     $scope.messageStatus = true;
                     $scope.showInputForm = true;
