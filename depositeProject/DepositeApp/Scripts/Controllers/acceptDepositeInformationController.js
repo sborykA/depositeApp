@@ -3,7 +3,7 @@
         $scope.clientInBase = false;
         $scope.showMessage = false;
         $scope.showTable = false;
-        /*depositeDataService.getUnacceptedDeposites()
+        depositeDataService.getUnacceptedDeposites()
             .then(function successCallbacl(response) {
                 $scope.deposites = response.data;
                 $scope.message = "Present unaccepted deposites";
@@ -14,7 +14,7 @@
                 $scope.showMessage = true;
                 $scope.showTable = false;
 
-            });*/
+            });
     });
 
 }(angular.module("DepositeApp"))); 

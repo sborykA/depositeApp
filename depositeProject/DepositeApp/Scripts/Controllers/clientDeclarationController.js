@@ -21,7 +21,7 @@
                 }, function errorCallback(response) {
                     
                     $scope.message = "Клієнта не знайдено";
-                    $scope.messageStatus = true
+                    $scope.messageStatus = true;
                     $scope.showInputForm = true;
                     $scope.clientInBase = false;
                     // called asynchronously if an error occurs

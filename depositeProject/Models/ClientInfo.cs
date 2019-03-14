@@ -17,7 +17,7 @@ namespace depositeProject.Models
         public string RegistrationPlace { get; set; }
         public string EAName { get; set; }
         public string EACode { get; set; }
-
+        public virtual Deposite Deposite { get; set; }
         /*[ForeignKey("Deposite")]
         public int? DepositeId { get; set; }
         public Deposite Deposite { get; set; }*/

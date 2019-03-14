@@ -17,8 +17,6 @@ namespace depositeProject.Models
         public bool AutoRollover { get; set; }
         public bool PossibilityOfReplenishment { get; set; }
         public bool PossibilityOfTermination { get; set; }
-        [ForeignKey("Deposite")]
-        public int? DepositeId { get; set; }
         public Deposite Deposite { get; set; }
     }
 }

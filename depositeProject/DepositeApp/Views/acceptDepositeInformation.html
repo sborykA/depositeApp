@@ -1,6 +1,6 @@
 ﻿<div ng-controller="acceptDepositeInformationController">
-        accept
-       <!-- <div ng-if="showMessage"></div>
+        {{message}}
+        <div ng-if="showMessage"></div>
         <table class="table table-bordered" ng-if="showTable">
             <thead>
                 <tr>
@@ -14,8 +14,10 @@
                 <tr ng-repeat="deposite in deposites">
                     <td>{{deposite.Id}}</td>
                     <td>{{deposite.Client.Name}}</td>
-                    <td><button class="btn btn-sm btn-info btn-block" type="submit" ng-click="showDepositeInfo()">Login</button></td>
+                    <td>{{depisite.DepositeInfo.Type}}</td>
+                    <td>{{depisite.Status}}</td>
+                    <td><button class="btn btn-sm btn-info btn-block" type="submit" ng-click="showDepositeInfo()">Переглянути</button></td>
                 </tr>
             </tbody>
-        </table>-->
+        </table>
 </div>

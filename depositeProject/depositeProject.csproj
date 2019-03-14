@@ -209,6 +209,8 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\clientDeclarationController.cs" />
     <Compile Include="Controllers\ClientInfoesController.cs" />
+    <Compile Include="Controllers\DepositeInfoesController.cs" />
+    <Compile Include="Controllers\DepositesController.cs" />
     <Compile Include="Controllers\Users1Controller.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
