@@ -14,18 +14,6 @@
                     }
                 }
             });
-
-        /*$http({
-            method: 'GET',
-            url: '/api/Users1'
-        }).then(function successCallback(response) {
-            $scope.users = response.data;
-            // this callback will be called asynchronously
-            // when the response is available
-        }, function errorCallback(response) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
-            });*/
     });
 
     

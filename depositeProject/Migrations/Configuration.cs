@@ -42,7 +42,7 @@ namespace depositeProject.Migrations
                         {
 
                             Id = 1,
-                            Ipn = "ipn1",
+                            IndentificationCode = "inn1",
                             Name = "name1",
                             RegistrationPlace="Kyiv",
                             EAName="Eaname",

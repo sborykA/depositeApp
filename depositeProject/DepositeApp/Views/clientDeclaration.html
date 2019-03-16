@@ -1,31 +1,56 @@
-﻿    <div ng-controller="clientDeclarationController">
-    <form role="form">
-        <h2 class="form-login-heading">Введіть ІПН клієнта</h2>
-        <input type="text" class="form-control" placeholder="Username" ng-model="ipn" required autofocus>
-        <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="checkClientType(ipn)">Пошук клієнта</button>
+﻿    <form role="form">
+        <h2 class="form-login-heading">Введіть код за ЄДРПОУ або реєстраційний (обліковий) номер платника податків клієнта</h2>
+        <input type="text" class="form-control" placeholder="Username" ng-model="identificationCode" required autofocus>
+        <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="checkClientType(identificationCode)">Пошук клієнта</button>
         <div class="alert alert-danger" ng-show="messageStatus">
             {{message}}
         </div>
     </form>
-    <div class="form" ng-show="showInputForm">
+    <div class="form" ng-if="showInputForm">
         <form form-horizontal" role="form" ng-submit="submit()">
             <div class="inputDiv">
                 <div class="form-group">
                     <div class="row">
                         <label for="inputName" class=" col-md-offset-3 col-md-2 control-label">Найменування клієнта банку</label>
                         <div class=" col-md-7">
-                            <input type="text" class="form-control" placeholder="Найменування клієнта банку" name="inputName" ng-model="user.Name">
+                            <input type="text" class="form-control" placeholder="Найменування клієнта банку" name="inputName" ng-model="deposite.user.Name">
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="row">
-                        <label for="inputIdentificationCode" class="col-md-offset-3 col-md-2 control-label">Код ІПН</label>
-                        <div class="col-md-7">
-                            <input type="text" class="form-control" placeholder="Код ІПН" name="inputIdentificationCode" ng-model="user.Ipn">
+                        <label for="inputRepresentative" class=" col-md-offset-3 col-md-2 control-label">В особі підприємця</label>
+                        <div class=" col-md-7">
+                            <input type="text" class="form-control" placeholder="Прізвище Ім'я Побатькові" name="inputRepresentative" ng-model="deposite.user.Representative">
                         </div>
                     </div>
                 </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="inputIdentificationCode" class="col-md-offset-3 col-md-2 control-label">код за ЄДРПОУ або реєстраційний (обліковий) номер платника податків клієнта</label>
+                        <div class="col-md-7">
+                            <input type="text" class="form-control" placeholder="Код ІПН" name="inputIdentificationCode" ng-model="deposite.user.IndentificationCode">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="inputRegistrationPlace" class="col-md-offset-3 col-md-2 control-label">Місце реєстрації</label>
+                        <div class="col-md-7">
+                            <input type="text" class="form-control" placeholder="RegistrationPlace" name="inputRegistrationPlace" ng-model="deposite.user.RegistrationPlace">
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="form-group">
+                    <div class="row">
+                        <label for="inputPhoneNumber" class="col-md-offset-3 col-md-2 control-label">Номер телефону</label>
+                        <div class="col-md-7">
+                            <input type="text" class="form-control" placeholder="Номер телефону" name="inputPhoneNumber" ng-model="deposite.user.PhoneNumber">
+                        </div>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <div class="row">
                         <label for="inputDepositeType" class="col-md-offset-3 col-md-2">Тип депозиту</label>
@@ -35,35 +60,13 @@
                         </select>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="row">
-                        <label for="inputRegistrationPlace" class="col-md-offset-3 col-md-2 control-label">Місце реєстрації</label>
-                        <div class="col-md-7">
-                            <input type="text" class="form-control" placeholder="RegistrationPlace" name="inputRegistrationPlace" ng-model="user.RegistrationPlace">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <label for="inputEAName" class="col-md-offset-3 col-md-2 control-label">Назва економічної діяльності</label>
-                        <div class="col-md-7">
-                            <input type="text" class="form-control" placeholder="EAName" name="inputEAName" ng-model="user.EAName">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <label for="inputEACode" class="col-md-offset-3 col-md-2 control-label">Код економічної діальності</label>
-                        <div class="col-md-7">
-                            <input type="text" class="form-control" placeholder="EACode" name="inputEACode" ng-model="user.EACode">
-                        </div>
-                    </div>
-                </div>
+
+                
                 <div class="form-group">
                     <div class="row">
                         <label for="inputstartDepositeDate" class="col-md-offset-3 col-md-2 control-label">Початок депозитного сроку</label>
                         <div class="col-md-7">
-                            <input type="date" class="form-control" placeholder="startDepositeDate" name="inputstartDepositeDate" ng-model="user.StartDepositeDate">
+                            <input type="date" class="form-control" placeholder="startDepositeDate" name="inputstartDepositeDate" ng-model="deposite.StartDepositeDate">
                         </div>
                     </div>
                 </div>
@@ -71,11 +74,18 @@
                     <div class="row">
                         <label for="inputendDepositeDate" class="col-md-offset-3 col-md-2 control-label">Кінець депозитного сроку</label>
                         <div class="col-md-7">
-                            <input type="date" class="form-control" placeholder="" name="inputendDepositeDate" ng-model="user.EndDepositeDate">
+                            <input type="date" class="form-control" placeholder="" name="inputendDepositeDate" ng-model="deposite.EndDepositeDate">
                         </div>
                     </div>
                 </div>
-
+                <div class="form-group">
+                    <div class="row">
+                        <label for="inputAmountOfDeposit" class="col-md-offset-3 col-md-2 control-label">Сума вкладу</label>
+                        <div class="col-md-7">
+                            <input type="date" class="form-control" placeholder="startDepositeDate" name="inputsAmountOfDeposit" ng-model="deposite.AmountOfDeposit">
+                        </div>
+                    </div>
+                </div>
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-offset-3  col-md-6">
@@ -88,4 +98,3 @@
 
     </div>
             
-</div>

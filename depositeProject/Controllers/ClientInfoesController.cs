@@ -25,9 +25,9 @@ namespace depositeProject.Controllers
         // GET: api/ClientInfoes/ipn
         [HttpGet]
         [ResponseType(typeof(ClientInfo))]
-        public IHttpActionResult GetClientInfo(string ipn)
+        public IHttpActionResult GetClientInfo(string identificationCode)
         {
-            ClientInfo clientInfo = db.ClientsInfos.FirstOrDefault(p => p.Ipn == ipn);
+            ClientInfo clientInfo = db.ClientsInfos.FirstOrDefault(p => p.IndentificationCode == identificationCode);
             if (clientInfo == null)
             {
                 return NotFound();

@@ -1,8 +1,8 @@
 ﻿(function (app) {
     app.factory('clientOperationService', function ($http) {
         return {
-            checkClient: function (ipn) {
-                return $http.get("/api/ClientInfoes", { params: { ipn: ipn } });
+            checkClient: function (identificationCode) {
+                return $http.get("/api/ClientInfoes", { params: { identificationCode: identificationCode } });
             },
              sendClientInfo: function (user) {
                 return $http.post("/api/ClientInfoes", user);
@@ -12,8 +12,5 @@
             }
             
         }
-        /*this.checkClient = function (ipn) {
-            return $http.get("/api/ClientInfoes/" + ipn);
-        }*/
     });
 }(angular.module("DepositeApp"))); 

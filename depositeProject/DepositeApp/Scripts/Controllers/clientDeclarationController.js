@@ -1,15 +1,15 @@
 ﻿(function (app) {
     app.controller('clientDeclarationController', function ($scope, clientOperationService) {
         $scope.clientInBase = false;
-        $scope.checkClientType = function (ipn) {
+        $scope.checkClientType = function (identificationCode) {
             $scope.messageStatus = false;
             $scope.showInputForm= false;
             $scope.cientInSys = false;
-            $scope.user = {};
-            $scope.deposite.user = $scope.user;
-            clientOperationService.checkClient(ipn)
+            
+            $scope.deposite = {};
+            clientOperationService.checkClient(identificationCode)
                 .then(function successCallback(response) {
-                    $scope.user = response.data;
+                    $scope.deposite.user = response.data;
                     //move this to deposite
                     /*$scope.deposite.StartDepositeDate = new Date($scope.deposite.StartDepositeDate);
                     $scope.deposite.EndDepositeDate = new Date($scope.deposite.EndDepositeDate);*/
@@ -17,7 +17,7 @@
                     $scope.messageStatus = true;
                     $scope.showInputForm = true;
                     $scope.clientInBase = true;
-                    console.log($scope.user);
+                    console.log($scope.deposite.user);
                     // this callback will be called asynchronously
                     // when the response is available
                 }, function errorCallback(response) {
@@ -63,32 +63,6 @@
                      });
              }
         }
-    
-        /*$scope.ipn = "";
-        $scope.messageStatus = false;
-        $scope.clientEmptyForm = false;
-        $scope.cientInSys = false;
-        
-        $scope.check = function () {
-            $http({
-                method: 'GET',
-                url: '/api/ClientInfoes/' + $scope.ipn
-            }).then(function successCallback(response) {
-                $scope.clientInfo = response.data;
-                $scope.message = "Клієнта знайдено";
-                $scope.messageStatus = true;
-                $scope.cientInSys = true;
-                // this callback will be called asynchronously
-                // when the response is available
-            }, function errorCallback(response) {
-                $scope.message = "Клієнта не знайдено";
-                $scope.messageStatus = true
-                $scope.clientEmptyForm = true;
-
-                // called asynchronously if an error occurs
-                // or server returns response with an error status.
-            });
-        }*/
     });
 
 }(angular.module("DepositeApp"))); 

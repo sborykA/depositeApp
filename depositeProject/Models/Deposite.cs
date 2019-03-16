@@ -14,6 +14,8 @@ namespace depositeProject.Models
         public int DepositeId { get; set; }
         public DateTime StartDepositeDate { get; set; }
         public DateTime EndDepositeDate { get; set; }
+        public int AmountOfDeposite { get; set; }
+        public string Currenncy { get; set; }
         public bool Status { get; set; }
 
         public virtual ClientInfo ClientInfo { get; set; }
