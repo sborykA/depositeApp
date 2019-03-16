@@ -44,9 +44,9 @@ namespace depositeProject.Migrations
                             Id = 1,
                             IndentificationCode = "inn1",
                             Name = "name1",
-                            RegistrationPlace="Kyiv",
-                            EAName="Eaname",
-                            EACode= "000000"
+                            Representative = "REPRESENTATIVE1",
+                            RegistrationPlace = "Kyiv",
+                            PhoneNumber = "+38(068)1234567"
                             /*,
                             StartDepositeDate= new DateTime(2019, 7, 20),
                             EndDepositeDate= new  DateTime(2019, 8, 15)*/
