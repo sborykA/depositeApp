@@ -7,7 +7,7 @@
                 return $http.get("/api/Deposites");
             },
             //should change
-            saveDepositeInfo: function (deposite) {
+            saveDeposite: function (deposite) {
                 return $http.post("/api/Deposites", deposite);
             },
             //should change

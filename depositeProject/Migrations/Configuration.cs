@@ -23,14 +23,14 @@ namespace depositeProject.Migrations
             new Models.User
       {
                 
-          Id = 1,
+          
           Login = "user1",
           Password = "user1",
           Type="front"
       },
        new Models.User
        {
-           Id = 2,
+           
            Login = "user2",
            Password = "user2",
            Type = "back"
@@ -41,7 +41,7 @@ namespace depositeProject.Migrations
                         new Models.ClientInfo
                         {
 
-                            Id = 1,
+                            
                             IndentificationCode = "inn1",
                             Name = "name1",
                             Representative = "REPRESENTATIVE1",
@@ -52,6 +52,25 @@ namespace depositeProject.Migrations
                             EndDepositeDate= new  DateTime(2019, 8, 15)*/
                         }
                     );
+            context.DepositeInfoes.AddOrUpdate(
+                m => m.Id,
+            new Models.DepositeInfo
+            {
+                Name = "Депозит з модливістю поповнення",
+                Rate = 5,
+                AutoRollover = true,
+                PossibilityOfReplenishment = true,
+                PossibilityOfTermination = false
+            },
+            new Models.DepositeInfo
+            {
+                Name = "Депозит стандартний",
+                Rate = 7,
+                AutoRollover = false,
+                PossibilityOfReplenishment = false,
+                PossibilityOfTermination = true
+            }
+            );
         }
     }
 }

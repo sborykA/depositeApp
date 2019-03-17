@@ -1,12 +1,38 @@
 ﻿(function (app) {
-    app.controller('clientDeclarationController', function ($scope, clientOperationService) {
+    app.controller('clientDeclarationController', function ($scope, clientOperationService, depositeInfoesService, depositeDataService) {
         $scope.clientInBase = false;
+        function isNotEmptyObject(obj) {
+            for (var i in obj) {
+                if (obj.hasOwnProperty(i)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        //$scope.depositeInfoes = [];
+        $scope.deposite = {};
+        $scope.deposite.DepositeInfo = {};
+        depositeInfoesService.getInfoes()
+            .then(function successCallback(response) {
+                $scope.depositeInfoes = response.data;
+               
+                /*if ($scope.depositeInfoes.length !== 0) {
+                    //$scope.message = "Present unaccepted deposites";
+                    //$scope.showMessage = false;
+                    //$scope.showTable = true;
+                } else {
+                    //$scope.message = "Epsent unaccepted deposites";
+                    //$scope.showMessage = true;
+                    //$scope.showTable = false;
+                }*/
+                
+            }, function errorCallback(response) {
+                
+            });
         $scope.checkClientType = function (identificationCode) {
             $scope.messageStatus = false;
             $scope.showInputForm= false;
             $scope.cientInSys = false;
-            
-            $scope.deposite = {};
             clientOperationService.checkClient(identificationCode)
                 .then(function successCallback(response) {
                     $scope.deposite.user = response.data;
@@ -30,7 +56,36 @@
                     // or server returns response with an error status.
                 });
         }
-        $scope.saveData = function (user) {
+        function formatDate(date) {
+            year = date.getFullYear();
+            month = date.getMonth() + 1;
+            dt = date.getDate();
+            if (dt < 10) {
+                dt = '0' + dt;
+            }
+            if (month < 10) {
+                month = '0' + month;
+            }
+            return dt + "-" + month + "-" + year;
+        }
+        $scope.saveData = function (deposite) {
+            $scope.deposite.Status = false;
+            //$scope.deposite.StartDepositeDate = formatDate($scope.deposite.StartDepositeDate);
+            //$scope.deposite.EndDepositeDate = formatDate($scope.deposite.EndDepositeDate);
+            console.log($scope.deposite);
+            if ($scope.clientInBase) {
+                depositeDataService.saveDeposite($scope.deposite)
+                    .then(function successCallback(response) {
+                        $scope.deposite = response.data;
+                        $scope.message = "Дані оновлено";
+                    }, function errorrCallback() {
+                        $scope.message = "Помилка запису";
+                    });
+            } else {
+
+            }
+        }
+        /*$scope.saveData = function (user) {
              if ($scope.clientInBase) {
                 clientOperationService.updateClientInfo(user)
                     .then(function successCallback(response) {
@@ -61,8 +116,8 @@
                          $scope.messageStatus = true
 
                      });
-             }
-        }
+             }*/
+        
     });
 
 }(angular.module("DepositeApp"))); 

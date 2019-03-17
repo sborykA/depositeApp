@@ -245,6 +245,7 @@
     <Content Include="DepositeApp\Scripts\Services\checkRolesService.js" />
     <Content Include="DepositeApp\Scripts\Services\clientOperationService.js" />
     <Content Include="DepositeApp\Scripts\Services\depositeDataService.js" />
+    <Content Include="DepositeApp\Scripts\Services\depositeInfoesService.js" />
     <Content Include="DepositeApp\Scripts\Services\pagesSecurityService.js" />
     <Content Include="DepositeApp\Scripts\Services\userDataService.js" />
     <Content Include="DepositeApp\Scripts\Services\userProvider.js" />

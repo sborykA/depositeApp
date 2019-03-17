@@ -17,7 +17,6 @@ namespace depositeProject.Models
         public int AmountOfDeposite { get; set; }
         public string Currency { get; set; }
         public bool Status { get; set; }
-
         public virtual ClientInfo ClientInfo { get; set; }
         public virtual DepositeInfo DepositeInfo { get; set; }
     }
