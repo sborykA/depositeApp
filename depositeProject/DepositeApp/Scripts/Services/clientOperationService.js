@@ -2,7 +2,9 @@
     app.factory('clientOperationService', function ($http) {
         return {
             checkClient: function (identificationCode) {
-                return $http.get("/api/ClientInfoes", { params: { identificationCode: identificationCode } });
+                if (identificationCode != "") {
+                    return $http.get("/api/ClientInfoes", { params: { identificationCode: identificationCode } });
+                }
             },
              sendClientInfo: function (user) {
                 return $http.post("/api/ClientInfoes", user);

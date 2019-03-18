@@ -13,7 +13,7 @@
                     <div class="row">
                         <label for="inputName" class=" col-md-offset-3 col-md-2 control-label">Найменування клієнта банку</label>
                         <div class=" col-md-7">
-                            <input type="text" class="form-control" placeholder="Найменування клієнта банку" name="inputName" ng-model="deposite.user.Name">
+                            <input type="text" class="form-control" placeholder="Найменування клієнта банку" name="inputName" ng-model="user.Name">
                         </div>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                     <div class="row">
                         <label for="inputRepresentative" class=" col-md-offset-3 col-md-2 control-label">В особі підприємця</label>
                         <div class=" col-md-7">
-                            <input type="text" class="form-control" placeholder="Прізвище Ім'я Побатькові" name="inputRepresentative" ng-model="deposite.user.Representative">
+                            <input type="text" class="form-control" placeholder="Прізвище Ім'я Побатькові" name="inputRepresentative" ng-model="user.Representative">
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                     <div class="row">
                         <label for="inputIdentificationCode" class="col-md-offset-3 col-md-2 control-label">код за ЄДРПОУ або реєстраційний (обліковий) номер платника податків клієнта</label>
                         <div class="col-md-7">
-                            <input type="text" class="form-control" placeholder="Код ІПН" name="inputIdentificationCode" ng-model="deposite.user.IndentificationCode">
+                            <input type="text" class="form-control" placeholder="Код ІПН" name="inputIdentificationCode" ng-model="user.IndentificationCode">
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                     <div class="row">
                         <label for="inputRegistrationPlace" class="col-md-offset-3 col-md-2 control-label">Місце реєстрації</label>
                         <div class="col-md-7">
-                            <input type="text" class="form-control" placeholder="RegistrationPlace" name="inputRegistrationPlace" ng-model="deposite.user.RegistrationPlace">
+                            <input type="text" class="form-control" placeholder="RegistrationPlace" name="inputRegistrationPlace" ng-model="user.RegistrationPlace">
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                     <div class="row">
                         <label for="inputPhoneNumber" class="col-md-offset-3 col-md-2 control-label">Номер телефону</label>
                         <div class="col-md-7">
-                            <input type="text" class="form-control" placeholder="Номер телефону" name="inputPhoneNumber" ng-model="deposite.user.PhoneNumber">
+                            <input type="text" class="form-control" placeholder="Номер телефону" name="inputPhoneNumber" ng-model="user.PhoneNumber">
                             <!--<span class="note">Format: +38(0**)*******</span>-->
                             <!--pattern="/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/"-->
                         </div>
@@ -73,9 +73,10 @@
                             <select name="inputDepositeType" id="inputDepositeType" class="form-control col-md-7"
                                     ng-options="depositeInfo.Name for depositeInfo in depositeInfoes track by depositeInfo.Id"
                                     ng-model="deposite.DepositeInfo"></select><br />
+                            {{deposite.DepositeInfo}}
                             <!--<select name="inputDepositeType" class="form-control col-md-7" ng-model="deposite.DepositeInfo">
-                    <option ng-repeat="depositeInfo in depositeInfoes" value="{{depositeInfo}}">{{depositeInfo.Name}}</option>
-                </select><br />-->
+        <option ng-repeat="depositeInfo in depositeInfoes" value="{{depositeInfo}}">{{depositeInfo.Name}}</option>
+    </select><br />-->
                         </div>
 
 
@@ -102,6 +103,12 @@
                                 <input type="checkbox" ng-model="deposite.DepositeInfo.PossibilityOfTermination" disabled>
 
                             </label>
+                            <label>
+                                Відсоткова ставка:
+                                <input type="text" ng-model="deposite.DepositeInfo.Rate" disabled>
+
+                            </label>
+
                         </div>
                     </div>
                 </div>
@@ -126,7 +133,7 @@
                     <div class="row">
                         <label for="inputAmountOfDeposit" class="col-md-offset-3 col-md-2 control-label">Сума вкладу</label>
                         <div class="col-md-7">
-                            <input type="number" class="form-control" placeholder="startDepositeDate" name="inputsAmountOfDeposit" ng-model="deposite.AmountOfDeposit">
+                            <input type="number" class="form-control" placeholder="startDepositeDate" name="inputsAmountOfDeposit" ng-model="deposite.AmountOfDeposite">
                         </div>
                     </div>
                 </div>
@@ -135,7 +142,7 @@
                         <label for="inputCurrency" class="col-md-offset-3 col-md-2 control-label">Валюта</label>
                         <div class="col-md-7">
                             <select name="inputsCurrency" class="form-control col-md-7" ng-model="deposite.Currency">
-                                <option value="UAN">UAN</option>
+                                <option value="UAN" selected>UAN</option>
                                 <option value="USD">USD</option>
                                 <option value="EURO">EURO</option>
                             </select><br>

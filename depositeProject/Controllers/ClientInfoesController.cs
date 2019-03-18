@@ -27,6 +27,7 @@ namespace depositeProject.Controllers
         [ResponseType(typeof(ClientInfo))]
         public IHttpActionResult GetClientInfo(string identificationCode)
         {
+
             ClientInfo clientInfo = db.ClientsInfos.FirstOrDefault(p => p.IndentificationCode == identificationCode);
             if (clientInfo == null)
             {

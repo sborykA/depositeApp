@@ -75,11 +75,16 @@ namespace depositeProject.Controllers
         [ResponseType(typeof(Deposite))]
         public IHttpActionResult PostDeposite(Deposite deposite)
         {
+            
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
+            /*deposite = db.Deposites
+                    .Include(t => t.DepositeInfo)
+                    .Include(p => p.ClientInfo)
+                    .FirstOrDefault();*/
+            
             db.Deposites.Add(deposite);
             db.SaveChanges();
 

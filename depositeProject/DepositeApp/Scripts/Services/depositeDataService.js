@@ -9,6 +9,7 @@
             //should change
             saveDeposite: function (deposite) {
                 return $http.post("/api/Deposites", deposite);
+
             },
             //should change
             updateDeposite: function (deposite) {

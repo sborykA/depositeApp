@@ -11,11 +11,11 @@
         }
         //$scope.depositeInfoes = [];
         $scope.deposite = {};
-        $scope.deposite.DepositeInfo = {};
+        $scope.DepositeInfo = {};
         depositeInfoesService.getInfoes()
             .then(function successCallback(response) {
                 $scope.depositeInfoes = response.data;
-               
+
                 /*if ($scope.depositeInfoes.length !== 0) {
                     //$scope.message = "Present unaccepted deposites";
                     //$scope.showMessage = false;
@@ -25,17 +25,19 @@
                     //$scope.showMessage = true;
                     //$scope.showTable = false;
                 }*/
-                
+
             }, function errorCallback(response) {
-                
+
             });
         $scope.checkClientType = function (identificationCode) {
             $scope.messageStatus = false;
-            $scope.showInputForm= false;
+            $scope.showInputForm = false;
             $scope.cientInSys = false;
             clientOperationService.checkClient(identificationCode)
                 .then(function successCallback(response) {
-                    $scope.deposite.user = response.data;
+                    $scope.user = response.data;
+                    $scope.deposite.ClientInfo = $scope.user;
+                    //$scope.deposite.ClientInfo_id = $scope.user.Id;
                     //move this to deposite
                     /*$scope.deposite.StartDepositeDate = new Date($scope.deposite.StartDepositeDate);
                     $scope.deposite.EndDepositeDate = new Date($scope.deposite.EndDepositeDate);*/
@@ -43,11 +45,11 @@
                     $scope.messageStatus = true;
                     $scope.showInputForm = true;
                     $scope.clientInBase = true;
-                    console.log($scope.deposite.user);
+                    
                     // this callback will be called asynchronously
                     // when the response is available
                 }, function errorCallback(response) {
-                    
+
                     $scope.message = "Клієнта не знайдено";
                     $scope.messageStatus = true;
                     $scope.showInputForm = true;
@@ -69,15 +71,21 @@
             return dt + "-" + month + "-" + year;
         }
         $scope.saveData = function (deposite) {
-            $scope.deposite.Status = false;
+            deposite.Status = false;
+
+            deposite.ClientInfoId = deposite.ClientInfo.Id;
+            deposite.DepositeInfoId = deposite.DepositeInfo.Id;
             //$scope.deposite.StartDepositeDate = formatDate($scope.deposite.StartDepositeDate);
             //$scope.deposite.EndDepositeDate = formatDate($scope.deposite.EndDepositeDate);
-            console.log($scope.deposite);
+            console.log(deposite);
             if ($scope.clientInBase) {
-                depositeDataService.saveDeposite($scope.deposite)
+                depositeDataService.saveDeposite(deposite)
                     .then(function successCallback(response) {
                         $scope.deposite = response.data;
+                        $scope.deposite.StartDepositeDate = new Date($scope.deposite.StartDepositeDate);
+                        $scope.deposite.EndDepositeDate = new Date($scope.deposite.EndDepositeDate);
                         $scope.message = "Дані оновлено";
+                        console.log($scope.deposite);
                     }, function errorrCallback() {
                         $scope.message = "Помилка запису";
                     });
