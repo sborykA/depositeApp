@@ -3,18 +3,18 @@
         <table class="table table-bordered" ng-if="showTable">
             <thead>
                 <tr>
-                    <th>id</th>
-                    <th>Login</th>
-                    <th>Password</th>
-                    <th>Type</th>
+                    <th>Deposit Id</th>
+                    <th>Client Name</th>
+                    <th>Deposit type</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="deposite in deposites">
-                    <td>{{deposite.Id}}</td>
-                    <td>{{deposite.Client.Name}}</td>
-                    <td>{{depisite.DepositeInfo.Type}}</td>
-                    <td>{{depisite.Status}}</td>
+                    <td>{{deposite.DepositeId}}</td>
+                    <td>{{deposite.ClientInfo.Name}}</td>
+                    <td>{{deposite.DepositeInfo.Name}}</td>
+                    <td>{{deposite.Status}}</td>
                     <td><button class="btn btn-sm btn-info btn-block" type="submit" ng-click="showDepositeInfo(deposite.Id)">Переглянути</button></td>
                 </tr>
             </tbody>

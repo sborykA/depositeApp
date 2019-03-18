@@ -19,8 +19,11 @@ namespace depositeProject.Controllers
         // GET: api/Deposites
         public IQueryable<Deposite> GetDeposites()
         {
-            //var unacceptedDeposites = 
-            return db.Deposites.Where(p => p.Status == false);
+            var unacceptedDeposites = db.Deposites
+                    .Include(t => t.DepositeInfo)
+                    .Include(p => p.ClientInfo);
+                   
+            return unacceptedDeposites.Where(p => p.Status == false);
         }
 
         // GET: api/Deposites/5

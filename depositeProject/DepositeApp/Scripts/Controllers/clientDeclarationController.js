@@ -75,6 +75,8 @@
 
             deposite.ClientInfoId = deposite.ClientInfo.Id;
             deposite.DepositeInfoId = deposite.DepositeInfo.Id;
+            deposite.DepositeInfo = null;
+            deposite.ClientInfo = null;
             //$scope.deposite.StartDepositeDate = formatDate($scope.deposite.StartDepositeDate);
             //$scope.deposite.EndDepositeDate = formatDate($scope.deposite.EndDepositeDate);
             console.log(deposite);
