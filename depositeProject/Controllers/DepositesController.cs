@@ -40,6 +40,7 @@ namespace depositeProject.Controllers
         }
 
         // PUT: api/Deposites/5
+        [HttpPut]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutDeposite(int id, Deposite deposite)
         {

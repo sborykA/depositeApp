@@ -82,8 +82,7 @@
             //$scope.deposite.StartDepositeDate = formatDate($scope.deposite.StartDepositeDate);
             //$scope.deposite.EndDepositeDate = formatDate($scope.deposite.EndDepositeDate);
             console.log(deposite);
-            if ($scope.clientInBase) {
-                depositeDataService.saveDeposite(deposite)
+            depositeDataService.saveDeposite(deposite)
                     .then(function successCallback(response) {
                         $scope.deposite = response.data;
                         $scope.deposite.StartDepositeDate = new Date($scope.deposite.StartDepositeDate);
@@ -93,9 +92,6 @@
                     }, function errorrCallback() {
                         $scope.message = "Помилка запису";
                     });
-            } else {
-
-            }
         }
         /*$scope.saveData = function (user) {
              if ($scope.clientInBase) {

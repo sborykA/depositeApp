@@ -17,12 +17,26 @@
                     $scope.showMessage = true;
                     $scope.showTable = false;
                 }
-                console.log($scope.deposites);
+                
                
             }, function errorCallback(response) {
-               
-
             });
+        $scope.reloadData = function () {
+            depositeDataService.getUnacceptedDeposites()
+                .then(function successCallback(response) {
+                    $scope.deposites = response.data;
+                    if ($scope.deposites.length !== 0) {
+                        $scope.message = "Present unaccepted deposites";
+                        $scope.showMessage = false;
+                        $scope.showTable = true;
+                    } else {
+                        $scope.message = "Epsent unaccepted deposites";
+                        $scope.showMessage = true;
+                        $scope.showTable = false;
+                    }
+                }, function errorCallback(response) {
+                });
+        }
         $scope.showPopUpMsg = false;
         $scope.openPopUp = function (deposite) {
             $scope.showPopUpMsg = true;
