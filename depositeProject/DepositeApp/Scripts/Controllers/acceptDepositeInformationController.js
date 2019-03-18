@@ -23,6 +23,13 @@
                
 
             });
+        $scope.showPopUpMsg = false;
+        $scope.openPopUp = function (deposite) {
+            $scope.showPopUpMsg = true;
+            $scope.deposite = deposite;
+            $scope.deposite.StartDepositeDate = new Date($scope.deposite.StartDepositeDate);
+            $scope.deposite.EndDepositeDate = new Date($scope.deposite.EndDepositeDate);
+        }
     });
 
 }(angular.module("DepositeApp"))); 

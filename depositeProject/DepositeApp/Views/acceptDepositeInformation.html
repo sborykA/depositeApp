@@ -15,7 +15,8 @@
                     <td>{{deposite.ClientInfo.Name}}</td>
                     <td>{{deposite.DepositeInfo.Name}}</td>
                     <td>{{deposite.Status}}</td>
-                    <td><button class="btn btn-sm btn-info btn-block" type="submit" ng-click="showDepositeInfo(deposite.Id)">Переглянути</button></td>
+                    <td><button class="btn btn-sm btn-info btn-block" type="submit" ng-click="openPopUp(deposite)">Переглянути</button></td>
                 </tr>
             </tbody>
+            <pop-up-msg ></pop-up-msg>
         </table>

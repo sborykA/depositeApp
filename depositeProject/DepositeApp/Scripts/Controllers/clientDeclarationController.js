@@ -72,11 +72,13 @@
         }
         $scope.saveData = function (deposite) {
             deposite.Status = false;
-
-            deposite.ClientInfoId = deposite.ClientInfo.Id;
+            if ($scope.clientInBase == true) {
+                deposite.ClientInfoId = deposite.ClientInfo.Id;
+                deposite.ClientInfo = null;
+            }
             deposite.DepositeInfoId = deposite.DepositeInfo.Id;
             deposite.DepositeInfo = null;
-            deposite.ClientInfo = null;
+            
             //$scope.deposite.StartDepositeDate = formatDate($scope.deposite.StartDepositeDate);
             //$scope.deposite.EndDepositeDate = formatDate($scope.deposite.EndDepositeDate);
             console.log(deposite);

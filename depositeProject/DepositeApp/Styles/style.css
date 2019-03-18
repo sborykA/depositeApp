@@ -1,6 +1,24 @@
 ﻿body {
-    background-color:seagreen;
+    
 }
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
 .inputDiv {
     border: 2px solid black;
     border-radius: 20px;
@@ -17,8 +35,77 @@
 label {
     font-size: 16px;
 }
-input,
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+#popUpMsg-bg {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+}
+
+#popUpMsg {
+    overflow: auto;
+
+    top: 1%;
+    left: 50%;
+    margin-left: -350px;
+    width: 700px;
+    height: 100%;
+    background: white;
+    border-radius: 5px;
+    position: absolute;
+}
+
+    #popUpMsg .close {
+        background: black;
+        color: white;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        border-radius: 50%;
+        position: absolute;
+        cursor: pointer;
+        top: -6px;
+        right: -7px;
+    }
+
+    #popUpMsg .content {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    /*
+    #popUpMsg button {
+        display: block;
+        margin: 0 auto;
+        border-radius: 3px;
+        border: 0;
+        background: lightgray;
+        padding: 5px 20px;
+        cursor: pointer;
+    }
+        */
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
 select,
 textarea {
     max-width: 280px;
 }
+.form form {
+    width: 300px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+*/

@@ -1,0 +1,137 @@
+﻿<div id="popUpMsg-bg" ng-show="showPopUpMsg">
+    <div id="popUpMsg">
+        <div class="close" ng-click="closePopUp()">x</div>
+        <form form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="row">
+                        <label for="inputName" class="col-md-5 control-label">Найменування клієнта банку</label>
+                        <div class=" col-md-6">
+                            <input type="text" class="form-control" placeholder="Найменування клієнта банку" name="inputName" ng-model="deposite.ClientInfo.Name" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="inputRepresentative" class="col-md-5 control-label">В особі підприємця</label>
+                        <div class=" col-md-6">
+                            <input type="text" class="form-control" placeholder="Прізвище Ім'я Побатькові" name="inputRepresentative" ng-model="deposite.ClientInfo.Representative" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="inputIdentificationCode" class="col-md-5 control-label">код за ЄДРПОУ або реєстраційний (обліковий) номер платника податків клієнта</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Код ІПН" name="inputIdentificationCode" ng-model="deposite.ClientInfo.IndentificationCode" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="inputRegistrationPlace" class="col-md-5 control-label">Місце реєстрації</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="RegistrationPlace" name="inputRegistrationPlace" ng-model="deposite.ClientInfo.RegistrationPlace" disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <label for="inputPhoneNumber" class="col-md-5 control-label">Номер телефону</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Номер телефону" name="inputPhoneNumber" ng-model="deposite.ClientInfo.PhoneNumber" disabled>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <label for="inputDepositeType" class="col-md-5  control-label">Тип депозиту</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control"  name="inputPhoneNumber" ng-model="deposite.DepositeInfo.Name" disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <label for="inputCurrency" class="col-md-5 control-label">Особливості депозиту</label>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <label>
+                                    Автопролонгація:
+                                    <input type="checkbox" ng-model="deposite.DepositeInfo.AutoRollover" disabled>
+
+                                </label>
+                            </div>
+                            <div class="row">
+                                <label>
+                                    Можливість поповнення:
+                                    <input type="checkbox" ng-model="deposite.DepositeInfo.PossibilityOfReplenishment" disabled>
+
+                                </label>
+                            </div>
+                            <div class="row">
+                                <label>
+                                    Можливість дострокового розірвання:
+                                    <input type="checkbox" ng-model="deposite.DepositeInfo.PossibilityOfTermination" disabled>
+
+                                </label>
+                            </div>
+                            <div class="row">
+                                <label>
+                                    Відсоткова ставка:
+                                    <input  class="form-control" type="text" ng-model="deposite.DepositeInfo.Rate" disabled>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="inputstartDepositeDate" class="col-md-5 control-label">Початок депозитного сроку</label>
+                        <div class="col-md-6">
+                            <input type="date" class="form-control" placeholder="startDepositeDate" name="inputstartDepositeDate" ng-model="deposite.StartDepositeDate" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="inputendDepositeDate" class="col-md-5 control-label">Кінець депозитного сроку</label>
+                        <div class="col-md-6">
+                            <input type="date" class="form-control" placeholder="" name="inputendDepositeDate" ng-model="deposite.EndDepositeDate" disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <label for="inputAmountOfDeposit" class="col-md-5 control-label">Сума вкладу</label>
+                        <div class="col-md-6">
+                            <input type="number" class="form-control" placeholder="startDepositeDate" name="inputsAmountOfDeposit" ng-model="deposite.AmountOfDeposite" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="inputCurrency" class="col-md-5 control-label">Валюта</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="inputCurrency" ng-model="deposite.Currency" disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-offset-2 col-md-4">
+                            <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="closePopUp()">Підтвердити</button>
+                        </div>
+                        <div class="col-md-offset-1  col-md-4">
+                            <button class="btn btn-lg btn-info btn-danger" type="submit" ng-click="closePopUp()">Непідтверджувати</button>
+                        </div>
+                    </div>
+                </div>
+        </form>
+    </div> 
+</div>
