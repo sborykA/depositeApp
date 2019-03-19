@@ -1,9 +1,16 @@
-﻿    <form class="form-login" role="form">
-        <h2 class="form-login-heading">Login</h2>
-        <input type="text" class="form-control" placeholder="Username" ng-model="loginData.login" required autofocus>
-        <input type="password" class="form-control" placeholder="Password" ng-model="loginData.password" required>
-        <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="loginClick()">Login</button>
+﻿<form class="form-login" role="form" name="loginForm" ng-submit="submitAuthorization(loginForm.$valid)" novalidate>
+    <h2 class="form-login-heading">Login</h2>
+    <div class="form-group">
+        <input type="text" class="form-control" name="login" placeholder="Логін" ng-model="loginData.login" required>
+        <p ng-show="loginForm.loginData.login.$invalid && !userForm.loginData.login.$pristine" class="help-block">You name is required.</p>
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control" name="password" placeholder="Пароль" ng-model="loginData.password" required>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-lg btn-info btn-block" type="submit" ng-disabled="loginForm.$invalid">Авторизуватися</button>
         <div class="alert alert-danger" ng-if="messageStatus">
             {{message}}
         </div>
-    </form>
+    </div>
+</form>

@@ -4,6 +4,15 @@
         $scope.showMessage = false;
         $scope.showTable = false;
         
+        function ConvertUTCTimeToLocalTime(UTCDateString) {
+            var convertdLocalTime = new Date(UTCDateString);
+
+            var hourOffset = convertdLocalTime.getTimezoneOffset() / 60;
+
+            convertdLocalTime.setHours(convertdLocalTime.getHours() - hourOffset);
+
+            return convertdLocalTime;
+        }
         depositeDataService.getUnacceptedDeposites()
             .then(function successCallback(response) {
                 $scope.deposites = response.data;
@@ -41,8 +50,9 @@
         $scope.openPopUp = function (deposite) {
             $scope.showPopUpMsg = true;
             $scope.deposite = deposite;
-            $scope.deposite.StartDepositeDate = new Date($scope.deposite.StartDepositeDate);
-            $scope.deposite.EndDepositeDate = new Date($scope.deposite.EndDepositeDate);
+            
+            $scope.deposite.StartDepositeDate = ConvertUTCTimeToLocalTime($scope.deposite.StartDepositeDate);
+            $scope.deposite.EndDepositeDate = ConvertUTCTimeToLocalTime($scope.deposite.EndDepositeDate);
         }
     });
 

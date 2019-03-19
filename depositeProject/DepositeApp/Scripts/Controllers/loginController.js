@@ -2,6 +2,7 @@
     authorizationModule.controller('loginController',
         ['$scope',  'authorizationFactory', '$location',
             function ($scope, authorizationFactory, $location) {
+
                 $scope.loginData = { login: "", password: "" };
                 $scope.messageStatus = false;
                 var redirect = function (status,type) {
@@ -19,8 +20,10 @@
                         
                     }
                 }
-                $scope.loginClick = function () {
-                    authorizationFactory.login($scope.loginData.login, $scope.loginData.password, redirect);
+                $scope.submitAuthorization = function (isValid) {
+                    if (isValid) {
+                        authorizationFactory.login($scope.loginData.login, $scope.loginData.password, redirect);
+                    }
             }
     }]);
 

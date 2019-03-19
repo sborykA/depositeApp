@@ -84,11 +84,6 @@ namespace depositeProject.Controllers
             {
                 return BadRequest(ModelState);
             }
-            /*deposite = db.Deposites
-                    .Include(t => t.DepositeInfo)
-                    .Include(p => p.ClientInfo)
-                    .FirstOrDefault();*/
-            
             db.Deposites.Add(deposite);
             db.SaveChanges();
 
