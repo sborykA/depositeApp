@@ -5,8 +5,5 @@
                 return $http.get("/api/DepositeInfoes");
             }
         }
-        /*this.checkClient = function (ipn) {
-            return $http.get("/api/ClientInfoes/" + ipn);
-        }*/
     });
 }(angular.module("DepositeApp"))); 

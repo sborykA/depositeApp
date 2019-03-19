@@ -8,7 +8,6 @@
                 return $http.post("/api/Deposites", deposite);
 
             },
-            //should change
             updateDeposite: function (deposite) {
                 return $http.put("/api/Deposites/" + deposite.DepositeId, deposite);
             }

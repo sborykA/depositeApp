@@ -5,8 +5,5 @@
                 return $http.get("/api/Users1", { params: { login: login, password: pass } });
             }
         }
-        /*this.checkClient = function (ipn) {
-            return $http.get("/api/ClientInfoes/" + ipn);
-        }*/
     });
 }(angular.module("authorizationModule"))); 

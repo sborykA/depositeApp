@@ -7,21 +7,16 @@
                     $location.path('/login');
                 }
                 switch (path) {
-                    //запрещенный ресурс
                     case '/clientDeclaration':
                         return checkPageSecurity({
-                            //роли текущего пользователя
                             UserRoles: $userProvider.getUser().Roles,
-                            //роли, которым доступен ресурс
                             AvailableRoles: [
                                 $userProvider.rolesEnum.Front
                             ]
                         });
                     case '/acceptDepositeInformation':
                         return checkPageSecurity({
-                            //роли текущего пользователя
                             UserRoles: $userProvider.getUser().Roles,
-                            //роли, которым доступен ресурс
                             AvailableRoles: [
                                 $userProvider.rolesEnum.Back
                             ]

@@ -22,15 +22,12 @@ namespace depositeProject.Migrations
                 m => m.Id,
             new Models.User
       {
-                
-          
           Login = "user1",
           Password = "user1",
           Type="front"
       },
        new Models.User
        {
-           
            Login = "user2",
            Password = "user2",
            Type = "back"
@@ -40,24 +37,28 @@ namespace depositeProject.Migrations
                             m => m.Id,
                         new Models.ClientInfo
                         {
-
-                            
                             IndentificationCode = "inn1",
                             Name = "name1",
                             Representative = "REPRESENTATIVE1",
                             RegistrationPlace = "Kyiv",
                             PhoneNumber = "+38(068)1234567"
-                            /*,
-                            StartDepositeDate= new DateTime(2019, 7, 20),
-                            EndDepositeDate= new  DateTime(2019, 8, 15)*/
+                        },
+                        new Models.ClientInfo
+                        {
+                            IndentificationCode = "inn2",
+                            Name = "name2",
+                            Representative = "REPRESENTATIVE2",
+                            RegistrationPlace = "Kyiv",
+                            PhoneNumber = "+38(068)1239876"
                         }
+
                     );
             context.DepositeInfoes.AddOrUpdate(
                 m => m.Id,
             new Models.DepositeInfo
             {
-                Name = "Депозит з модливістю поповнення",
-                Rate = 5,
+                Name = "Депозит з можливістю поповнення",
+                Rate = 3,
                 AutoRollover = true,
                 PossibilityOfReplenishment = true,
                 PossibilityOfTermination = false

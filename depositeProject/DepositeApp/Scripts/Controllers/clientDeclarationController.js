@@ -3,28 +3,17 @@
         $scope.clientInBase = false;
         function ConvertUTCTimeToLocalTime(UTCDateString) {
             var convertdLocalTime = new Date(UTCDateString);
-            var hourOfset = convertdLocalTime.getTimezoneOffset() / 60;
+            var hourOffset = convertdLocalTime.getTimezoneOffset() / 60;
             convertdLocalTime.setHours(convertdLocalTime.getHours() - hourOffset);
             return convertdLocalTime;
         }
         $scope.deposite = {};
         $scope.DepositeInfo = {};
+        $scope.showClientSearchForm = true;
         depositeInfoesService.getInfoes()
             .then(function successCallback(response) {
                 $scope.depositeInfoes = response.data;
-
-                /*if ($scope.depositeInfoes.length !== 0) {
-                    //$scope.message = "Present unaccepted deposites";
-                    //$scope.showMessage = false;
-                    //$scope.showTable = true;
-                } else {
-                    //$scope.message = "Epsent unaccepted deposites";
-                    //$scope.showMessage = true;
-                    //$scope.showTable = false;
-                }*/
-
             }, function errorCallback(response) {
-
             });
         $scope.checkClientType = function (identificationCode) {
             $scope.messageStatus = false;
@@ -39,7 +28,7 @@
                     $scope.clientInBase = true;
                 }, function errorCallback(response) {
                     $scope.deposite.ClientInfo = {};
-                    deposite.ClientInfo.IndentificationCode = identificationCode;
+                    $scope.deposite.ClientInfo.IndentificationCode = identificationCode;
                     $scope.message = "Клієнта не знайдено";
                     $scope.messageStatus = true;
                     $scope.showInputForm = true;
@@ -61,8 +50,11 @@
 
                     $scope.deposite.StartDepositeDate = ConvertUTCTimeToLocalTime($scope.deposite.StartDepositeDate);
                     $scope.deposite.EndDepositeDate = ConvertUTCTimeToLocalTime($scope.deposite.EndDepositeDate);
-                    $scope.message = "Дані оновлено";
-                    console.log($scope.deposite);
+                    $scope.message = "Депозит збережено";
+                    $scope.showPrintForm = true;
+                    $scope.showClientSearchForm = false;
+                    console.log(deposite);
+                    $scope.showInputForm = false;
                 }, function errorrCallback() {
                     $scope.message = "Помилка запису";
                 });

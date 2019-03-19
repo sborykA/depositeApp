@@ -1,6 +1,4 @@
-﻿body {
-    
-}
+﻿
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
@@ -24,9 +22,9 @@
     border-color: #78FA89;
 }*/
     /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-        background: #555;
-    }
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
 .inputDiv {
     border: 2px solid black;
     border-radius: 20px;
@@ -66,7 +64,6 @@ body {
 
 #popUpMsg {
     overflow: auto;
-
     top: 1%;
     left: 50%;
     margin-left: -350px;
@@ -77,34 +74,25 @@ body {
     position: absolute;
 }
 
-    #popUpMsg .close {
-        background: black;
-        color: white;
-        width: 20px;
-        height: 20px;
-        text-align: center;
-        border-radius: 50%;
-        position: absolute;
-        cursor: pointer;
-        top: -6px;
-        right: -7px;
-    }
+#popUpMsg .close {
+    background: black;
+    color: white;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+    top: -6px;
+    right: -7px;
 
-    #popUpMsg .content {
-        text-align: center;
-        margin-bottom: 10px;
-    }
-    /*
-    #popUpMsg button {
-        display: block;
-        margin: 0 auto;
-        border-radius: 3px;
-        border: 0;
-        background: lightgray;
-        padding: 5px 20px;
-        cursor: pointer;
-    }
-        */
+}
+
+#popUpMsg .content {
+    text-align: center;
+    margin-bottom: 10px;
+}
+    
 /* Set width on the form input elements since they're 100% wide by default */
 /*input,
 select,

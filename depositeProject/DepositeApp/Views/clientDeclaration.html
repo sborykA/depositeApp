@@ -1,19 +1,19 @@
-﻿    <form role="form" name="identificationForm" novalidate>
+﻿    <form role="form" name="identificationForm" novalidate ng-if="showClientSearchForm">
         <h2 class="form-login-heading">Введіть код за ЄДРПОУ або реєстраційний (обліковий) номер платника податків клієнта</h2>
-        <input type="text" class="form-control" placeholder="Username" ng-model="identificationCode" required autofocus>
+        <input type="text" class="form-control" placeholder="Username" ng-model="identificationCode" required>
         <button class="btn btn-lg btn-info btn-block" type="submit" ng-disabled="identificationForm.$invalid" ng-click="checkClientType(identificationCode)">Пошук клієнта</button>
         <div class="alert alert-danger" ng-show="messageStatus">
             {{message}}
         </div>
     </form>
-    <div class="form" ng-if="showInputForm" novalidate>
+    <div class="form" name="depositeForm" ng-if="showInputForm" novalidate>
         <form form-horizontal" role="form" >
             <div class="inputDiv">
                 <div class="form-group">
                     <div class="row">
                         <label for="inputName" class=" col-md-offset-3 col-md-2 control-label">Найменування клієнта банку</label>
                         <div class=" col-md-7">
-                            <input type="text" class="form-control" placeholder="Найменування клієнта банку" name="inputName" ng-model="deposite.ClientInfo.Name">
+                            <input type="text" class="form-control" placeholder="Найменування клієнта банку" name="inputName" ng-model="deposite.ClientInfo.Name" required>
                         </div>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                     <div class="row">
                         <label for="inputRepresentative" class=" col-md-offset-3 col-md-2 control-label">В особі підприємця</label>
                         <div class=" col-md-7">
-                            <input type="text" class="form-control" placeholder="Прізвище Ім'я Побатькові" name="inputRepresentative" ng-model="deposite.ClientInfo.Representative">
+                            <input type="text" class="form-control" placeholder="Прізвище Ім'я Побатькові" name="inputRepresentative" ng-model="deposite.ClientInfo.Representative" required>
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                     <div class="row">
                         <label for="inputIdentificationCode" class="col-md-offset-3 col-md-2 control-label">код за ЄДРПОУ або реєстраційний (обліковий) номер платника податків клієнта</label>
                         <div class="col-md-7">
-                            <input type="text" class="form-control" placeholder="Код ІПН" name="inputIdentificationCode" ng-model="deposite.ClientInfo.IndentificationCode">
+                            <input type="text" class="form-control" placeholder="Код ІПН" name="inputIdentificationCode" ng-model="deposite.ClientInfo.IndentificationCode" required>
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                     <div class="row">
                         <label for="inputRegistrationPlace" class="col-md-offset-3 col-md-2 control-label">Місце реєстрації</label>
                         <div class="col-md-7">
-                            <input type="text" class="form-control" placeholder="RegistrationPlace" name="inputRegistrationPlace" ng-model="deposite.ClientInfo.RegistrationPlace">
+                            <input type="text" class="form-control" placeholder="RegistrationPlace" name="inputRegistrationPlace" ng-model="deposite.ClientInfo.RegistrationPlace" required>
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                     <div class="row">
                         <label for="inputPhoneNumber" class="col-md-offset-3 col-md-2 control-label">Номер телефону</label>
                         <div class="col-md-7">
-                            <input type="text" class="form-control" placeholder="Номер телефону" name="inputPhoneNumber" ng-model="deposite.ClientInfo.PhoneNumber">
+                            <input type="text" class="form-control" placeholder="Номер телефону" name="inputPhoneNumber" ng-model="deposite.ClientInfo.PhoneNumber" required>
                             <!--<span class="note">Format: +38(0**)*******</span>-->
                             <!--pattern="/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/"-->
                         </div>
@@ -59,7 +59,7 @@
                         <div class="col-md-7">
                             <select name="inputDepositeType" id="inputDepositeType" class="form-control col-md-7"
                                     ng-options="depositeInfo.Name for depositeInfo in depositeInfoes track by depositeInfo.Id"
-                                    ng-model="deposite.DepositeInfo"></select><br />
+                                    ng-model="deposite.DepositeInfo" required></select><br />
                         </div>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                     <div class="row">
                         <label for="inputstartDepositeDate" class="col-md-offset-3 col-md-2 control-label">Початок депозитного сроку</label>
                         <div class="col-md-7">
-                            <input type="date" class="form-control" placeholder="startDepositeDate" name="inputstartDepositeDate" ng-model="deposite.StartDepositeDate">
+                            <input type="date" class="form-control"  name="inputstartDepositeDate" ng-model="deposite.StartDepositeDate" placeholder="Дата початку депозитного сроку" required>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
                     <div class="row">
                         <label for="inputendDepositeDate" class="col-md-offset-3 col-md-2 control-label">Кінець депозитного сроку</label>
                         <div class="col-md-7">
-                            <input type="date" class="form-control" placeholder="" name="inputendDepositeDate" ng-model="deposite.EndDepositeDate">
+                            <input type="date" class="form-control" name="inputendDepositeDate" ng-model="deposite.EndDepositeDate" placeholder="Дата закінчення депозитного сроку" required>
                         </div>
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                     <div class="row">
                         <label for="inputAmountOfDeposit" class="col-md-offset-3 col-md-2 control-label">Сума вкладу</label>
                         <div class="col-md-7">
-                            <input type="number" class="form-control" placeholder="startDepositeDate" name="inputsAmountOfDeposit" ng-model="deposite.AmountOfDeposite">
+                            <input type="number" class="form-control" placeholder="Сума вкладу" name="inputsAmountOfDeposit" ng-model="deposite.AmountOfDeposite" required>
                         </div>
                     </div>
                 </div>
@@ -122,8 +122,8 @@
                     <div class="row">
                         <label for="inputCurrency" class="col-md-offset-3 col-md-2 control-label">Валюта</label>
                         <div class="col-md-7">
-                            <select name="inputsCurrency" class="form-control col-md-7" ng-model="deposite.Currency">
-                                <option value="UAN" selected>UAN</option>
+                            <select name="inputsCurrency" class="form-control col-md-7" ng-model="deposite.Currency" required>
+                                <option value="UAN" >UAN</option>
                                 <option value="USD">USD</option>
                                 <option value="EURO">EURO</option>
                             </select><br>
@@ -142,4 +142,11 @@
         </form>
 
     </div>
-            
+    <form role="form" name="identificationForm" novalidate ng-if="showPrintForm">
+        <h2 class="form-login-heading">Натисність для друку договору</h2>
+        <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="">Пошук клієнта</button>
+        <div class="alert alert-danger">
+            {{message}}
+        </div>
+       
+    </form>        

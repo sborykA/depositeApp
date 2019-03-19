@@ -14,15 +14,9 @@
                     console.log(deposite);
                     depositeDataService.updateDeposite(deposite)
                         .then(function successCallback(response) {
-                            /*$scope.deposite = response.data;
-                            $scope.deposite.StartDepositeDate = new Date($scope.deposite.StartDepositeDate);
-                            $scope.deposite.EndDepositeDate = new Date($scope.deposite.EndDepositeDate);*/
                             $scope.message = "Дані оновлено";
                             $scope.closePopUp();
-                            $scope.reloadData();
-                            //$location.path('/acceptDepositInformation');
-                            
-                            
+                            $scope.reloadData();    
                         }, function errorrCallback() {
                             $scope.message = "Помилка запису";
                         });

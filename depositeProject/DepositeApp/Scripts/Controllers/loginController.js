@@ -2,8 +2,6 @@
     authorizationModule.controller('loginController',
         ['$scope',  'authorizationFactory', '$location',
             function ($scope, authorizationFactory, $location) {
-
-                $scope.loginData = { login: "", password: "" };
                 $scope.messageStatus = false;
                 var redirect = function (status,type) {
                     if (status) {
@@ -16,11 +14,14 @@
 
                     } else {
                         $scope.messageStatus = true;
-                        $scope.message = "incorected login or pass";
+                        $scope.message = "Користувача з таким логіном та паролем с системі не знайдено";
                         
                     }
                 }
+                $scope.submited = false;
                 $scope.submitAuthorization = function (isValid) {
+                    console.log(isValid);
+                    $scope.submited = true;
                     if (isValid) {
                         authorizationFactory.login($scope.loginData.login, $scope.loginData.password, redirect);
                     }

@@ -1,13 +1,8 @@
 ﻿(function (authorizationModule) {
-    authorizationModule.factory('authorizationFactory', ['$userProvider', 'userDataService'/*,'checkRolesService'*/,
-        function ($userProvider, userDataService/*, checkRolesService*/) {
-        //var accountInfo = {};
+    authorizationModule.factory('authorizationFactory', ['$userProvider', 'userDataService',
+        function ($userProvider, userDataService) {
         
             var login = function (login, pass,redirect) {
-                /*console.log(checkRolesService.checkRole(login, pass));
-                return checkRolesService.checkRole(login, pass);*/
-            
-                        
             userDataService.checkUser(login, pass)
                 .then(function successCallback(response) {
                     accountInfo = response.data;
@@ -22,20 +17,8 @@
                 }, function errorCallback(response) {
                     redirect(false);                 
                 });
-            /*
-            if (pass !== '123456') {
-                return false;
+         
             }
-            if (login === 'front') {
-                $userProvider.setUser({ Login: login, Roles: [$userProvider.rolesEnum.Front] });
-            } else {
-                $userProvider.setUser({ Login: login, Roles: [$userProvider.rolesEnum.Back] });
-            }
-            return {
-                status: true,
-                type: $userProvider.getUser().Roles
-            };*/
-        }
             return {
                 login: login,
             }
