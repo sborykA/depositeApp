@@ -6,6 +6,7 @@
             templateUrl: 'AcceptD.html' ,
             controller: function ($scope,$location,depositeDataService) {
                 $scope.changeStatus = function (deposite) {
+                    deposite.AcceptionDate = new Date();
                     deposite.ClientInfoId = deposite.ClientInfo.Id;
                     deposite.DepositeInfoId = deposite.DepositeInfo.Id;
                     deposite.DepositeInfo = null;
@@ -16,7 +17,8 @@
                         .then(function successCallback(response) {
                             $scope.message = "Дані оновлено";
                             $scope.closePopUp();
-                            $scope.reloadData();    
+                            $scope.reloadData();
+                            $scope.reloadCTDepositesData();
                         }, function errorrCallback() {
                             $scope.message = "Помилка запису";
                         });

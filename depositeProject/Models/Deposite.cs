@@ -19,7 +19,11 @@ namespace depositeProject.Models
         public bool Status { get; set; }
         public int ClientInfoId { get; set; }
         public int DepositeInfoId { get; set; }
+        public DateTime CreationDate { get; set; }
+        public DateTime AcceptionDate { get; set; }
+        public string Message { get; set; }
         public virtual ClientInfo ClientInfo { get; set; }
         public virtual DepositeInfo DepositeInfo { get; set; }
+        
     }
 }

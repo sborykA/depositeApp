@@ -3,6 +3,7 @@
         $scope.clientInBase = false;
         $scope.showMessage = false;
         $scope.showTable = false;
+        $scope.showConfirmedTable = false;
         
         function ConvertUTCTimeToLocalTime(UTCDateString) {
             var convertdLocalTime = new Date(UTCDateString);
@@ -23,7 +24,22 @@
                     $scope.showMessage = true;
                     $scope.showTable = false;
                 }
-            }, function errorCallback(response) {});
+            }, function errorCallback(response) { });
+        depositeDataService.getConfirmedTodayDeposites(new Date())
+            .then(function successCallback(response) {
+                $scope.confirmedDeposites = response.data;
+
+                if ($scope.confirmedDeposites.length !== 0) {
+                    $scope.message1 = "Сьогодні вже здійснювалися депозити";
+                    //$scope.showMessage = false;
+                    $scope.showConfirmedTable = true;
+                } else {
+                    $scope.message1 = "Сьогодні ще не здійснювалися депозити";
+                    //$scope.showMessage = true;
+                    $scope.showConfirmedTable = false;
+                }
+            }, function errorCallback(response) { });
+
         $scope.reloadData = function () {
             depositeDataService.getUnacceptedDeposites()
                 .then(function successCallback(response) {
@@ -37,7 +53,22 @@
                         $scope.showMessage = true;
                         $scope.showTable = false;
                     }
-                }, function errorCallback(response) {});
+                }, function errorCallback(response) { });
+        }
+        $scope.reloadCTDepositesData = function () {
+            depositeDataService.getConfirmedTodayDeposites(new Date())
+                .then(function successCallback(response) {
+                    $scope.confirmedDeposites = response.data;
+                    if ($scope.confirmedDeposites.length !== 0) {
+                        $scope.message1 = "Сьогодні вже здійснювалися депозити";
+                        //$scope.showMessage = false;
+                        $scope.showConfirmedTable = true;
+                    } else {
+                        $scope.message1 = "Сьогодні ще не здійснювалися депозити";
+                        //$scope.showMessage = true;
+                        $scope.showConfirmedTable = false;
+                    }
+                }, function errorCallback(response) { });
         }
         $scope.showPopUpMsg = false;
         $scope.openPopUp = function (deposite) {

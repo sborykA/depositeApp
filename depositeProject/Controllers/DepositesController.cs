@@ -12,6 +12,7 @@ using depositeProject.Models;
 
 namespace depositeProject.Controllers
 {
+    [RoutePrefix("api/Deposites")]
     public class DepositesController : ApiController
     {
         private UsersDB db = new UsersDB();
@@ -24,6 +25,25 @@ namespace depositeProject.Controllers
                     .Include(p => p.ClientInfo);
                    
             return unacceptedDeposites.Where(p => p.Status == false);
+        }
+        [Route("ConfirmedTodayDeposites")]
+        public IQueryable<Deposite> GetConfirmedTodayDeposites(DateTime date)
+        {
+           
+             var confirmedTodayDeposites = db.Deposites
+                    .Include(t => t.DepositeInfo)
+                    .Include(p => p.ClientInfo);
+
+            return confirmedTodayDeposites.Where(p => p.AcceptionDate.Year  == date.Year && p.AcceptionDate.Month==date.Month && p.AcceptionDate.Day==date.Day );
+        }
+        [Route("CreatedTodayDeposites")]
+        public IQueryable<Deposite> GetCreatedTodayDeposites(DateTime date)
+        {
+            var createdTodayDeposites = db.Deposites
+                    .Include(t => t.DepositeInfo)
+                    .Include(p => p.ClientInfo);
+
+            return createdTodayDeposites.Where(p => p.CreationDate.Year ==  date.Year && p.CreationDate.Month == date.Month && p.CreationDate.Year == date.Year);
         }
 
         // GET: api/Deposites/5

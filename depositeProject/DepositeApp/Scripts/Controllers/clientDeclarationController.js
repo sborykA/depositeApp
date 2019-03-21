@@ -36,7 +36,8 @@
                 });
         } 
         $scope.submitDeposite = function (isValid, deposite) {
-
+            deposite.CreationDate = new Date();
+            deposite.AcceptionDate = new Date(1754,0,1)
             deposite.Status = false;
             if ($scope.clientInBase == true) {
                 deposite.ClientInfoId = deposite.ClientInfo.Id;
@@ -50,6 +51,7 @@
 
                     $scope.deposite.StartDepositeDate = ConvertUTCTimeToLocalTime($scope.deposite.StartDepositeDate);
                     $scope.deposite.EndDepositeDate = ConvertUTCTimeToLocalTime($scope.deposite.EndDepositeDate);
+                    $scope.deposite.CreationDate = ConvertUTCTimeToLocalTime($scope.deposite.CreationDate);
                     $scope.message = "Депозит збережено";
                     $scope.showPrintForm = true;
                     $scope.showClientSearchForm = false;

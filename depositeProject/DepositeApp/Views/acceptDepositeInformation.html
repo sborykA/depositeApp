@@ -20,3 +20,24 @@
             </tbody>
             <pop-up-msg ></pop-up-msg>
         </table>
+        Депозити за сьогодні
+        <table class="table table-bordered" ng-if="showConfirmedTable">
+            <thead>
+                <tr>
+                    <th>ID депозиту</th>
+                    <th>Найменування клієнта банку</th>
+                    <th>Тип депозиту</th>
+                    <th>Статус</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="confirmedDeposite in confirmedDeposites">
+                    <td>{{confirmedDeposite.DepositeId}}</td>
+                    <td>{{confirmedDeposite.ClientInfo.Name}}</td>
+                    <td>{{confirmedDeposite.DepositeInfo.Name}}</td>
+                    <td>{{confirmedDeposite.Status}}</td>
+                    <td><button class="btn btn-sm btn-info btn-block" type="submit" ng-click="openPopUp(confirmedDeposite)">Переглянути</button></td>
+                </tr>
+            </tbody>
+            <pop-up-msg></pop-up-msg>
+        </table>
