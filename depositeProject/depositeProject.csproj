@@ -51,6 +51,12 @@
     <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
     </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.18.6.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.18.3.0\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -239,6 +245,7 @@
     <Content Include="DepositeApp\Scripts\Controllers\depositeAppController.js" />
     <Content Include="DepositeApp\Scripts\Controllers\loginController.js" />
     <Content Include="DepositeApp\Scripts\DepositeApp.js" />
+    <Content Include="DepositeApp\Scripts\Directives\creationOfDeposite.js" />
     <Content Include="DepositeApp\Scripts\Directives\popUpMsg.js" />
     <Content Include="DepositeApp\Scripts\Modules\authorizationModule.js" />
     <Content Include="DepositeApp\Scripts\Modules\securityModule.js" />
@@ -252,6 +259,7 @@
     <Content Include="DepositeApp\Styles\style.css" />
     <Content Include="DepositeApp\Views\acceptD.html" />
     <Content Include="DepositeApp\Views\acceptDepositeInformation.html" />
+    <Content Include="DepositeApp\Views\CreateD.html" />
     <Content Include="DepositeApp\Views\login.html" />
     <Content Include="DepositeApp\Views\clientDeclaration.html" />
     <Content Include="DepositeApp\Views\Index.html" />
@@ -318,6 +326,7 @@
     <Content Include="Scripts\angular-cookies.min.js.map" />
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
+    <Content Include="libman.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
     <Content Include="Scripts\i18n\angular-locale_af-za.js" />

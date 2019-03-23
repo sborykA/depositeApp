@@ -1,6 +1,6 @@
 ﻿(function (app) {
     app.controller('clientDeclarationController', function ($scope, clientOperationService, depositeInfoesService, depositeDataService) {
-        $scope.clientInBase = false;
+        /*$scope.clientInBase = false;
         function ConvertUTCTimeToLocalTime(UTCDateString) {
             var convertdLocalTime = new Date(UTCDateString);
             var hourOffset = convertdLocalTime.getTimezoneOffset() / 60;
@@ -60,6 +60,11 @@
                 }, function errorrCallback() {
                     $scope.message = "Помилка запису";
                 });
+        }*/
+        $scope.showPopUpMsg = false;
+        $scope.openCreationOfDeposite = function () {
+            $scope.showPopUpMsg = true;
+           
         }
         
     });

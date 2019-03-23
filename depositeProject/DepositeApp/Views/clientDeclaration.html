@@ -1,4 +1,10 @@
-﻿    <form role="form" name="identificationForm" novalidate ng-if="showClientSearchForm">
+﻿<form role="form" name="buttonForm">
+    <h2 class="form-login-heading">Створити клієнта</h2>
+    <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="openCreationOfDeposite()">Пошук клієнта</button>
+</form>
+<creation-of-deposite></creation-of-deposite>
+<!-- 
+<form role="form" name="identificationForm" novalidate ng-if="showClientSearchForm">
         <h2 class="form-login-heading">Введіть код за ЄДРПОУ або реєстраційний (обліковий) номер платника податків клієнта</h2>
         <input type="text" class="form-control" placeholder="Username" ng-model="identificationCode" required>
         <button class="btn btn-lg btn-info btn-block" type="submit" ng-disabled="identificationForm.$invalid" ng-click="checkClientType(identificationCode)">Пошук клієнта</button>
@@ -47,9 +53,10 @@
                         <label for="inputPhoneNumber" class="col-md-offset-3 col-md-2 control-label">Номер телефону</label>
                         <div class="col-md-7">
                             <input type="text" class="form-control" placeholder="Номер телефону" name="inputPhoneNumber" ng-model="deposite.ClientInfo.PhoneNumber" required>
+                            -->
                             <!--<span class="note">Format: +38(0**)*******</span>-->
                             <!--pattern="/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/"-->
-                        </div>
+                       <!-- </div>
                     </div>
                 </div>
 
@@ -150,3 +157,4 @@
         </div>
        
     </form>        
+-->
