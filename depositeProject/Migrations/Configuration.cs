@@ -9,7 +9,7 @@ namespace depositeProject.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(depositeProject.Models.UsersDB context)
@@ -21,11 +21,11 @@ namespace depositeProject.Migrations
             context.Users.AddOrUpdate(
                 m => m.Id,
             new Models.User
-      {
-          Login = "user1",
-          Password = "user1",
-          Type="front"
-      },
+            {
+                Login = "user1",
+                Password = "user1",
+                Type = "front"
+            },
        new Models.User
        {
            Login = "user2",
@@ -41,7 +41,9 @@ namespace depositeProject.Migrations
                             Name = "name1",
                             Representative = "REPRESENTATIVE1",
                             RegistrationPlace = "Kyiv",
-                            PhoneNumber = "+38(068)1234567"
+                            PhoneNumber = "+38(068)1234567",
+                            BankAccount="4149684368346702",
+                            BankAccountForDP= "4149684368346702"
                         },
                         new Models.ClientInfo
                         {
@@ -49,7 +51,9 @@ namespace depositeProject.Migrations
                             Name = "name2",
                             Representative = "REPRESENTATIVE2",
                             RegistrationPlace = "Kyiv",
-                            PhoneNumber = "+38(068)1239876"
+                            PhoneNumber = "+38(068)1239876",
+                            BankAccount = "5156345681230893",
+                            BankAccountForDP = "5156345681230893"
                         }
 
                     );

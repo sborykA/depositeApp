@@ -32,7 +32,7 @@
                         <div class="row">
                             <label for="inputIdentificationCode" class="col-md-offset-3 col-md-2 control-label">код за ЄДРПОУ або реєстраційний (обліковий) номер платника податків клієнта</label>
                             <div class="col-md-7">
-                                <input type="text" class="form-control" placeholder="Код ІПН" name="inputIdentificationCode" ng-model="deposite.ClientInfo.IndentificationCode" required>
+                                <input type="text" class="form-control" placeholder="Код ІНН або ЄДРПОУ" name="inputIdentificationCode" ng-model="deposite.ClientInfo.IndentificationCode" required>
                             </div>
                         </div>
                     </div>
@@ -55,7 +55,22 @@
                             </div>
                         </div>
                     </div>
-
+                    <div class="form-group">
+                        <div class="row">
+                            <label for="inputBankAccount" class="col-md-offset-3 col-md-2 control-label">Номер банківського рахунку</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" placeholder="Номер банківського рахунку" name="inputBankAccount" ng-model="deposite.ClientInfo.BankAccount" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label for="inputBankAccountForDP" class="col-md-offset-3 col-md-2 control-label">Номер банківського рахунку для виплати відстотків по депозиту</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" placeholder="Номер банківського рахунку" name="inputBankAccountForDP" ng-model="deposite.ClientInfo.BankAccountForDP" required>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <div class="row">
                             <label for="inputDepositeType" class="col-md-offset-3 col-md-2 control-label">Тип депозиту</label>

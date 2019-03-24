@@ -44,7 +44,22 @@
                     </div>
                 </div>
             </div>
-
+            <div class="form-group">
+                <div class="row">
+                    <label for="inputBankAccount" class="col-md-offset-3 col-md-2 control-label">Номер банківського рахунку</label>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" placeholder="Номер банківського рахунку" name="inputBankAccount" ng-model="deposite.ClientInfo.BankAccount" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label for="inputBankAccountForDP" class="col-md-offset-3 col-md-2 control-label">Номер банківського рахунку для виплати відстотків по депозиту</label>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" placeholder="Номер банківського рахунку" name="inputBankAccountForDP" ng-model="deposite.ClientInfo.BankAccountForDP" disabled>
+                    </div>
+                </div>
+            </div>
             <div class="form-group">
                 <div class="row">
                     <label for="inputDepositeType" class="col-md-5  control-label">Тип депозиту</label>
@@ -131,12 +146,12 @@
             </div>
             <div class="form-group">
                 <div class="row">
-                        <div class="col-md-offset-2 col-md-4">
-                            <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="changeStatus(deposite)">Підтвердити</button>
-                        </div>
-                        <div class="col-md-offset-1  col-md-4">
-                            <button class="btn btn-lg btn-info btn-danger" type="submit" ng-click="closePopUp()">Не підтверджувати</button>
-                        </div>
+                    <div class="col-md-offset-2 col-md-4">
+                        <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="changeStatus(deposite)">Підтвердити</button>
+                    </div>
+                    <div class="col-md-offset-1  col-md-4">
+                        <button class="btn btn-lg btn-info btn-danger" type="submit" ng-click="closePopUp()">Не підтверджувати</button>
+                    </div>
                 </div>
             </div>
         </form>
