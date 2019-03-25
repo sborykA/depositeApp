@@ -12,10 +12,13 @@
                 return $http.put("/api/Deposites/" + deposite.DepositeId, deposite);
             },
             getCreatedTodayDeposites: function (date) {
-                return $http.get("/api/Deposites/CreatedTodayDeposites/",  date );
+                return $http.get("/api/Deposites/CreatedTodayDeposites/", { params: { date: date } } );
             },
             getConfirmedTodayDeposites: function (date) {
                 return $http.get("/api/Deposites/ConfirmedTodayDeposites/", { params:{ date: date } });
+            },
+            getAcceptedDeposites: function () {
+                return $http.get("/api/Deposites/AcceptedDeposites/");
             }
 
         }

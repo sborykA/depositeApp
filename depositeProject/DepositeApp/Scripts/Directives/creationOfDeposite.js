@@ -3,7 +3,7 @@
         return {
             restrict: 'E',
             scope: false,
-            templateUrl: 'CreateD.html',
+            templateUrl: 'createD.html',
             controller: function ($scope, $location, depositeDataService,clientOperationService,depositeInfoesService) {
                 $scope.clientInBase = false;
                 function ConvertUTCTimeToLocalTime(UTCDateString) {
@@ -60,14 +60,15 @@
                             $scope.message = "Депозит збережено";
                             $scope.showPrintForm = true;
                             $scope.showClientSearchForm = false;
-                            console.log(deposite);
+                            $scope.reloadData();
+                            $scope.reloadCTDepositesData();
                             $scope.showInputForm = false;
                         }, function errorrCallback() {
                             $scope.message = "Помилка запису";
                         });
                 }
-                $scope.closePopUp = function () {
-                    $scope.showPopUpMsg = false;
+                $scope.closeCreationOfDeposite = function () {
+                    $scope.showCreationOfDeposite = false;
                 }
             }
         }

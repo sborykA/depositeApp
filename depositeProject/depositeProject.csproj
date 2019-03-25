@@ -250,6 +250,7 @@
     <Content Include="DepositeApp\Scripts\Controllers\loginController.js" />
     <Content Include="DepositeApp\Scripts\DepositeApp.js" />
     <Content Include="DepositeApp\Scripts\Directives\creationOfDeposite.js" />
+    <Content Include="DepositeApp\Scripts\Directives\editionOfDeposite.js" />
     <Content Include="DepositeApp\Scripts\Directives\popUpMsg.js" />
     <Content Include="DepositeApp\Scripts\Modules\authorizationModule.js" />
     <Content Include="DepositeApp\Scripts\Modules\securityModule.js" />
@@ -263,7 +264,8 @@
     <Content Include="DepositeApp\Styles\style.css" />
     <Content Include="DepositeApp\Views\acceptD.html" />
     <Content Include="DepositeApp\Views\acceptDepositeInformation.html" />
-    <Content Include="DepositeApp\Views\CreateD.html" />
+    <Content Include="DepositeApp\Views\createD.html" />
+    <Content Include="DepositeApp\Views\editD.html" />
     <Content Include="DepositeApp\Views\login.html" />
     <Content Include="DepositeApp\Views\clientDeclaration.html" />
     <Content Include="DepositeApp\Views\Index.html" />

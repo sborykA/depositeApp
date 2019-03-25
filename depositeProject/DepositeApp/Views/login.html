@@ -1,17 +1,25 @@
 ﻿<form class="form-login" role="form" name="loginForm" ng-submit="submitAuthorization(loginForm.$valid)" novalidate>
-    <h2 class="form-login-heading">Авторизація</h2>
-    <div class="form-group" ng-class="{ 'has-error' : loginForm.login.$invalid && !loginForm.login.$pristine }">
-        <input type="text" class="form-control" name="login" placeholder="Логін" ng-model="loginData.login" required>
-        <p ng-show="loginForm.login.$invalid && !loginForm.login.$pristine" class="help-block">You name is required.</p>
-    </div>
-    <div class="form-group" ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }">
-        <input type="password" class="form-control" name="password" placeholder="Пароль" ng-model="loginData.password" required>
-        <p ng-show="loginForm.password.$invalid && !loginForm.password.$pristine" class="help-block">You name is required.</p>
-    </div>
-    <div class="form-group">
-        <button class="btn btn-lg btn-info btn-block" type="submit" >Авторизуватися</button>
-        <div class="alert alert-danger" ng-if="messageStatus">
-            {{message}}
+    <h2 class="form-login-heading text-center">Авторизація</h2>
+    
+        <div class="form-group " ng-class="{ 'has-error' : loginForm.login.$invalid && !loginForm.login.$pristine }">
+            <div class="col-md-offset-5 col-md-2">
+                <input type="text" class="form-control" name="login" placeholder="Логін" ng-model="loginData.login" required>
+            </div>
+            <p ng-show="loginForm.login.$invalid && !loginForm.login.$pristine" class="help-block">You name is required.</p>
         </div>
-    </div>
-</form>
+        <div class="form-group" ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }">
+            <div class="col-md-offset-5 col-md-2">
+                <input type="password" class="form-control" name="password" placeholder="Пароль" ng-model="loginData.password" required>
+            </div>
+            <p ng-show="loginForm.password.$invalid && !loginForm.password.$pristine" class="help-block">You name is required.</p>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-5 col-md-2">
+                <button class="btn btn-lg btn-info btn-block" type="submit">Авторизуватися</button>
+
+                <div class="alert alert-danger" ng-if="messageStatus">
+                    {{message}}
+                </div>
+            </div>
+        </div>
+    </form>

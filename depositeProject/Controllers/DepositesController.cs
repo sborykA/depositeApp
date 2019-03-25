@@ -26,6 +26,15 @@ namespace depositeProject.Controllers
                    
             return unacceptedDeposites.Where(p => p.Status == false);
         }
+        [Route("AcceptedDeposites")]
+        public IQueryable<Deposite> GetAcceptedDeposites()
+        {
+            var acceptedDeposites = db.Deposites
+                    .Include(t => t.DepositeInfo)
+                    .Include(p => p.ClientInfo);
+
+            return acceptedDeposites.Where(p => p.Status == true);
+        }
         [Route("ConfirmedTodayDeposites")]
         public IQueryable<Deposite> GetConfirmedTodayDeposites(DateTime date)
         {
@@ -43,7 +52,7 @@ namespace depositeProject.Controllers
                     .Include(t => t.DepositeInfo)
                     .Include(p => p.ClientInfo);
 
-            return createdTodayDeposites.Where(p => p.CreationDate.Year ==  date.Year && p.CreationDate.Month == date.Month && p.CreationDate.Year == date.Year);
+            return createdTodayDeposites.Where(p => p.CreationDate.Year ==  date.Year && p.CreationDate.Month == date.Month && p.CreationDate.Day == date.Day);
         }
 
         // GET: api/Deposites/5
