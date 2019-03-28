@@ -6,7 +6,9 @@
             },
             saveDeposite: function (deposite) {
                 return $http.post("/api/Deposites", deposite);
-
+            },
+            getlAllDeposites: function () {
+                return $http.get("/api/Deposites/AllDeposites");
             },
             updateDeposite: function (deposite) {
                 return $http.put("/api/Deposites/" + deposite.DepositeId, deposite);
@@ -19,6 +21,15 @@
             },
             getAcceptedDeposites: function () {
                 return $http.get("/api/Deposites/AcceptedDeposites/");
+            },
+            getGeneratedStatement: function (id) {
+                return $http.get("/api/Deposites/GeneratedStatement/",{ params: { id: id } });
+            },
+            getGeneratedContract: function (id) {
+                return $http.get("/api/Deposites/GeneratedСontract/", { params: { id: id } });
+            },
+            getGeneratedСlientForm: function (id) {
+                return $http.get("/api/Deposites/GeneratedСlientForm/",{ params: { id: id } });
             }
 
         }

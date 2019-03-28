@@ -1,5 +1,5 @@
 ﻿(function (app) {
-    app.controller('acceptDepositeInformationController', function ($scope, depositeDataService) {
+    app.controller('acceptDepositeInformationController', function ($scope, depositeDataService, depositeInfoesService) {
         $scope.clientInBase = false;
         $scope.showMessage = false;
         $scope.showTable = false;
@@ -76,6 +76,42 @@
             $scope.deposite = deposite;
             $scope.deposite.StartDepositeDate = ConvertUTCTimeToLocalTime($scope.deposite.StartDepositeDate);
             $scope.deposite.EndDepositeDate = ConvertUTCTimeToLocalTime($scope.deposite.EndDepositeDate);
+        }
+        
+        $scope.getfrequencySelection = function () {
+            $scope.frequencySelection = [];
+            let tmpInfoes = [];
+            depositeInfoesService.getInfoes()
+                .then(function successCallback(response) {
+                    tmpInfoes = response.data;
+                    console.log("tmpInfoes");
+                    console.log(tmpInfoes);
+                    for (var depositeInfo in tmpInfoes) {
+                        $scope.frequencySelection.pop({depositeTypeName:depositeInfo[Name], frequency:0})
+                    }
+                    console.log($scope.frequencySelection);
+                },function errorCallback(response) { });
+            depositeDataService.getlAllDeposites()
+                .then(function successCallback(response) {
+                $scope.confirmedDeposites = response.data;
+                
+                let countFirstTypeDeposite = 0;
+                let countSecondTypeDeposite = 0;
+                for (var deposite in responce.data) {
+                    if (deposite[DepositeInfo].Name == "Депозит з можливістю поповнення") {
+                        countFirstTypeDeposite++;
+                    }
+                    if (deposite[DepositeInfo].Name == "Депозит з можливістю поповнення") {
+                        countSecondTypeDeposite++;
+                    }
+                    }
+                    const depositesCount = responce.data.length;
+                    $scope.frequencySelection[0].frequency = countFirstTypeDeposite / depositesCount;
+                    $scope.frequencySelection[2].frequency = countSecondTypeDeposite / depositesCount;
+                    console.log("frequencyInfoes");
+                    
+                    console.log($scope.frequencySelection);
+            }, function errorCallback(response) { });
         }
     });
 

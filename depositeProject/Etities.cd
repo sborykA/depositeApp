@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="depositeProject.Models.User" Collapsed="true">
+    <Position X="4.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAACAQAQAAAAAAA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="depositeProject.Models.UsersDB">
+    <Position X="10.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACCAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAEBAAA=</HashCode>
+      <FileName>Models\UsersDB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="depositeProject.Models.DepositeInfo">
+    <Position X="6.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAACAAAAAAAAAAAAAAAIAAQAAAAAAAAgAAAAAAABAAA=</HashCode>
+      <FileName>Models\DepositeInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="depositeProject.Models.Deposite">
+    <Position X="8.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAgAAEAIAAAAQIABBQEAAACAQAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Models\Deposite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="depositeProject.Models.ClientInfo">
+    <Position X="4.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAQAAAAAAAAAQIQAAAQABAAAAAAAAAABgAA=</HashCode>
+      <FileName>Models\ClientInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="depositeProject.Controllers.ClientInfoesController">
+    <Position X="15" Y="1" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAQAAAAMAAAAAAAAAACAABEAAAAAAAQAAA=</HashCode>
+      <FileName>Controllers\ClientInfoesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="depositeProject.Controllers.DepositeInfoesController">
+    <Position X="17" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAACgQAAAAEEAAIAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\DepositeInfoesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="depositeProject.Controllers.DepositesController">
+    <Position X="12.75" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAEIAAAGAQAASAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Controllers\DepositesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="depositeProject.Controllers.UsersController">
+    <Position X="19.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IgAAAAAAACAQAQAEAAAAAAAAAAAAAAAAMAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\UsersController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

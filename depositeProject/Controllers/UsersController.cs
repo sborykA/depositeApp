@@ -12,7 +12,7 @@ using depositeProject.Models;
 
 namespace depositeProject.Controllers
 {
-    public class Users1Controller : ApiController
+    public class UsersController : ApiController
     {
         private UsersDB db = new UsersDB();
 

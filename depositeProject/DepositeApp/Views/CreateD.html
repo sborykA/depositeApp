@@ -164,10 +164,12 @@
         </div>
         <form role="form" name="identificationForm" novalidate ng-if="showPrintForm">
             <h2 class="form-login-heading">Натисність для друку договору</h2>
-            <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="">Друк анкети клієнта</button>
-            <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="">Друк заяви</button>
+            <a class="btn btn-sm btn-info btn-block" href="/api/Deposites/GeneratedСlientForm/?id={{deposite.DepositeId}}">Друк анкети клієнта</a>
+            <a class="btn btn-sm btn-info btn-block" href="/api/Deposites/GeneratedStatement/?id={{deposite.DepositeId}}">Друк заяви на відкриття депозиту</a>
+            <!--<button class="btn btn-lg btn-info btn-block" type="submit" ng-click="">Друк анкети клієнта</button>
+            <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="">Друк заяви</button>-->
             <div class="alert alert-danger">
-                {{message}}
+                {{messageStatusCreation}}
             </div>
         </form>
     </div>

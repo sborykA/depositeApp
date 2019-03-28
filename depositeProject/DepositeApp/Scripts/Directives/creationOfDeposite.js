@@ -60,9 +60,12 @@
                             $scope.message = "Депозит збережено";
                             $scope.showPrintForm = true;
                             $scope.showClientSearchForm = false;
+                            $scope.showInputForm = false;
+                            
                             $scope.reloadData();
                             $scope.reloadCTDepositesData();
-                            $scope.showInputForm = false;
+                            console.log($scope.deposite);
+                            
                         }, function errorrCallback() {
                             $scope.message = "Помилка запису";
                         });

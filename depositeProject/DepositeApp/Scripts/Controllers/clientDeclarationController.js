@@ -6,6 +6,21 @@
             convertdLocalTime.setHours(convertdLocalTime.getHours() - hourOffset);
             return convertdLocalTime;
         }
+        function ExportToPDF(data) {
+            //base64 To ArrayBuffer
+            var binaryString = window.atob(data.split(',')[1]);
+            var binaryLen = binaryString.length;
+            var bytes = new Uint8Array(binaryLen);
+            for (var i = 0; i < binaryLen; i++) {
+                var ascii = binaryString.charCodeAt(i);
+                bytes[i] = ascii;
+            }
+            //-------
+            var link = document.createElement('a');
+            link.href = window.URL.createObjectURL(new Blob([bytes], { type: 'application/pdf' }));
+            link.download = "User.pdf";
+            link.click();
+        }
         depositeDataService.getAcceptedDeposites()
             .then(function successCallback(response) {
                 $scope.deposites = response.data;
@@ -129,11 +144,27 @@
         }*/
         $scope.showCreationOfDeposite = false;
         $scope.showEditionOfDeposite = false;
-        $scope.openCreationOfDeposite = function () {
-            $scope.showCreationOfDeposite = true;
-           
-        }
-     
+            $scope.openCreationOfDeposite = function () {
+                $scope.showCreationOfDeposite = true;
+
+            }
+        $scope.generatePDF = function (id) {
+            console.log(id);
+            depositeDataService.getGeneratedContract(id)
+                .then(function successCallback(response) {
+                    console.log(response);
+                    //ExportToPDF(response);
+                    /*
+                    console.log("here lives the response:", response);
+                    var headers = response.headers;
+                    var blob = new Blob([response.body], { type: headers['application/octet-stream'] });
+                    var link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(blob);
+                    link.download = "Filename.pdf";
+                    link.click();*/
+                    
+                }, function errorCallback(response) { });
+            }
         $scope.openEditionOfDeposite = function (deposite) {
             $scope.showEditionOfDeposite = true;
             $scope.deposite = deposite;
