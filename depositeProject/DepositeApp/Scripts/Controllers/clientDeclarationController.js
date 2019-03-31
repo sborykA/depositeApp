@@ -172,6 +172,10 @@
             $scope.deposite.EndDepositeDate = ConvertUTCTimeToLocalTime($scope.deposite.EndDepositeDate);
 
         }
+        $scope.showCreationMessage = false;
+        $scope.openCreationMessage=function(){
+            $scope.showCreationMessage = true;
+        }
         
     });
 

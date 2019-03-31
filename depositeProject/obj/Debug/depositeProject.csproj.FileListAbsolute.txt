@@ -114,7 +114,6 @@ F:\Study\diploma\depositeProject\depositeProject\obj\Debug\depositeProject.cspro
 F:\Study\diploma\depositeProject\depositeProject\obj\Debug\depositeProject.csproj.CopyComplete
 F:\Study\diploma\depositeProject\depositeProject\obj\Debug\depositeProject.dll
 F:\Study\diploma\depositeProject\depositeProject\obj\Debug\depositeProject.pdb
-F:\Study\diploma\depositeProject\depositeProject\obj\Debug\depositeProject.csprojAssemblyReference.cache
 F:\Study\diploma\depositeProject\depositeProject\bin\Oracle.ManagedDataAccess.dll
 F:\Study\diploma\depositeProject\depositeProject\bin\Oracle.ManagedDataAccess.EntityFramework.dll
 F:\Study\diploma\depositeProject\depositeProject\obj\Debug\depositeProject.Migrations.migration1.resources

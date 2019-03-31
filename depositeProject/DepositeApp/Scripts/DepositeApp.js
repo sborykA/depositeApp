@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    var app = angular.module('DepositeApp', ["ngRoute", "authorizationModule"]);
+    var app = angular.module('DepositeApp', ["ngRoute", "authorizationModule","chart.js"]);
     var config = function ($routeProvider) {
         $routeProvider
             .when("/login",

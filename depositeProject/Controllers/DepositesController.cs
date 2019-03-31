@@ -71,6 +71,14 @@ namespace depositeProject.Controllers
             return createdTodayDeposites.Where(p => p.CreationDate.Year ==  date.Year && p.CreationDate.Month == date.Month && p.CreationDate.Day == date.Day);
         }
 
+        [Route("Statistics")]
+        public Statistics GetStatistics()
+        {
+            Statistics stat = new Statistics();
+            stat.CalculateFrequency();
+            return stat;
+        }
+
         // GET: api/Deposites/5
         [ResponseType(typeof(Deposite))]
         public IHttpActionResult GetDeposite(int id)

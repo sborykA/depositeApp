@@ -17,10 +17,12 @@
             <td>{{deposite.DepositeInfo.Name}}</td>
             <td>{{deposite.Message}}</td>
             <td>{{deposite.Status}}</td>
-            <td><a class="btn btn-sm btn-info btn-block" href="/api/Deposites/GeneratedСontract/?id={{deposite.DepositeId}}">Друк</a></td>
+            <td><a class="btn btn-sm btn-info btn-block" href="/api/Deposites/GeneratedСontract/?id={{deposite.DepositeId}}" ng-click="openCreationMessage()">Друк</a></td>
+            <creation-message></creation-message>
         </tr>
         <!--<button class="btn btn-sm btn-info btn-block" type="submit" ng-click="generatePDF(deposite.DepositeId)">Друк</button>-->
     </tbody>
+    
     <pop-up-msg></pop-up-msg>
 </table>
 

@@ -235,6 +235,7 @@
     <Compile Include="Models\DepositeInfo.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\PDFWorker.cs" />
+    <Compile Include="Models\Statistics.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UsersDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -253,6 +254,7 @@
     <Content Include="DepositeApp\Scripts\Controllers\depositeAppController.js" />
     <Content Include="DepositeApp\Scripts\Controllers\loginController.js" />
     <Content Include="DepositeApp\Scripts\DepositeApp.js" />
+    <Content Include="DepositeApp\Scripts\Directives\creationMessage.js" />
     <Content Include="DepositeApp\Scripts\Directives\creationOfDeposite.js" />
     <Content Include="DepositeApp\Scripts\Directives\editionOfDeposite.js" />
     <Content Include="DepositeApp\Scripts\Directives\popUpMsg.js" />
@@ -269,6 +271,7 @@
     <Content Include="DepositeApp\Views\acceptD.html" />
     <Content Include="DepositeApp\Views\acceptDepositeInformation.html" />
     <Content Include="DepositeApp\Views\createD.html" />
+    <Content Include="DepositeApp\Views\creationMessage.html" />
     <Content Include="DepositeApp\Views\editD.html" />
     <Content Include="DepositeApp\Views\login.html" />
     <Content Include="DepositeApp\Views\clientDeclaration.html" />
@@ -280,6 +283,8 @@
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
     <Content Include="Scripts\angular-aria.min.js" />
+    <Content Include="Scripts\angular-chart.js" />
+    <Content Include="Scripts\angular-chart.min.js" />
     <Content Include="Scripts\angular-cookies.js" />
     <Content Include="Scripts\angular-cookies.min.js" />
     <Content Include="Scripts\angular-csp.css" />
@@ -325,12 +330,13 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="Scripts\angular-route.min.js.map" />
+    <Content Include="Scripts\Chart.bundle.js" />
+    <Content Include="Scripts\Chart.js" />
+    <Content Include="Scripts\Chart.min.js" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />
     <Content Include="Scripts\cldr\supplemental.js" />
     <Content Include="Scripts\cldr\unresolved.js" />
-    <Content Include="Scripts\dx.viz.debug.js" />
-    <Content Include="Scripts\dx.viz.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular-touch.min.js.map" />
     <Content Include="Scripts\angular-sanitize.min.js.map" />
@@ -1102,15 +1108,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\sitemap.xml" />
-    <Content Include="Scripts\vectormap-data\africa.js" />
-    <Content Include="Scripts\vectormap-data\canada.js" />
-    <Content Include="Scripts\vectormap-data\eurasia.js" />
-    <Content Include="Scripts\vectormap-data\europe.js" />
-    <Content Include="Scripts\vectormap-data\usa.js" />
-    <Content Include="Scripts\vectormap-data\world.js" />
-    <Content Include="Scripts\vectormap-utils\dx.vectormaputils.debug.js" />
-    <Content Include="Scripts\vectormap-utils\dx.vectormaputils.js" />
-    <Content Include="Scripts\vectormap-utils\dx.vectormaputils.node.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

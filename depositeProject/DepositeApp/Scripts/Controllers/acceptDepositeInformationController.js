@@ -4,13 +4,45 @@
         $scope.showMessage = false;
         $scope.showTable = false;
         $scope.showConfirmedTable = false;
-        
+        $scope.showPie = false;
         function ConvertUTCTimeToLocalTime(UTCDateString) {
             var convertdLocalTime = new Date(UTCDateString);
             var hourOffset = convertdLocalTime.getTimezoneOffset() / 60;
             convertdLocalTime.setHours(convertdLocalTime.getHours() - hourOffset);
             return convertdLocalTime;
         }
+        /*$scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
+        $scope.data = [300, 500, 100];*/
+        /*var oilCanvas = document.getElementById("oilChart");
+
+        Chart.defaults.global.defaultFontFamily = "Lato";
+        Chart.defaults.global.defaultFontSize = 18;
+
+        var oilData = {
+            labels: [
+                "Saudi Arabia",
+                "Russia",
+                "Iraq",
+                "United Arab Emirates",
+                "Canada"
+            ],
+            datasets: [
+                {
+                    data: [133.3, 86.2, 52.2, 51.2, 50.2],
+                    backgroundColor: [
+                        "#FF6384",
+                        "#63FF84",
+                        "#84FF63",
+                        "#8463FF",
+                        "#6384FF"
+                    ]
+                }]
+        };
+
+        var pieChart = new Chart(oilCanvas, {
+            type: 'pie',
+            data: oilData
+        });*/
         depositeDataService.getUnacceptedDeposites()
             .then(function successCallback(response) {
                 $scope.deposites = response.data;
@@ -77,41 +109,15 @@
             $scope.deposite.StartDepositeDate = ConvertUTCTimeToLocalTime($scope.deposite.StartDepositeDate);
             $scope.deposite.EndDepositeDate = ConvertUTCTimeToLocalTime($scope.deposite.EndDepositeDate);
         }
-        
+       
         $scope.getfrequencySelection = function () {
-            $scope.frequencySelection = [];
-            let tmpInfoes = [];
-            depositeInfoesService.getInfoes()
+            $scope.showPie = true;
+            depositeDataService.getStatistics()
                 .then(function successCallback(response) {
-                    tmpInfoes = response.data;
-                    console.log("tmpInfoes");
-                    console.log(tmpInfoes);
-                    for (var depositeInfo in tmpInfoes) {
-                        $scope.frequencySelection.pop({depositeTypeName:depositeInfo[Name], frequency:0})
-                    }
-                    console.log($scope.frequencySelection);
-                },function errorCallback(response) { });
-            depositeDataService.getlAllDeposites()
-                .then(function successCallback(response) {
-                $scope.confirmedDeposites = response.data;
-                
-                let countFirstTypeDeposite = 0;
-                let countSecondTypeDeposite = 0;
-                for (var deposite in responce.data) {
-                    if (deposite[DepositeInfo].Name == "Депозит з можливістю поповнення") {
-                        countFirstTypeDeposite++;
-                    }
-                    if (deposite[DepositeInfo].Name == "Депозит з можливістю поповнення") {
-                        countSecondTypeDeposite++;
-                    }
-                    }
-                    const depositesCount = responce.data.length;
-                    $scope.frequencySelection[0].frequency = countFirstTypeDeposite / depositesCount;
-                    $scope.frequencySelection[2].frequency = countSecondTypeDeposite / depositesCount;
-                    console.log("frequencyInfoes");
-                    
-                    console.log($scope.frequencySelection);
-            }, function errorCallback(response) { });
+                    $scope.labels = response.data.Labels;
+                    $scope.data = response.data.Data;
+                }, function errorCallback(response) { });
+            
         }
     });
 

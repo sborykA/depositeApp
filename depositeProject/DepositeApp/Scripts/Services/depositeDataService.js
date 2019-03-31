@@ -30,6 +30,9 @@
             },
             getGeneratedСlientForm: function (id) {
                 return $http.get("/api/Deposites/GeneratedСlientForm/",{ params: { id: id } });
+            },
+            getStatistics: function () {
+                return $http.get("/api/Deposites/Statistics/");
             }
 
         }

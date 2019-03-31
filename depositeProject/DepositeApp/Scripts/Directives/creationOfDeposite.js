@@ -57,7 +57,7 @@
                             $scope.deposite.StartDepositeDate = ConvertUTCTimeToLocalTime($scope.deposite.StartDepositeDate);
                             $scope.deposite.EndDepositeDate = ConvertUTCTimeToLocalTime($scope.deposite.EndDepositeDate);
                             $scope.deposite.CreationDate = ConvertUTCTimeToLocalTime($scope.deposite.CreationDate);
-                            $scope.message = "Депозит збережено";
+                            $scope.messageStatusCreation = "Депозит збережено";
                             $scope.showPrintForm = true;
                             $scope.showClientSearchForm = false;
                             $scope.showInputForm = false;
@@ -67,7 +67,7 @@
                             console.log($scope.deposite);
                             
                         }, function errorrCallback() {
-                            $scope.message = "Помилка запису";
+                            $scope.messageStatusCreation = "Помилка запису";
                         });
                 }
                 $scope.closeCreationOfDeposite = function () {

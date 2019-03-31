@@ -3,13 +3,13 @@
         <div class="close" ng-click="closeCreationOfDeposite()">x</div>
         <form role="form" name="identificationForm" novalidate ng-if="showClientSearchForm">
             <h2 class="form-login-heading">Введіть код за ЄДРПОУ або реєстраційний (обліковий) номер платника податків клієнта</h2>
-            <div class="col-md-offset-4 col-md-3">
-                <input type="text" class="form-control" placeholder="Код Інн або ЄДРПОУ " ng-model="identificationCode" required>
-                <button class="btn btn-lg btn-info btn-block" type="submit" ng-disabled="identificationForm.$invalid" ng-click="checkClientType(identificationCode)">Пошук клієнта</button>
-                <div class="alert alert-danger" ng-show="messageStatus">
-                    {{message}}
-                </div>
+            <!--<div class="col-md-offset-4 col-md-3">-->
+            <input type="text" class="form-control" placeholder="Код Інн або ЄДРПОУ " ng-model="identificationCode" required>
+            <button class="btn btn-lg btn-info btn-block" type="submit" ng-disabled="identificationForm.$invalid" ng-click="checkClientType(identificationCode)">Пошук клієнта</button>
+            <div class="alert alert-danger" ng-show="messageStatus">
+                {{message}}
             </div>
+            <!--</div>-->
         </form>
         <div class="form" name="depositeForm" ng-if="showInputForm" novalidate>
             <form form-horizontal" role="form">
@@ -164,13 +164,14 @@
         </div>
         <form role="form" name="identificationForm" novalidate ng-if="showPrintForm">
             <h2 class="form-login-heading">Натисність для друку договору</h2>
-            <a class="btn btn-sm btn-info btn-block" href="/api/Deposites/GeneratedСlientForm/?id={{deposite.DepositeId}}">Друк анкети клієнта</a>
-            <a class="btn btn-sm btn-info btn-block" href="/api/Deposites/GeneratedStatement/?id={{deposite.DepositeId}}">Друк заяви на відкриття депозиту</a>
+            <a class="btn btn-sm btn-info btn-block" href="/api/Deposites/GeneratedСlientForm/?id={{deposite.DepositeId}}" ng-click="openCreationMessage()">Друк анкети клієнта</a>
+            <a class="btn btn-sm btn-info btn-block" href="/api/Deposites/GeneratedStatement/?id={{deposite.DepositeId}}" ng-click="openCreationMessage()">Друк заяви на відкриття депозиту</a>
             <!--<button class="btn btn-lg btn-info btn-block" type="submit" ng-click="">Друк анкети клієнта</button>
             <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="">Друк заяви</button>-->
             <div class="alert alert-danger">
                 {{messageStatusCreation}}
             </div>
+            <creation-message></creation-message>
         </form>
     </div>
 </div>
