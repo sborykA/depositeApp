@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <script src="../../Scripts/angular.js"></script>
     <script src="../../Scripts/angular-route.js"></script>
@@ -11,6 +12,7 @@
     <script src="../Scripts/Controllers/clientDeclarationController.js"></script>
     <script src="../Scripts/Controllers/acceptDepositeInformationController.js"></script>
     <script src="../Scripts/Controllers/loginController.js"></script>
+    <script src="../Scripts/Controllers/mainPageController.js"></script>
     <script src="../Scripts/Services/clientOperationService.js"></script>
     <script src="../Scripts/Services/depositeDataService.js"></script>
     <script src="../Scripts/Services/userProvider.js"></script>
@@ -21,6 +23,8 @@
     <script src="../Scripts/Directives/creationOfDeposite.js"></script>
     <script src="../Scripts/Directives/editionOfDeposite.js"></script>
     <script src="../Scripts/Directives/creationMessage.js"></script>
+    <script src="../Scripts/Directives/frontOfficeFrame.js"></script>
+    <script src="../Scripts/Directives/backOfficeFrame.js"></script>
     <link href="../Styles/style.css" rel="stylesheet" />
     <!--<link href="../../Content/Site.css" rel="stylesheet" />-->
     <link href="../../Content/bootstrap.css" rel="stylesheet" />
@@ -28,13 +32,18 @@
     <script src="../../Scripts/bootstrap.js"></script>
     <script src="../../Scripts/Chart.bundle.js"></script>
     <script src="../../Scripts/angular-chart.js"></script>
+    <!-- Font Awesome JS -->
+    <script defer src="../../Scripts/fontawesome.js"></script>
+    <script defer src="../../Scripts/solid.js"></script>
 
 
 </head>
 <body>
-
     <div ng-app="DepositeApp">
-       <div ng-view></div>
+        <div ng-view></div>
+        <script src="../../Scripts/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="../Scripts/Different/changeSideBar.js"></script>
     </div>
+    
 </body>
 </html>

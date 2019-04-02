@@ -1,11 +1,13 @@
 ﻿(function (app) {
-    app.controller('clientDeclarationController', function ($scope, clientOperationService, depositeInfoesService, depositeDataService) {
+    app.controller('clientDeclarationController', function ($scope, clientOperationService, depositeInfoesService, depositeDataService,$userProvider) {
         function ConvertUTCTimeToLocalTime(UTCDateString) {
             var convertdLocalTime = new Date(UTCDateString);
             var hourOffset = convertdLocalTime.getTimezoneOffset() / 60;
             convertdLocalTime.setHours(convertdLocalTime.getHours() - hourOffset);
             return convertdLocalTime;
         }
+        //angular.extend($scope, $userProvider, true);
+        //$scope.login = $userProvider.getUser().Login;
         function ExportToPDF(data) {
             //base64 To ArrayBuffer
             var binaryString = window.atob(data.split(',')[1]);

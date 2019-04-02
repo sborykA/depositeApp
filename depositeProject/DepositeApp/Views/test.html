@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Collapsible sidebar using Bootstrap 4</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link href="../../Content/bootstrap.css" rel="stylesheet" />
+
+    <link href="../Styles/style.css" rel="stylesheet" />
+    <script src="../../Scripts/jquery-3.3.1.js"></script>
+    <script src="../../Scripts/bootstrap.js"></script>
+
+
+    <!-- Font Awesome JS -->
+    <script defer src="../../Scripts/fontawesome.js"></script>
+    <script defer src="../../Scripts/solid.js"></script>
+    
+
+</head>
+
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg  navbar-dark " style="background-color: #7386D5;">
+        <a class="navbar-brand" href="#">Абс</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="#">Головна <span class="sr-only">(current)</span></a>
+                <!--<a class="nav-item nav-link" href="#">Features</a>
+    <a class="nav-item nav-link" href="#">Pricing</a>
+    <a class="nav-item nav-link disabled" href="#">Disabled</a>-->
+            </div>
+        </div>
+    </nav>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <ul class="list-unstyled components">
+
+                <!--<li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">Home 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 3</a>
+                        </li>
+                    </ul>
+                </li>-->
+                <li>
+                    <a href="#">Рахунки</a>
+                </li>
+                <li>
+                    <a href="#">Кредит</a>
+                </li>
+                <li>
+                    <a href="#">Депозит</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" id="hideNav">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Приховати меню</span>
+                    </button>
+                </div>
+            </nav>
+        </div>  
+           
+    </div>
+
+    <script src="../../Scripts/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../Scripts/Different/changeSideBar.js"></script>
+
+   
+</body>
+
+</html>

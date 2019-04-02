@@ -10,6 +10,10 @@
                 { templateUrl: "/DepositeApp/Views/clientDeclaration.html", controller: "clientDeclarationController" })
             .when("/acceptDepositInformation",
             { templateUrl: "/DepositeApp/Views/acceptDepositeInformation.html", controller: "acceptDepositeInformationController" })
+            .when("/mainPage",
+            { templateUrl: "/DepositeApp/Views/mainPage.html", controller: "mainPageController" })
+            .otherwise(
+            { redirectTo: "/mainPage", controller: "mainPageController" })
             .otherwise(
             { redirectTo: "/login", controller: "loginController" });
     };

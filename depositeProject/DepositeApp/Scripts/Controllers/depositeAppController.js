@@ -1,9 +1,9 @@
 ﻿(function (app) {
     app.controller('depositeAppController', '$location', '$userProvider', '$pagesSecurityService',
         function ($scope, $location, $userProvider, $pagesSecurityService) {
-        $scope.goTo = function (path) {
-            $location.path(path);
-        }
+            $scope.goTo = function (path) {
+                $location.path(path);
+            }
             angular.extend($scope, $userProvider, true);
             //Разобраться
             $scope.$on('$locationChangeStart', function (event, nextUrl, prevUrl) {

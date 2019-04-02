@@ -11,7 +11,9 @@
                     } else if (accountInfo.Type.toLowerCase() == 'back') {
                         $userProvider.setUser({ Login: login, Roles: [$userProvider.rolesEnum.Back] });
                     }
-                    redirect(true, $userProvider.getUser().Roles);
+
+                    //redirect(true, $userProvider.getUser().Roles);
+                    redirect(true, 6);
                     
                     
                 }, function errorCallback(response) {

@@ -11,6 +11,10 @@
                         } else if (type == 1) {
                             $location.path('/acceptDepositInformation');
                         }
+                        //test
+                        else {
+                            $location.path('/mainPage');
+                        }
 
                     } else {
                         $scope.messageStatus = true;
@@ -20,7 +24,7 @@
                 }
                 $scope.submited = false;
                 $scope.submitAuthorization = function (isValid) {
-                    console.log(isValid);
+                   
                     $scope.submited = true;
                     if (isValid) {
                         authorizationFactory.login($scope.loginData.login, $scope.loginData.password, redirect);
