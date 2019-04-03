@@ -4,7 +4,7 @@
             restrict: 'E',
             scope: false,
             templateUrl: 'acceptDepositeInformation.html',
-            controller: function ($scope, depositeDataService, depositeInfoesService) {
+            controller: function ($scope, depositeDataService) {
                 $scope.clientInBase = false;
                 $scope.showMessage = false;
                 $scope.showTable = false;
@@ -67,6 +67,7 @@
                         $scope.confirmedDeposites = response.data;
 
                         if ($scope.confirmedDeposites.length !== 0) {
+                            $scope.getTotalIncome();
                             $scope.message1 = "Сьогодні вже здійснювалися депозити";
                             //$scope.showMessage = false;
                             $scope.showConfirmedTable = true;
@@ -100,12 +101,31 @@
                                 $scope.message1 = "Сьогодні вже здійснювалися депозити";
                                 //$scope.showMessage = false;
                                 $scope.showConfirmedTable = true;
+                                $scope.getTotalIncome();
                             } else {
                                 $scope.message1 = "Сьогодні ще не здійснювалися депозити";
                                 //$scope.showMessage = true;
                                 $scope.showConfirmedTable = false;
                             }
                         }, function errorCallback(response) { });
+                }
+                $scope.incomeInUSD = 0;
+                $scope.incomeInEURO = 0;
+                $scope.incomeInUAH = 0;
+                $scope.getTotalIncome = function () {
+                    $scope.incomeInUSD = 0;
+                    $scope.incomeInEURO = 0;
+                    $scope.incomeInUAH = 0;
+                    for ( var confirmedDepositeId in $scope.confirmedDeposites) {   
+                        var confirmedDeposite = $scope.confirmedDeposites[confirmedDepositeId];
+                            if (confirmedDeposite.Currency == "UAH") {
+                                $scope.incomeInUAH += confirmedDeposite.AmountOfDeposite;
+                            } else if (confirmedDeposite.Currency == "USD") {
+                                $scope.incomeInUSD += confirmedDeposite.AmountOfDeposite;
+                            } else if (confirmedDeposite.Currency == "EURO") {
+                                $scope.incomeInEURO += confirmedDeposite.AmountOfDeposite;
+                            }  
+                    }
                 }
                 $scope.showPopUpMsg = false;
                 $scope.openPopUp = function (deposite) {

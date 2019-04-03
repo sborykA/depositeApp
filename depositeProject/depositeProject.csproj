@@ -238,6 +238,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\PDFWorker.cs" />
     <Compile Include="Models\Statistics.cs" />
+    <Compile Include="Models\TotalIncome.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UsersDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

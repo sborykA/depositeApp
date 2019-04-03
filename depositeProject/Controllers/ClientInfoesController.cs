@@ -16,6 +16,7 @@ using iTextSharp.text.pdf;
 
 namespace depositeProject.Controllers
 {
+    [RoutePrefix("api/ClientInfoes")]
     public class ClientInfoesController : ApiController
     {
         private UsersDB db = new UsersDB();

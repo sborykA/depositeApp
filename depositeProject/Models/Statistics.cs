@@ -49,7 +49,7 @@ namespace depositeProject.Models
             {
                 Data.Add(Math.Round((double)counters[i] / totalCount,3));
             }
-
         }
+
     }
 }

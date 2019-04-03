@@ -19,12 +19,11 @@
             <td>{{deposite.Message}}</td>
             <td>{{deposite.Status}}</td>
             <td><a class="btn btn-sm btn-info btn-block" href="/api/Deposites/GeneratedСontract/?id={{deposite.DepositeId}}" ng-click="openCreationMessage()">Друк</a></td>
-            <creation-message></creation-message>
+            
         </tr>
         <!--<button class="btn btn-sm btn-info btn-block" type="submit" ng-click="generatePDF(deposite.DepositeId)">Друк</button>-->
     </tbody>
-
-    <pop-up-msg></pop-up-msg>
+    <creation-message></creation-message>
 </table>
 
 <br />
@@ -32,9 +31,9 @@
 <br />
 <form role="form" name="buttonForm">
     <div class="form-group">
-        <div class="row">
-            <div class="col-md-offset-9  col-md-2">
-                <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="openCreationOfDeposite()">Відкрити депозит</button>
+        <div class="row justify-content-end">
+            <div class="col-sm-3">
+                <button class="btn btn-md btn-info btn-block" type="submit" ng-click="openCreationOfDeposite()">Відкрити депозит</button>
             </div>
         </div>
     </div>

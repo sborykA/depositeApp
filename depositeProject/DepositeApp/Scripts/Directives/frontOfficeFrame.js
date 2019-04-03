@@ -156,20 +156,8 @@
 
                 }
                 $scope.generatePDF = function (id) {
-                    console.log(id);
                     depositeDataService.getGeneratedContract(id)
                         .then(function successCallback(response) {
-                            console.log(response);
-                            //ExportToPDF(response);
-                            /*
-                            console.log("here lives the response:", response);
-                            var headers = response.headers;
-                            var blob = new Blob([response.body], { type: headers['application/octet-stream'] });
-                            var link = document.createElement('a');
-                            link.href = window.URL.createObjectURL(blob);
-                            link.download = "Filename.pdf";
-                            link.click();*/
-
                         }, function errorCallback(response) { });
                 }
                 $scope.openEditionOfDeposite = function (deposite) {
@@ -178,6 +166,10 @@
                     $scope.deposite.StartDepositeDate = ConvertUTCTimeToLocalTime($scope.deposite.StartDepositeDate);
                     $scope.deposite.EndDepositeDate = ConvertUTCTimeToLocalTime($scope.deposite.EndDepositeDate);
 
+                }
+                $scope.showCreationMessage = false;
+                $scope.openCreationMessage = function () {
+                    $scope.showCreationMessage = true;
                 }
                 
             }

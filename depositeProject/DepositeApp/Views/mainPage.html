@@ -5,9 +5,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="#">Головна <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="#!/mainPage">Головна <span class="sr-only">(current)</span></a>
             <span>Hello, {{login}}|{{role}}</span>
-            <a class="nav-item nav-link" href="#">Вихід</a>
+            <a class="nav-item nav-link" href="#!/login">Вихід</a>
             <!--<a class="nav-item nav-link" href="#">Features</a>
     <a class="nav-item nav-link" href="#">Pricing</a>
     <a class="nav-item nav-link disabled" href="#">Disabled</a>-->
@@ -40,7 +40,7 @@
                 <a href="#">Кредит</a>
             </li>
             <li>
-                <a href="#">Депозит</a>
+                <a href="" ng-click="goOnDeposite()">Депозит</a>
             </li>
         </ul>
     </nav>
@@ -56,12 +56,13 @@
                 </button>
             </div>
         </nav>
-        <div ng-if="getFrameType()">
-            <front-office-frame></front-office-frame>
+        <div ng-if="showDepositeFrame">
+            <div ng-if="getFrameType()">
+                <front-office-frame></front-office-frame>
+            </div>
+            <div ng-if="!getFrameType()">
+                <back-office-frame></back-office-frame>
+            </div>
         </div>
-        <div ng-if="!getFrameType()">
-            <back-office-frame></back-office-frame>
-        </div>
-
     </div>
 </div>

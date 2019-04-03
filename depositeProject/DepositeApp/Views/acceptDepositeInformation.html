@@ -1,60 +1,82 @@
 ﻿{{message}}
 <div ng-if="showMessage"></div>
-<table class="table table-bordered" ng-if="showTable">
-    <thead>
-        <tr>
-            <th>ID депозиту</th>
-            <th>Найменування клієнта банку</th>
-            <th>Тип депозиту</th>
-            <th>Статус</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="deposite in deposites">
-            <td>{{deposite.DepositeId}}</td>
-            <td>{{deposite.ClientInfo.Name}}</td>
-            <td>{{deposite.DepositeInfo.Name}}</td>
-            <td>{{deposite.Status}}</td>
-            <td><button class="btn btn-sm btn-info btn-block" type="submit" ng-click="openPopUp(deposite)">Переглянути</button></td>
-        </tr>
-    </tbody>
-  
-</table>
-        Депозити за сьогодні
-<table class="table table-bordered" ng-if="showConfirmedTable">
-    <thead>
-        <tr>
-            <th>ID депозиту</th>
-            <th>Найменування клієнта банку</th>
-            <th>Тип депозиту</th>
-            <th>Статус</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="confirmedDeposite in confirmedDeposites">
-            <td>{{confirmedDeposite.DepositeId}}</td>
-            <td>{{confirmedDeposite.ClientInfo.Name}}</td>
-            <td>{{confirmedDeposite.DepositeInfo.Name}}</td>
-            <td>{{confirmedDeposite.Status}}</td>
-            <!--<td><button class="btn btn-sm btn-info btn-block" type="submit" ng-click="openPopUp(confirmedDeposite)">Переглянути</button></td>-->
-        </tr>
-    </tbody>
+<div class="row justify-content-center">
+    <div class="col-sm-8">
+        <table class="table table-bordered" ng-if="showTable">
+            <thead>
+                <tr>
+                    <th>ID депозиту</th>
+                    <th>Найменування клієнта банку</th>
+                    <th>Тип депозиту</th>
+                    <th>Статус</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="deposite in deposites">
+                    <td>{{deposite.DepositeId}}</td>
+                    <td>{{deposite.ClientInfo.Name}}</td>
+                    <td>{{deposite.DepositeInfo.Name}}</td>
+                    <td>{{deposite.Status}}</td>
+                    <td><button class="btn btn-sm btn-info btn-block" type="submit" ng-click="openPopUp(deposite)">Переглянути</button></td>
+                </tr>
+            </tbody>
 
-</table>
-<div>
-    <form role="form" name="buttonForm">
-        <div class="form-group">
-            <div class="row">
-                <div class="col-md-offset-2  col-md-3">
-                    <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="getfrequencySelection()">Побудувати діаграму</button>
+        </table>
+        </div>
+    </div>
+    Депозити за сьогодні
+    <!----><div class="row justify-content-center">
+        <div class="col-sm-8">
+            <table class="table table-bordered" ng-if="showConfirmedTable">
+                <thead>
+                    <tr>
+                        <th>ID депозиту</th>
+                        <th>Найменування клієнта банку</th>
+                        <th>Тип депозиту</th>
+                        <th>Статус</th>
+                        <th>Сума вкладу</th>
+                        <th>Валюта вкладу</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="confirmedDeposite in confirmedDeposites">
+                        <td>{{confirmedDeposite.DepositeId}}</td>
+                        <td>{{confirmedDeposite.ClientInfo.Name}}</td>
+                        <td>{{confirmedDeposite.DepositeInfo.Name}}</td>
+                        <td>{{confirmedDeposite.Status}}</td>
+                        <td>{{confirmedDeposite.AmountOfDeposite}}</td>
+                        <td>{{confirmedDeposite.Currency}}</td>
+                    </tr>
+                    <tr></tr>
+                    <tr>
+                        <td>Загальна сума вкладу в UAH:</td>
+                        <td>{{incomeInUAH}}</td>
+                        <td>Загальна сума вкладу в USD:</td>
+                        <td>{{incomeInUSD}}</td>
+                        <td>Загальна сума вкладу в EURO:</td>
+                        <td>{{incomeInEURO}}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    <div>
+        <form role="form" name="buttonForm">
+            <div class="form-group">
+                <div class="row justify-content-center">
+                    <div class="col-sm-3">
+                        <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="getfrequencySelection()">Побудувати діаграму</button>
+                    </div>
                 </div>
             </div>
+        </form>
+        <div class="row justify-content-center">
+            <div class="col-sm-6" ng-if="showPie">
+                <!--<canvas id="oilChart" width="600" height="400"></canvas>-->
+                <canvas id="pie" class="chart chart-pie"
+                        chart-data="data" chart-labels="labels"></canvas>
+            </div>
         </div>
-    </form>
-    <div class="col-md-offset-3 col-md-5" ng-if="showPie">
-        <!--<canvas id="oilChart" width="600" height="400"></canvas>-->
-        <canvas id="pie" class="chart chart-pie"
-                chart-data="data" chart-labels="labels"></canvas>
     </div>
-</div>
-<pop-up-msg></pop-up-msg>
+    <pop-up-msg></pop-up-msg>

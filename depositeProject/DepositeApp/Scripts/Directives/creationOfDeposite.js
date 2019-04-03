@@ -20,6 +20,7 @@
                         $scope.depositeInfoes = response.data;
                     }, function errorCallback(response) {
                     });
+                var clientInfo;
                 $scope.checkClientType = function (identificationCode) {
                     $scope.messageStatus = false;
                     $scope.showInputForm = false;
@@ -27,6 +28,7 @@
                     clientOperationService.checkClient(identificationCode)
                         .then(function successCallback(response) {
                             $scope.deposite.ClientInfo = response.data;
+                            clientInfo = response.data;
                             $scope.message = "Клієнта знайдено";
                             $scope.messageStatus = true;
                             $scope.showInputForm = true;
@@ -44,9 +46,34 @@
                     deposite.CreationDate = new Date();
                     deposite.AcceptionDate = new Date(1754, 0, 1)
                     deposite.Status = false;
+                    /*public int Id { get; set; }
+        public string Name { get; set; }
+        public string Representative { get; set; }
+        public string IndentificationCode { get; set; }
+        public string RegistrationPlace { get; set; }
+        public string PhoneNumber { get; set; }
+        public string BankAccount { get; set; }
+        public string BankAccountForDP { get; set; }*/
                     if ($scope.clientInBase == true) {
-                        deposite.ClientInfoId = deposite.ClientInfo.Id;
-                        deposite.ClientInfo = null;
+                        if (deposite.ClientInfo.Name == clientInfo.Name &&
+                            deposite.ClientInfo.Representative == clientInfo.Representative &&
+                            deposite.ClientInfo.IndentificationCode == clientInfo.IndentificationCode &&
+                            deposite.ClientInfo.RegistrationPlace == clientInfo.RegistrationPlace &&
+                            deposite.ClientInfo.PhoneNumber == clientInfo.PhoneNumber &&
+                            deposite.ClientInfo.BankAccount == clientInfo.BankAccount &&
+                            deposite.ClientInfo.BankAccountForDP == clientInfo.BankAccountForDP) {
+                            console.log(deposite.ClientInfo);
+                            clientOperationService.updateClientInfo(deposite.ClientInfo)
+                                .then(function successCallback(response) {
+
+                                    //deposite.ClientInfo = response.data;
+                                } , function errorrCallback() {
+                                    
+                                });
+                            deposite.ClientInfoId = deposite.ClientInfo.Id;
+                            deposite.ClientInfo = null;
+                        }
+                        
                     }
                     deposite.DepositeInfoId = deposite.DepositeInfo.Id;
                     deposite.DepositeInfo = null;

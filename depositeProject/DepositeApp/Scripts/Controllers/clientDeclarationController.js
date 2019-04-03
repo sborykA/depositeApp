@@ -43,7 +43,6 @@
 
                 if ($scope.createdDeposites.length !== 0) {
                     $scope.message1 = "Сьогодні вже створювались депозити";
-                    console.log($scope.createdDeposites);
                     //$scope.showMessage = false;
                     $scope.showCreatedTable = true;
                 } else {
@@ -154,17 +153,6 @@
             console.log(id);
             depositeDataService.getGeneratedContract(id)
                 .then(function successCallback(response) {
-                    console.log(response);
-                    //ExportToPDF(response);
-                    /*
-                    console.log("here lives the response:", response);
-                    var headers = response.headers;
-                    var blob = new Blob([response.body], { type: headers['application/octet-stream'] });
-                    var link = document.createElement('a');
-                    link.href = window.URL.createObjectURL(blob);
-                    link.download = "Filename.pdf";
-                    link.click();*/
-                    
                 }, function errorCallback(response) { });
             }
         $scope.openEditionOfDeposite = function (deposite) {

@@ -8,6 +8,7 @@
                 $scope.login = $userProvider.getUser().Login;
                 //$scope.showFrontFrame = false;
                 //$scope.showBackFrame = false;
+                $scope.showDepositeFrame = false;
                 $scope.getFrameType = function () {
                     //$scope.showFrontFrame = false;
                     //$scope.showBackFrame = false;
@@ -19,6 +20,9 @@
                         //$scope.showBackFrame = true;
                         return false;
                     }
+                }
+                $scope.goOnDeposite = function () {
+                    $scope.showDepositeFrame = true;
                 }
                 //---------------------------------
                 $(document).ready(function () {
