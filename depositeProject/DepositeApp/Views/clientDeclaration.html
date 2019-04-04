@@ -1,62 +1,71 @@
 ﻿Всі підтверджені депозити
 <div ng-if="showMessage"></div>
+<div class="row justify-content-center">
+    <div class="col-sm-8">
+        <table class="table table-bordered" ng-if="showTable">
+            <thead>
+                <tr>
+                    <th>ID депозиту</th>
+                    <th>Найменування клієнта банку</th>
+                    <th>Тип депозиту</th>
+                    <th>Повідомлення</th>
+                    <th>Статус</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="deposite in deposites">
+                    <td>{{deposite.DepositeId}}</td>
+                    <td>{{deposite.ClientInfo.Name}}</td>
+                    <td>{{deposite.DepositeInfo.Name}}</td>
+                    <td>{{deposite.Message}}</td>
+                    <td>{{deposite.Status}}</td>
+                    <td><a class="btn btn-sm btn-info btn-block" href="/api/Deposites/GeneratedСontract/?id={{deposite.DepositeId}}" ng-click="openCreationMessage()">Друк</a></td>
 
-<table class="table table-bordered" ng-if="showTable">
-    <thead>
-        <tr>
-            <th>ID депозиту</th>
-            <th>Найменування клієнта банку</th>
-            <th>Тип депозиту</th>
-            <th>Повідомлення</th>
-            <th>Статус</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="deposite in deposites">
-            <td>{{deposite.DepositeId}}</td>
-            <td>{{deposite.ClientInfo.Name}}</td>
-            <td>{{deposite.DepositeInfo.Name}}</td>
-            <td>{{deposite.Message}}</td>
-            <td>{{deposite.Status}}</td>
-            <td><a class="btn btn-sm btn-info btn-block" href="/api/Deposites/GeneratedСontract/?id={{deposite.DepositeId}}" ng-click="openCreationMessage()">Друк</a></td>
-            
-        </tr>
-        <!--<button class="btn btn-sm btn-info btn-block" type="submit" ng-click="generatePDF(deposite.DepositeId)">Друк</button>-->
-    </tbody>
-    <creation-message></creation-message>
-</table>
+                </tr>
+                <!--<button class="btn btn-sm btn-info btn-block" type="submit" ng-click="generatePDF(deposite.DepositeId)">Друк</button>-->
+            </tbody>
+
+        </table>
+    </div>
+</div>
 
 <br />
         Депозити за сьогодні
 <br />
-<form role="form" name="buttonForm">
-    <div class="form-group">
-        <div class="row justify-content-end">
-            <div class="col-sm-3">
-                <button class="btn btn-md btn-info btn-block" type="submit" ng-click="openCreationOfDeposite()">Відкрити депозит</button>
+<div class="row justify-content-center">
+    <div class="col-sm-8">
+        <form role="form" name="buttonForm">
+            <div class="form-group">
+                <div class="row justify-content-end">
+                    <div class="col-sm-3">
+                        <button class="btn btn-md btn-info btn-block" type="submit" ng-click="openCreationOfDeposite()">Відкрити депозит</button>
+                    </div>
+                </div>
             </div>
-        </div>
+        </form>
+        <creation-of-deposite></creation-of-deposite>
+        <br />
+        <table class="table table-bordered" ng-if="showCreatedTable">
+            <thead>
+                <tr>
+                    <th>ID депозиту</th>
+                    <th>Найменування клієнта банку</th>
+                    <th>Тип депозиту</th>
+                    <th>Статус</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="createdDeposite in createdDeposites">
+                    <td>{{createdDeposite.DepositeId}}</td>
+                    <td>{{createdDeposite.ClientInfo.Name}}</td>
+                    <td>{{createdDeposite.DepositeInfo.Name}}</td>
+                    <td>{{createdDeposite.Status}}</td>
+                    <td><button class="btn btn-sm btn-info btn-block" type="submit" ng-click="openEditionOfDeposite(createdDeposite)">Редагувати</button></td>
+                </tr>
+            </tbody>
+
+        </table>
     </div>
-</form>
-<creation-of-deposite></creation-of-deposite>
-<br />
-<table class="table table-bordered" ng-if="showCreatedTable">
-    <thead>
-        <tr>
-            <th>ID депозиту</th>
-            <th>Найменування клієнта банку</th>
-            <th>Тип депозиту</th>
-            <th>Статус</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="createdDeposite in createdDeposites">
-            <td>{{createdDeposite.DepositeId}}</td>
-            <td>{{createdDeposite.ClientInfo.Name}}</td>
-            <td>{{createdDeposite.DepositeInfo.Name}}</td>
-            <td>{{createdDeposite.Status}}</td>
-            <td><button class="btn btn-sm btn-info btn-block" type="submit" ng-click="openEditionOfDeposite(createdDeposite)">Редагувати</button></td>
-        </tr>
-    </tbody>
-    <edition-of-deposite></edition-of-deposite>
-</table>
+</div>
+<edition-of-deposite></edition-of-deposite>
+<creation-message></creation-message>

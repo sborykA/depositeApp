@@ -262,10 +262,13 @@
     <Content Include="DepositeApp\Scripts\DepositeApp.js" />
     <Content Include="DepositeApp\Scripts\Different\changeSideBar.js" />
     <Content Include="DepositeApp\Scripts\Directives\backOfficeFrame.js" />
+    <Content Include="DepositeApp\Scripts\Directives\checkData.js" />
     <Content Include="DepositeApp\Scripts\Directives\creationMessage.js" />
+    <Content Include="DepositeApp\Scripts\Directives\creationMessageInPopup.js" />
     <Content Include="DepositeApp\Scripts\Directives\creationOfDeposite.js" />
     <Content Include="DepositeApp\Scripts\Directives\editionOfDeposite.js" />
     <Content Include="DepositeApp\Scripts\Directives\frontOfficeFrame.js" />
+    <Content Include="DepositeApp\Scripts\Directives\integer.js" />
     <Content Include="DepositeApp\Scripts\Directives\popUpMsg.js" />
     <Content Include="DepositeApp\Scripts\Modules\authorizationModule.js" />
     <Content Include="DepositeApp\Scripts\Modules\securityModule.js" />
@@ -281,6 +284,7 @@
     <Content Include="DepositeApp\Views\acceptDepositeInformation.html" />
     <Content Include="DepositeApp\Views\createD.html" />
     <Content Include="DepositeApp\Views\creationMessage.html" />
+    <Content Include="DepositeApp\Views\creationMessageInPopup.html" />
     <Content Include="DepositeApp\Views\editD.html" />
     <Content Include="DepositeApp\Views\login.html" />
     <Content Include="DepositeApp\Views\clientDeclaration.html" />

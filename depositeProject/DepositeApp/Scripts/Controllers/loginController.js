@@ -24,7 +24,6 @@
                 }
                 $scope.submited = false;
                 $scope.submitAuthorization = function (isValid) {
-                   
                     $scope.submited = true;
                     if (isValid) {
                         authorizationFactory.login($scope.loginData.login, $scope.loginData.password, redirect);
