@@ -13,7 +13,6 @@
                 <div class="col-sm-6" style="color:red" ng-if="identificationForm.identificationCode.$dirty && identificationForm.identificationCode.$invalid">
                     <span ng-if="identificationForm.identificationCode.$error.minlength">Код ідентифікації клієнта повинен містити принаймні 4 симоволи</span>
                 </div>
-
             </div>
             <div class="row justify-content-center">
                 <div class="col-sm-6" style="color:red" ng-if="identificationForm.$submitted || identificationForm.identificationCode.$touched">
@@ -31,49 +30,38 @@
                 </div>
             </div>
             <!--</div>-->
+            
         </form>
         <div class="form" ng-if="showInputForm">
             <form form-horizontal" name="depositeForm" role="form" novalidate>
-                <div ng-if="cientInBase">
+                <div ng-if="clientInBase">
                     <div class="form-group">
                         <div class="row justify-content-around">
                             <label for="inputName" class=" col-sm-4 col-form-label">Найменування клієнта банку</label>
                             <div class=" col-sm-4">
-                                <input type="text" class="form-control" placeholder="Найменування клієнта банку" name="inputName" ng-model="deposite.ClientInfo.Name"  ng-minlength=4>
+                                <input type="text" class="form-control" placeholder="Найменування клієнта банку" name="inputName" ng-model="deposite.ClientInfo.Name" ng-minlength=4 empty ng-model-options="{ updateOn: 'blur' }">
                             </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-around">
-                        <div class="col-sm-4"></div>
-                        <div class="col-sm-6" style="color:red" ng-show="depositeForm.inputName.$dirty && depositeForm.inputName.$invalid">
-                            <span ng-show="depositeForm.inputName.$error.minlength">Найменування клієнта банку повинно містити принаймні 4 симоволи</span>
-                        </div>
-
-                    </div>
-                    <div class="row justify-content-around">
-                        <div class="col-sm-4"></div>
-                        <div class="col-sm-4" style="color:red" ng-if="depositeForm.$submitted || depositeForm.inputName.$touched">
-                            <span ng-if="depositeForm.inputName.$error.required">Введення найменування клієнта банку обов'язкове.</span>
+                        <div class="row justify-content-around">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-4" style="color:red" ng-if="depositeForm.inputName.$dirty && depositeForm.inputName.$invalid">
+                                <span ng-if="depositeForm.inputName.$error.minlength">Найменування клієнта банку повинно містити принаймні 4 симоволи</span>
+                                <span ng-if="depositeForm.inputName.$error.empty">Введення найменування клієнта банку обов'язкове.</span>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="row justify-content-around">
                             <label for="inputRepresentative" class=" col-sm-4 col-form-label">В особі підприємця</label>
                             <div class=" col-sm-4">
-                                <input type="text" class="form-control" placeholder="Прізвище Ім'я Побатькові" name="inputRepresentative" ng-model="deposite.ClientInfo.Representative"  ng-minlength=10>
+                                <input type="text" class="form-control" placeholder="Прізвище Ім'я Побатькові" name="inputRepresentative" ng-model="deposite.ClientInfo.Representative" ng-minlength=10 empty ng-model-options="{ updateOn: 'blur' }">
                             </div>
                         </div>
                         <div class="row justify-content-around">
                             <div class="col-sm-4"></div>
                             <div class="col-sm-4" style="color:red" ng-if="depositeForm.inputRepresentative.$dirty && depositeForm.inputRepresentative.$invalid">
-                                <span ng-if="depositeForm.inputRepresentative.$error.minlength">Найменування клієнта банку повинно містити принаймні 10 симоволів</span>
-                            </div>
-
-                        </div>
-                        <div class="row justify-content-around">
-                            <div class="col-sm-4"></div>
-                            <div class="col-sm-4" style="color:red" ng-if="depositeForm.$submitted || depositeForm.inputRepresentative.$touched">
-                                <span ng-if="depositeForm.inputRepresentative.$error.required">Введення найменування клієнта банку обов'язкове</span>
+                                <span ng-if="depositeForm.inputRepresentative.$error.minlength">ПІБ підприємця повинно містити принаймні 10 симоволів</span>
+                                <span ng-if="depositeForm.inputRepresentative.$error.empty">Введення ПІБ підприємця обов'язкове.</span>
                             </div>
                         </div>
                     </div>
@@ -81,20 +69,14 @@
                         <div class="row justify-content-around">
                             <label for="inputIdentificationCode" class="col-sm-4 col-form-label">код за ЄДРПОУ або реєстраційний (обліковий) номер платника податків клієнта</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" placeholder="Код ІНН або ЄДРПОУ" name="inputIdentificationCode" ng-model="deposite.ClientInfo.IndentificationCode"  ng-minlength=4>
+                                <input type="text" class="form-control" placeholder="Код ІНН або ЄДРПОУ" name="inputIdentificationCode" ng-model="deposite.ClientInfo.IndentificationCode" ng-minlength=4 empty ng-model-options="{ updateOn: 'blur' }">
                             </div>
                         </div>
                         <div class="row justify-content-around">
                             <div class="col-sm-4"></div>
                             <div class="col-sm-4" style="color:red" ng-if="depositeForm.inputIdentificationCode.$dirty && depositeForm.inputIdentificationCode.$invalid">
                                 <span ng-if="depositeForm.inputIdentificationCode.$error.minlength">Код ідентифікації клієнта повинен містити принаймні 4 симоволи</span>
-                            </div>
-
-                        </div>
-                        <div class="row justify-content-around">
-                            <div class="col-sm-4"></div>
-                            <div class="col-sm-4" style="color:red" ng-if="depositeForm.$submitted || depositeForm.inputIdentificationCode.$touched">
-                                <span ng-if="depositeForm.inputIdentificationCode.$error.required">Введення кода ідентифікації клієнта обов'язкове</span>
+                                <span ng-if="depositeForm.inputIdentificationCode.$error.empty">Введення кода ідентифікації клієнта обов'язкове</span>
                             </div>
                         </div>
                     </div>
@@ -102,44 +84,32 @@
                         <div class="row justify-content-around">
                             <label for="inputRegistrationPlace" class="col-sm-4 col-form-label">Місце реєстрації</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" placeholder="RegistrationPlace" name="inputRegistrationPlace" ng-model="deposite.ClientInfo.RegistrationPlace"  ng-minlength=4>
+                                <input type="text" class="form-control" placeholder="Місце реєстрації" name="inputRegistrationPlace" ng-model="deposite.ClientInfo.RegistrationPlace" ng-minlength=4 empty ng-model-options="{ updateOn: 'blur' }">
                             </div>
                         </div>
                         <div class="row justify-content-around">
                             <div class="col-sm-4"></div>
                             <div class="col-sm-4" style="color:red" ng-if="depositeForm.inputRegistrationPlace.$dirty && depositeForm.inputRegistrationPlace.$invalid">
-                                <span ng-if="depositeForm.inputRegistrationPlace.$error.minlength">Місце реєстрації  клієнта повинен містити принаймні 4 симоволи</span>
-                            </div>
-
-                        </div>
-                        <div class="row justify-content-around">
-                            <div class="col-sm-4"></div>
-                            <div class="col-sm-4" style="color:red" ng-if="depositeForm.$submitted || depositeForm.inputRegistrationPlace.$touched">
-                                <span ng-if="depositeForm.inputRegistrationPlace.$error.required">Введення місця реєстрації клієнта обов'язкове</span>
+                                <span ng-if="depositeForm.inputRegistrationPlace.$error.minlength">Місце реєстрації  клієнта повиненне містити принаймні 4 симоволи</span>
+                                <span ng-if="depositeForm.inputRegistrationPlace.$error.empty">Введення місця реєстрації клієнта обов'язкове</span>
                             </div>
                         </div>
+                        
                     </div>
 
                     <div class="form-group">
                         <div class="row justify-content-around">
                             <label for="inputPhoneNumber" class="col-sm-4 col-form-label">Номер телефону</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" placeholder="Номер телефону" name="inputPhoneNumber" ng-model="deposite.ClientInfo.PhoneNumber" ng-pattern="/^\+38(0\d{2})\d{3}\d{2}\d{2}$/">
-
+                                <input type="text" class="form-control" placeholder="Номер телефону" name="inputPhoneNumber" ng-model="deposite.ClientInfo.PhoneNumber" ng-pattern="/^\+\d{2}\(\d{3}\)\d{7}$/" empty ng-model-options="{ updateOn: 'blur' }">
+                                <!--/^(\+38)?0[0-9]{9}$/-->
                             </div>
-
                         </div>
                         <div class="row justify-content-around">
                             <div class="col-sm-4"></div>
                             <div class="col-sm-4" style="color:red" ng-if="depositeForm.inputPhoneNumber.$dirty && depositeForm.inputPhoneNumber.$invalid">
                                 <span ng-if="depositeForm.inputPhoneNumber.$error.pattern">Введіть телефон за шаблоном +38(0**)*******</span>
-                            </div>
-
-                        </div>
-                        <div class="row justify-content-around">
-                            <div class="col-sm-4"></div>
-                            <div class="col-sm-4" style="color:red" ng-if="depositeForm.$submitted || depositeForm.inputPhoneNumber.$touched">
-                                <span ng-if="depositeForm.inputPhoneNumber.$error.required">Номер телефона клієнта обов'язковий</span>
+                                <span ng-if="depositeForm.inputPhoneNumber.$error.empty">Номер телефона клієнта обов'язковий</span>
                             </div>
                         </div>
                     </div>
@@ -147,20 +117,14 @@
                         <div class="row justify-content-around">
                             <label for="inputBankAccount" class="col-sm-4 col-form-label">Номер банківського рахунку</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" placeholder="Номер банківського рахунку" name="inputBankAccount" ng-model="deposite.ClientInfo.BankAccount" ng-pattern="/\d{16}$/">
+                                <input type="text" class="form-control" placeholder="Номер банківського рахунку" name="inputBankAccount" ng-model="deposite.ClientInfo.BankAccount" ng-pattern="/\d{16}$/" empty ng-model-options="{ updateOn: 'blur' }">
                             </div>
                         </div>
                         <div class="row justify-content-around">
                             <div class="col-sm-4"></div>
                             <div class="col-sm-4" style="color:red" ng-if="depositeForm.inputBankAccount.$dirty && depositeForm.inputBankAccount.$invalid">
                                 <span ng-if="depositeForm.inputBankAccount.$error.pattern">Введіть номер банківського рахунку за шаблоном 0000000000000000</span>
-                            </div>
-
-                        </div>
-                        <div class="row justify-content-around">
-                            <div class="col-sm-4"></div>
-                            <div class="col-sm-4" style="color:red" ng-if="depositeForm.$submitted || depositeForm.inputBankAccount.$touched">
-                                <span ng-if="depositeForm.inputBankAccount.$error.required">Номер банківського рахунку  клієнта обов'язковий</span>
+                                <span ng-if="depositeForm.inputBankAccount.$error.empty">Номер банківського рахунку  клієнта обов'язковий</span>
                             </div>
                         </div>
                     </div>
@@ -168,30 +132,24 @@
                         <div class="row justify-content-around">
                             <label for="inputBankAccountForDP" class="col-sm-4 col-form-label">Номер банківського рахунку для виплати відстотків по депозиту</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" placeholder="Номер банківського рахунку" name="inputBankAccountForDP" ng-model="deposite.ClientInfo.BankAccountForDP" ng-pattern="/\d{16}$/">
+                                <input type="text" class="form-control" placeholder="Номер банківського рахунку" name="inputBankAccountForDP" ng-model="deposite.ClientInfo.BankAccountForDP" ng-pattern="/\d{16}$/" empty ng-model-options="{ updateOn: 'blur' }">
                             </div>
                         </div>
                         <div class="row justify-content-around">
                             <div class="col-sm-4"></div>
                             <div class="col-sm-4" style="color:red" ng-if="depositeForm.inputBankAccountForDP.$dirty && depositeForm.inputBankAccountForDP.$invalid">
-                                <span ng-if="depositeForm.inputBankAccountForDP.$error.pattern">Введіть номер банківського для виплати відстотків рахунку за шаблоном 0000000000000000</span>
-                            </div>
-
-                        </div>
-                        <div class="row justify-content-around">
-                            <div class="col-sm-4"></div>
-                            <div class="col-sm-4" style="color:red" ng-if="depositeForm.$submitted || depositeForm.inputBankAccountForDP.$touched">
-                                <span ng-if="depositeForm.inputBankAccountForDP.$error.required">Номер банківського рахунку для виплати відстотків  клієнта обов'язковий</span>
+                                <span ng-if="depositeForm.inputBankAccountForDP.$error.pattern">Введіть номер банківського рахунку для виплати відстотків рахунку за шаблоном 0000000000000000</span>
+                                <span ng-if="depositeForm.inputBankAccountForDP.$error.empty">Введення номеру банківського рахунку обов'язкове </span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div ng-if="!cientInBase">
+                <div ng-if="!clientInBase">
                     <div class="form-group">
                         <div class="row justify-content-around">
                             <label for="inputName" class=" col-sm-4 col-form-label">Найменування клієнта банку</label>
                             <div class=" col-sm-4">
-                                <input type="text" class="form-control" placeholder="Найменування клієнта банку" name="inputName" ng-model="deposite.ClientInfo.Name" ng-model-options="{ updateOn: 'blur' }" ng-minlength=4 required>
+                                <input type="text" class="form-control" placeholder="Найменування клієнта банку" name="inputName" ng-model="deposite.ClientInfo.Name" ng-model-options="{ updateOn: 'blur' }" ng-minlength=4 required >
                             </div>
                         </div>
                     </div>
@@ -200,7 +158,6 @@
                         <div class="col-sm-6" style="color:red" ng-show="depositeForm.inputName.$dirty && depositeForm.inputName.$invalid">
                             <span ng-show="depositeForm.inputName.$error.minlength">Найменування клієнта банку повинно містити принаймні 4 симоволи</span>
                         </div>
-
                     </div>
                     <div class="row justify-content-around">
                         <div class="col-sm-4"></div>
@@ -220,7 +177,6 @@
                             <div class="col-sm-4" style="color:red" ng-if="depositeForm.inputRepresentative.$dirty && depositeForm.inputRepresentative.$invalid">
                                 <span ng-if="depositeForm.inputRepresentative.$error.minlength">Найменування клієнта банку повинно містити принаймні 10 симоволів</span>
                             </div>
-
                         </div>
                         <div class="row justify-content-around">
                             <div class="col-sm-4"></div>
@@ -241,7 +197,6 @@
                             <div class="col-sm-4" style="color:red" ng-if="depositeForm.inputIdentificationCode.$dirty && depositeForm.inputIdentificationCode.$invalid">
                                 <span ng-if="depositeForm.inputIdentificationCode.$error.minlength">Код ідентифікації клієнта повинен містити принаймні 4 симоволи</span>
                             </div>
-
                         </div>
                         <div class="row justify-content-around">
                             <div class="col-sm-4"></div>
@@ -262,7 +217,6 @@
                             <div class="col-sm-4" style="color:red" ng-if="depositeForm.inputRegistrationPlace.$dirty && depositeForm.inputRegistrationPlace.$invalid">
                                 <span ng-if="depositeForm.inputRegistrationPlace.$error.minlength">Місце реєстрації  клієнта повинен містити принаймні 4 симоволи</span>
                             </div>
-
                         </div>
                         <div class="row justify-content-around">
                             <div class="col-sm-4"></div>
@@ -276,17 +230,15 @@
                         <div class="row justify-content-around">
                             <label for="inputPhoneNumber" class="col-sm-4 col-form-label">Номер телефону</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" placeholder="Номер телефону" name="inputPhoneNumber" ng-model="deposite.ClientInfo.PhoneNumber" ng-pattern="/^\+38(0\d{2})\d{3}\d{2}\d{2}$/" required>
+                                <input type="text" class="form-control" placeholder="Номер телефону" name="inputPhoneNumber" ng-model="deposite.ClientInfo.PhoneNumber" ng-pattern="/^\+\d{2}\(\d{3}\)\d{7}$/" required ng-model-options="{ updateOn: 'blur' }">
 
                             </div>
-
                         </div>
                         <div class="row justify-content-around">
                             <div class="col-sm-4"></div>
                             <div class="col-sm-4" style="color:red" ng-if="depositeForm.inputPhoneNumber.$dirty && depositeForm.inputPhoneNumber.$invalid">
                                 <span ng-if="depositeForm.inputPhoneNumber.$error.pattern">Введіть телефон за шаблоном +38(0**)*******</span>
                             </div>
-
                         </div>
                         <div class="row justify-content-around">
                             <div class="col-sm-4"></div>
@@ -299,7 +251,7 @@
                         <div class="row justify-content-around">
                             <label for="inputBankAccount" class="col-sm-4 col-form-label">Номер банківського рахунку</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" placeholder="Номер банківського рахунку" name="inputBankAccount" ng-model="deposite.ClientInfo.BankAccount" ng-pattern="/\d{16}$/" required>
+                                <input type="text" class="form-control" placeholder="Номер банківського рахунку" name="inputBankAccount" ng-model="deposite.ClientInfo.BankAccount" ng-pattern="/\d{16}$/" required ng-model-options="{ updateOn: 'blur' }"> 
                             </div>
                         </div>
                         <div class="row justify-content-around">
@@ -320,7 +272,7 @@
                         <div class="row justify-content-around">
                             <label for="inputBankAccountForDP" class="col-sm-4 col-form-label">Номер банківського рахунку для виплати відстотків по депозиту</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" placeholder="Номер банківського рахунку" name="inputBankAccountForDP" ng-model="deposite.ClientInfo.BankAccountForDP" ng-pattern="/\d{16}$/" required>
+                                <input type="text" class="form-control" placeholder="Номер банківського рахунку" name="inputBankAccountForDP" ng-model="deposite.ClientInfo.BankAccountForDP" ng-pattern="/\d{16}$/" required ng-model-options="{ updateOn: 'blur' }">
                             </div>
                         </div>
                         <div class="row justify-content-around">
@@ -328,7 +280,6 @@
                             <div class="col-sm-4" style="color:red" ng-if="depositeForm.inputBankAccountForDP.$dirty && depositeForm.inputBankAccountForDP.$invalid">
                                 <span ng-if="depositeForm.inputBankAccountForDP.$error.pattern">Введіть номер банківського для виплати відстотків рахунку за шаблоном 0000000000000000</span>
                             </div>
-
                         </div>
                         <div class="row justify-content-around">
                             <div class="col-sm-4"></div>
@@ -398,28 +349,28 @@
                     <div class="row justify-content-around">
                         <label for="inputstartDepositeDate" class="col-sm-4 col-form-label">Початок депозитного сроку</label>
                         <div class="col-sm-4">
-                            <input type="date" class="form-control" name="inputstartDepositeDate" ng-model="deposite.StartDepositeDate" placeholder="Дата початку депозитного сроку" required>
+                            <input type="date" class="form-control" name="inputstartDepositeDate" ng-model="deposite.StartDepositeDate" placeholder="Дата початку депозитного сроку" min="{{ todaysDate | date:'yyyy-MM-dd'}}" required>
                         </div>
                     </div>
                 </div>
                 <div class="row justify-content-around">
                     <div class="col-sm-4"></div>
-                    <!--<div class="col-sm-4" style="color:red" ng-if="depositeForm.inputstartDepositeDate.$dirty && depositeForm.inputstartDepositeDate.$invalid">
-            <span ng-if="depositeForm.inputstartDepositeDate.$error.minlength">Сума вкладу повинна бути більше 0</span>
-        </div>-->
+                    <div class="col-sm-4" style="color:red" ng-if="depositeForm.inputstartDepositeDate.$dirty && depositeForm.inputstartDepositeDate.$invalid">
+                        <span ng-if="depositeForm.inputstartDepositeDate.$error.date">Дата початку депозитного сроку повинна починатись з теперішньої дати</span>
+                    </div>
 
                 </div>
                 <div class="row justify-content-around">
                     <div class="col-sm-4"></div>
                     <div class="col-sm-4" style="color:red" ng-if="depositeForm.$submitted || depositeForm.inputstartDepositeDate.$touched">
-                        <span ng-if="depositeForm.inputstartDepositeDate.$error.required">Введення суми вкладу обов'язкове</span>
+                        <span ng-if="depositeForm.inputstartDepositeDate.$error.required">Введення початку депозитного сроку обов'язкове</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="row justify-content-around">
                         <label for="inputendDepositeDate" class="col-sm-4 col-form-label">Кінець депозитного сроку</label>
                         <div class="col-sm-4">
-                            <input type="date" class="form-control" name="inputendDepositeDate" ng-model="deposite.EndDepositeDate" placeholder="Дата закінчення депозитного сроку" min="{{deposite.StartDepositeDate | date:'yyyy-MM-dd'}}" }}" required>
+                            <input type="date" class="form-control" name="inputendDepositeDate" ng-model="deposite.EndDepositeDate" placeholder="Дата закінчення депозитного сроку" min="{{deposite.StartDepositeDate | date:'yyyy-MM-dd'}}" required>
                         </div>
                     </div>
                 </div>
@@ -433,21 +384,21 @@
                 <div class="row justify-content-around">
                     <div class="col-sm-4"></div>
                     <div class="col-sm-4" style="color:red" ng-if="depositeForm.$submitted || depositeForm.inputendDepositeDate.$touched">
-                        <span ng-if="depositeForm.inputendDepositeDate.$error.required">Введення суми вкладу обов'язкове</span>
+                        <span ng-if="depositeForm.inputendDepositeDate.$error.required">Введення дати закінчення депозитного сроку обов'язкове</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="row justify-content-around">
                         <label for="inputAmountOfDeposit" class="col-sm-4 col-form-label">Сума вкладу</label>
                         <div class="col-sm-4">
-                            <input type="number" class="form-control" placeholder="Сума вкладу" name="inputsAmountOfDeposit" ng-model="deposite.AmountOfDeposite" ng-minlength=0 required>
+                            <input type="number" class="form-control" placeholder="Сума вкладу" name="inputsAmountOfDeposit" ng-model="deposite.AmountOfDeposite" ng-min="1" required ng-model-options="{ updateOn: 'blur' }">
                         </div>
                     </div>
                 </div>
                 <div class="row justify-content-around">
                     <div class="col-sm-4"></div>
                     <div class="col-sm-4" style="color:red" ng-if="depositeForm.inputsAmountOfDeposit.$dirty && depositeForm.inputsAmountOfDeposit.$invalid">
-                        <span ng-if="depositeForm.inputsAmountOfDeposit.$error.minlength">Сума вкладу повинна бути більше 0</span>
+                        <span ng-if="depositeForm.inputsAmountOfDeposit.$error.min">Сума вкладу повинна бути більше 1</span>
                     </div>
 
                 </div>
@@ -499,23 +450,24 @@
             <h2 class="form-login-heading">Натисність для друку договору</h2>
             <div class="row justify-content-around">
                 <div class="col-sm-5">
-                    <a class="btn btn-sm btn-info btn-block" href="/api/Deposites/GeneratedСlientForm/?id={{deposite.DepositeId}}" ng-click="openCreationMessageInPopup()">Друк анкети клієнта<br/></a>
+                    <a class="btn btn-sm btn-info btn-block" href="/api/Deposites/GeneratedСlientForm/?id={{deposite.DepositeId}}" ng-click="openCreationMessageInPopup()">Друк анкети клієнта<br /></a>
                 </div>
                 <div class="col-sm-5">
                     <a class="btn btn-sm btn-info btn-block" href="/api/Deposites/GeneratedStatement/?id={{deposite.DepositeId}}" ng-click="openCreationMessageInPopup()">Друк заяви на відкриття депозиту</a>
                 </div>
             </div>
-            <div class="row"></div>
+
             <div class="row justify-content-center">
                 <div class="alert alert-danger col-sm-8">
                     {{messageStatusCreation}}
                 </div>
-                
+
             </div>
 
 
 
-</form>
-        <creation-message-in-popup></creation-message-in-popup>
+        </form>
+
     </div>
 </div>
+<creation-message-in-popup></creation-message-in-popup>

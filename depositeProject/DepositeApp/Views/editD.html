@@ -1,160 +1,246 @@
 ﻿<div id="popUpMsg-bg" ng-show="showEditionOfDeposite">
     <div id="popUpMsg">
         <div class="close" ng-click="closeEditionOfDeposite()">x</div>
-         <div class="form" name="depositeForm" novalidate>
-            <form form-horizontal" role="form">
-                    <div class="form-group">
-                        <div class="row justify-content-around">
-                            <label for="inputName" class="col-sm-4 control-label">Найменування клієнта банку</label>
-                            <div class=" col-sm-4">
-                                <input type="text" class="form-control" placeholder="Найменування клієнта банку" name="inputName" ng-model="deposite.ClientInfo.Name" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row justify-content-around">
-                            <label for="inputRepresentative" class=" col-sm-4 control-label">В особі підприємця</label>
-                            <div class=" col-sm-4">
-                                <input type="text" class="form-control" placeholder="Прізвище Ім'я Побатькові" name="inputRepresentative" ng-model="deposite.ClientInfo.Representative" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row justify-content-around">
-                            <label for="inputIdentificationCode" class="col-sm-4 control-label">код за ЄДРПОУ або реєстраційний (обліковий) номер платника податків клієнта</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" placeholder="Код ІНН або ЄДРПОУ" name="inputIdentificationCode" ng-model="deposite.ClientInfo.IndentificationCode" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row justify-content-around">
-                            <label for="inputRegistrationPlace" class="col-sm-4 control-label">Місце реєстрації</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" placeholder="RegistrationPlace" name="inputRegistrationPlace" ng-model="deposite.ClientInfo.RegistrationPlace" required>
-                            </div>
-                        </div>
-                    </div>
+         <div class="form">
+             <form form-horizontal" role="form" name="editionForm" novalidate>
+                 <div class="form-group">
+                     <div class="row justify-content-around">
+                         <label for="inputName" class="col-sm-4 control-label">Найменування клієнта банку</label>
+                         <div class=" col-sm-4">
+                             <input type="text" class="form-control" placeholder="Найменування клієнта банку" name="inputName" ng-model="deposite.ClientInfo.Name" ng-minlength=4 empty ng-model-options="{ updateOn: 'blur' }">
+                         </div>
+                     </div>
+                     <div class="row justify-content-around">
+                         <div class="col-sm-4"></div>
+                         <div class="col-sm-4" style="color:red" ng-if="editionForm.inputName.$dirty && editionForm.inputName.$invalid">
+                             <span ng-if="editionForm.inputName.$error.minlength">Найменування клієнта банку повинно містити принаймні 4 симоволи</span>
+                             <span ng-if="editionForm.inputName.$error.empty">Введення найменування клієнта банку обов'язкове.</span>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="form-group">
+                     <div class="row justify-content-around">
+                         <label for="inputRepresentative" class=" col-sm-4 control-label">В особі підприємця</label>
+                         <div class=" col-sm-4">
+                             <input type="text" class="form-control" placeholder="Прізвище Ім'я Побатькові" name="inputRepresentative" ng-model="deposite.ClientInfo.Representative" ng-minlength=10 empty ng-model-options="{ updateOn: 'blur' }">
+                         </div>
+                     </div>
+                     <div class="row justify-content-around">
+                         <div class="col-sm-4"></div>
+                         <div class="col-sm-4" style="color:red" ng-if="editionForm.inputRepresentative.$dirty && editionForm.inputRepresentative.$invalid">
+                             <span ng-if="editionForm.inputRepresentative.$error.minlength">ПІБ підприємця повинно містити принаймні 10 симоволів</span>
+                             <span ng-if="editionForm.inputRepresentative.$error.empty">Введення ПІБ підприємця обов'язкове.</span>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="form-group">
+                     <div class="row justify-content-around">
+                         <label for="inputIdentificationCode" class="col-sm-4 control-label">код за ЄДРПОУ або реєстраційний (обліковий) номер платника податків клієнта</label>
+                         <div class="col-sm-4">
+                             <input type="text" class="form-control" placeholder="Код ІНН або ЄДРПОУ" name="inputIdentificationCode" ng-model="deposite.ClientInfo.IndentificationCode" ng-minlength=4 empty ng-model-options="{ updateOn: 'blur' }">
+                         </div>
+                     </div>
 
-                    <div class="form-group">
-                        <div class="row justify-content-around">
-                            <label for="inputPhoneNumber" class="col-sm-4 control-label">Номер телефону</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" placeholder="Номер телефону" name="inputPhoneNumber" ng-model="deposite.ClientInfo.PhoneNumber" required>
-                                <!--<span class="note">Format: +38(0**)*******</span>-->
-                                <!--pattern="/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/"-->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row justify-content-around">
-                            <label for="inputBankAccount" class="col-sm-4 control-label">Номер банківського рахунку</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" placeholder="Номер банківського рахунку" name="inputBankAccount" ng-model="deposite.ClientInfo.BankAccount" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row justify-content-around">
-                            <label for="inputBankAccountForDP" class="col-sm-4 control-label">Номер банківського рахунку для виплати відстотків по депозиту</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" placeholder="Номер банківського рахунку" name="inputBankAccountForDP" ng-model="deposite.ClientInfo.BankAccountForDP" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-sm-1"></div>
-                            <label for="inputDepositeType" class="col-sm-4 control-label">Тип депозиту</label>
-                            <div class="col-sm-6">
-                                <select name="inputDepositeType" id="inputDepositeType" class="form-control"
-                                        ng-options="depositeInfo.Name for depositeInfo in depositeInfoes track by depositeInfo.Id"
-                                        ng-model="deposite.DepositeInfo" required></select><br />
-                            </div>
-                        </div>
-                    </div>
+                     <div class="row justify-content-around">
+                         <div class="col-sm-4"></div>
+                         <div class="col-sm-4" style="color:red" ng-if="editionForm.inputIdentificationCode.$dirty && editionForm.inputIdentificationCode.$invalid">
+                             <span ng-if="editionForm.inputIdentificationCode.$error.minlength">Код ідентифікації клієнта повинен містити принаймні 4 симоволи</span>
+                             <span ng-if="editionForm.inputIdentificationCode.$error.empty">Введення кода ідентифікації клієнта обов'язкове</span>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="form-group">
+                     <div class="row justify-content-around">
+                         <label for="inputRegistrationPlace" class="col-sm-4 control-label">Місце реєстрації</label>
+                         <div class="col-sm-4">
+                             <input type="text" class="form-control" placeholder="Місце реєстрації" name="inputRegistrationPlace" ng-model="deposite.ClientInfo.RegistrationPlace" ng-minlength=4 empty ng-model-options="{ updateOn: 'blur' }">
+                         </div>
+                     </div>
 
-                    <div class="form-group">
-                        <div class="row justify-content-around">
-                            <label for="inputCurrency" class="col-sm-4 control-label">Особливості депозиту</label>
-                            <div class="col-sm-4">
+                     <div class="row justify-content-around">
+                         <div class="col-sm-4"></div>
+                         <div class="col-sm-4" style="color:red" ng-if="editionForm.inputRegistrationPlace.$dirty && editionForm.inputRegistrationPlace.$invalid">
+                             <span ng-if="editionForm.inputRegistrationPlace.$error.minlength">Місце реєстрації  клієнта повиненне містити принаймні 4 симоволи</span>
+                             <span ng-if="editionForm.inputRegistrationPlace.$error.empty">Введення місця реєстрації клієнта обов'язкове</span>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="form-group">
+                     <div class="row justify-content-around">
+                         <label for="inputPhoneNumber" class="col-sm-4 control-label">Номер телефону</label>
+                         <div class="col-sm-4">
+                             <input type="text" class="form-control" placeholder="Номер телефону" name="inputPhoneNumber" ng-model="deposite.ClientInfo.PhoneNumber" ng-pattern="/^\+\d{2}\(\d{3}\)\d{7}$/" empty ng-model-options="{ updateOn: 'blur' }">
+                             <!--/^(\+38)?0[0-9]{9}$/-->
+                         </div>
+                     </div>
+                     <div class="row justify-content-around">
+                         <div class="col-sm-4"></div>
+                         <div class="col-sm-4" style="color:red" ng-if="editionForm.inputPhoneNumber.$dirty && editionForm.inputPhoneNumber.$invalid">
+                             <span ng-if="editionForm.inputPhoneNumber.$error.pattern">Введіть телефон за шаблоном +38(0**)*******</span>
+                             <span ng-if="editionForm.inputPhoneNumber.$error.empty">Номер телефона клієнта обов'язковий</span>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="form-group">
+                     <div class="row justify-content-around">
+                         <label for="inputBankAccount" class="col-sm-4 control-label">Номер банківського рахунку</label>
+                         <div class="col-sm-4">
+                             <input type="text" class="form-control" placeholder="Номер банківського рахунку" name="inputBankAccount" ng-model="deposite.ClientInfo.BankAccount" ng-pattern="/\d{16}$/" empty ng-model-options="{ updateOn: 'blur' }">
+                         </div>
+                     </div>
+                     <div class="row justify-content-around">
+                         <div class="col-sm-4"></div>
+                         <div class="col-sm-4" style="color:red" ng-if="editionForm.inputBankAccount.$dirty && editionForm.inputBankAccount.$invalid">
+                             <span ng-if="editionForm.inputBankAccount.$error.pattern">Введіть номер банківського рахунку за шаблоном 0000000000000000</span>
+                             <span ng-if="editionForm.inputBankAccount.$error.empty">Номер банківського рахунку  клієнта обов'язковий</span>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="form-group">
+                     <div class="row justify-content-around">
+                         <label for="inputBankAccountForDP" class="col-sm-4 control-label">Номер банківського рахунку для виплати відстотків по депозиту</label>
+                         <div class="col-sm-4">
+                             <input type="text" class="form-control" placeholder="Номер банківського рахунку" name="inputBankAccountForDP" ng-model="deposite.ClientInfo.BankAccountForDP" ng-pattern="/\d{16}$/" empty ng-model-options="{ updateOn: 'blur' }">
+                         </div>
+                     </div>
+                     <div class="row justify-content-around">
+                         <div class="col-sm-4"></div>
+                         <div class="col-sm-4" style="color:red" ng-if="editionForm.inputBankAccountForDP.$dirty && editionForm.inputBankAccountForDP.$invalid">
+                             <span ng-if="editionForm.inputBankAccountForDP.$error.pattern">Введіть номер банківського рахунку для виплати відстотків рахунку за шаблоном 0000000000000000</span>
+                             <span ng-if="editionForm.inputBankAccountForDP.$error.empty">Введення номеру банківського рахунку обов'язкове </span>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="form-group">
+                     <div class="row">
+                         <div class="col-sm-1"></div>
+                         <label for="inputDepositeType" class="col-sm-4 control-label">Тип депозиту</label>
+                         <div class="col-sm-6">
+                             <select name="inputDepositeType" id="inputDepositeType" class="form-control"
+                                     ng-options="depositeInfo.Name for depositeInfo in depositeInfoes track by depositeInfo.Id"
+                                     ng-model="deposite.DepositeInfo" empty></select><br />
+                         </div>
+                     </div>
+                     <div class="row justify-content-around">
+                         <div class="col-sm-4"></div>
+                         <div class="col-sm-4" style="color:red" ng-if="editionForm.inputDepositeType.$dirty && editionForm.inputDepositeType.$invalid">
+                             <span ng-if="editionForm.inputDepositeType.$error.empty">Вибір типу депозиту обов'язковий</span>
+                         </div>
+                     </div>
+                 </div>
 
-                                <label>
-                                    Автопролонгація:
-                                    <input type="checkbox" ng-model="deposite.DepositeInfo.AutoRollover" disabled>
+                 <div class="form-group">
+                     <div class="row justify-content-around">
+                         <label for="inputCurrency" class="col-sm-4 control-label">Особливості депозиту</label>
+                         <div class="col-sm-4">
 
-                                </label>
-                                <label>
-                                    Можливість поповнення:
-                                    <input type="checkbox" ng-model="deposite.DepositeInfo.PossibilityOfReplenishment" disabled>
+                             <label>
+                                 Автопролонгація:
+                                 <input type="checkbox" ng-model="deposite.DepositeInfo.AutoRollover" disabled>
 
-                                </label>
-                                <label>
-                                    Можливість дострокового розірвання:
-                                    <input type="checkbox" ng-model="deposite.DepositeInfo.PossibilityOfTermination" disabled>
+                             </label>
+                             <label>
+                                 Можливість поповнення:
+                                 <input type="checkbox" ng-model="deposite.DepositeInfo.PossibilityOfReplenishment" disabled>
 
-                                </label>
-                                <label>
-                                    Відсоткова ставка:
-                                    <input type="text" ng-model="deposite.DepositeInfo.Rate" disabled>
+                             </label>
+                             <label>
+                                 Можливість дострокового розірвання:
+                                 <input type="checkbox" ng-model="deposite.DepositeInfo.PossibilityOfTermination" disabled>
 
-                                </label>
+                             </label>
+                             <label>
+                                 Відсоткова ставка:
+                                 <input type="text" ng-model="deposite.DepositeInfo.Rate" disabled>
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row justify-content-around">
-                            <label for="inputstartDepositeDate" class="col-sm-4 control-label">Початок депозитного сроку</label>
-                            <div class="col-sm-4">
-                                <input type="date" class="form-control" name="inputstartDepositeDate" ng-model="deposite.StartDepositeDate" placeholder="Дата початку депозитного сроку" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row justify-content-around">
-                            <label for="inputendDepositeDate" class="col-sm-4 control-label">Кінець депозитного сроку</label>
-                            <div class="col-sm-4">
-                                <input type="date" class="form-control" name="inputendDepositeDate" ng-model="deposite.EndDepositeDate" placeholder="Дата закінчення депозитного сроку" required>
-                            </div>
-                        </div>
-                    </div>
+                             </label>
 
-                    <div class="form-group">
-                        <div class="row justify-content-around">
-                            <label for="inputAmountOfDeposit" class="col-sm-4 control-label">Сума вкладу</label>
-                            <div class="col-sm-4">
-                                <input type="number" class="form-control" placeholder="Сума вкладу" name="inputsAmountOfDeposit" ng-model="deposite.AmountOfDeposite" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row ">
-                            <div class="col-sm-1"></div>
-                            <label for="inputCurrency" class="col-sm-4 col-form-label">Валюта</label>
-                            <div class="col-sm-2"></div>
-                            <div class="col-sm-2">
-                                <select name="inputsCurrency" class="form-control" ng-model="deposite.Currency" required>
-                                    <option value="UAH">UAH</option>
-                                    <option value="USD">USD</option>
-                                    <option value="EURO">EURO</option>
-                                </select><br>
-                            </div>
-                        </div>
-                    </div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="form-group">
+                     <div class="row justify-content-around">
+                         <label for="inputstartDepositeDate" class="col-sm-4 control-label">Початок депозитного сроку</label>
+                         <div class="col-sm-4">
+                             <input type="date" class="form-control" name="inputstartDepositeDate" ng-model="deposite.StartDepositeDate" placeholder="Дата початку депозитного сроку" empty min="{{ todaysDate | date:'yyyy-MM-dd'}}">
+                         </div>
+                     </div>
+                     <div class="row justify-content-around">
+                         <div class="col-sm-4"></div>
+                         <div class="col-sm-4" style="color:red" ng-if="editionForm.inputstartDepositeDate.$dirty && editionForm.inputstartDepositeDate.$invalid">
+                             <span ng-if="editionForm.inputstartDepositeDate.$error.date">Дата початку депозитного сроку повинна починатись з теперішньої дати</span>
+                             <span ng-if="editionForm.inputstartDepositeDate.$error.empty">Введення початку депозитного сроку обов'язкове</span>
+                         </div>
 
-                    <div class="form-group">
-                        <div class="row justify-content-around">
-                            <div class="col-md-offset-2 col-md-4">
-                                <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="editDeposite(depositeForm.$valid,deposite)">Зберегти зміни</button>
-                            </div>
-                            <div class="col-md-offset-1  col-md-4">
-                                <button class="btn btn-lg btn-info btn-danger" type="submit" ng-click="closeEditionOfDeposite()">Завершити без змін</button>
-                            </div>
-                            
-                        </div>
-                    </div>
-            </form>
+                     </div>
+                 </div>
+                 <div class="form-group">
+                     <div class="row justify-content-around">
+                         <label for="inputendDepositeDate" class="col-sm-4 control-label">Кінець депозитного сроку</label>
+                         <div class="col-sm-4">
+                             <input type="date" class="form-control" name="inputendDepositeDate" ng-model="deposite.EndDepositeDate" placeholder="Дата закінчення депозитного сроку" empty  min="{{deposite.StartDepositeDate | date:'yyyy-MM-dd'}}">
+                         </div>
+                     </div>
+                     <div class="row justify-content-around">
+                         <div class="col-sm-4"></div>
+                         <div class="col-sm-4" style="color:red" ng-if="editionForm.inputendDepositeDate.$dirty && editionForm.inputendDepositeDate.$invalid">
+                             <span ng-if="editionForm.inputendDepositeDate.$error.date">Дата закінчення повинна бути пізніше дати початку</span>
+                             <span ng-if="editionForm.inputendDepositeDate.$error.empty">Введення дати закінчення депозитного сроку обов'язкове</span>
+                         </div>
+
+                     </div>
+                 </div>
+
+                 <div class="form-group">
+                     <div class="row justify-content-around">
+                         <label for="inputAmountOfDeposit" class="col-sm-4 control-label">Сума вкладу</label>
+                         <div class="col-sm-4">
+                             <input type="number" class="form-control" placeholder="Сума вкладу" name="inputsAmountOfDeposit" ng-model="deposite.AmountOfDeposite" ng-min="1" empty ng-model-options="{ updateOn: 'blur' }">
+                         </div>
+                     </div>
+                     <div class="row justify-content-around">
+                         <div class="col-sm-4"></div>
+                         <div class="col-sm-4" style="color:red" ng-if="editionForm.inputsAmountOfDeposit.$dirty && editionForm.inputsAmountOfDeposit.$invalid">
+                             <span ng-if="editionForm.inputsAmountOfDeposit.$error.min">Сума вкладу повинна бути більше 1</span>
+                             <span ng-if="editionForm.inputsAmountOfDeposit.$error.empty">Введення суми вкладу обов'язкове</span>
+                         </div>
+
+                     </div>
+                 </div>
+                 <div class="form-group">
+                     <div class="row ">
+                         <div class="col-sm-1"></div>
+                         <label for="inputCurrency" class="col-sm-4 col-form-label">Валюта</label>
+                         <div class="col-sm-2"></div>
+                         <div class="col-sm-2">
+                             <select name="inputsCurrency" class="form-control" ng-model="deposite.Currency" empty>
+                                 <option value="UAH">UAH</option>
+                                 <option value="USD">USD</option>
+                                 <option value="EURO">EURO</option>
+                             </select><br>
+                         </div>
+                     </div>
+                     <div class="row justify-content-around">
+                         <div class="col-sm-4"></div>
+                         <div class="col-sm-4" style="color:red" ng-if="editionForm.inputsCurrency.$dirty && editionForm.inputsCurrency.$invalid">
+                             <span ng-if="editionForm.inputsCurrency.$error.empty">Вибір типу депозиту обов'язковий</span>
+                         </div>
+                     </div>
+                     
+                 </div>
+
+                 <div class="form-group">
+                     <div class="row justify-content-around">
+                         <div class="col-md-offset-2 col-md-4">
+                             <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="editDeposite(editionForm.$valid,deposite)">Зберегти зміни</button>
+                         </div>
+                         <div class="col-md-offset-1  col-md-4">
+                             <button class="btn btn-lg btn-info btn-danger" type="submit" ng-click="closeEditionOfDeposite()">Завершити без змін</button>
+                         </div>
+
+                     </div>
+                 </div>
+             </form>
 
         </div>
     </div>

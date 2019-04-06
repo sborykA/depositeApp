@@ -31,26 +31,31 @@
                         clientOperationService.checkClient(identificationCode)
                             .then(function successCallback(response) {
                                 $scope.deposite.ClientInfo = response.data;
+                                console.log($scope.deposite.ClientInfo);
                                 $scope.message = "Клієнта знайдено";
                                 $scope.messageStatus = true;
                                 $scope.showInputForm = true;
                                 $scope.clientInBase = true;
+                                console.log($scope.clientInBase);
                             }, function errorCallback(response) {
                                 $scope.deposite.ClientInfo = {};
                                 $scope.deposite.ClientInfo.IndentificationCode = identificationCode;
+                                console.log($scope.deposite.ClientInfo);
                                 $scope.message = "Клієнта не знайдено";
                                 $scope.messageStatus = true;
                                 $scope.showInputForm = true;
                                 $scope.clientInBase = false;
                             });
                     }
+                    
                 }
                 $scope.submitDepositeForm = function () {
                     $scope.myForm.file.$setValidity("size", false);
                 }
                 $scope.submitDeposite = function (isValid, deposite) {
+                    
                     console.log(isValid);
-                    if (/*isValid*/true) {
+                    if (isValid) {
                         deposite.CreationDate = new Date();
                         deposite.AcceptionDate = new Date(1754, 0, 1)
                         deposite.Status = false;
@@ -84,13 +89,16 @@
                             });
                     }
                 }
+                $scope.todaysDate = new Date();
+                console.log($scope.todaysDate);
                 $scope.closeCreationOfDeposite = function () {
                     $scope.showCreationOfDeposite = false;
+                    $scope.showClientSearchForm = true;
                 }
+
                 $scope.showCreationMessageInPopup = false;
                 
                 $scope.openCreationMessageInPopup = function () {
-                   
                     $scope.showCreationMessageInPopup = true;
                 }
             }

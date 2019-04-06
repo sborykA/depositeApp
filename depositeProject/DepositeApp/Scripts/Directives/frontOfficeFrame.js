@@ -80,7 +80,7 @@
                     $scope.showInputForm = false;
                     $scope.messageStatus = false;
                     $scope.showPrintForm = false;
-                    $scope.showshowCreationMessageInPopup = false;
+                    
 
                     $scope.showCreationOfDeposite = true;
 

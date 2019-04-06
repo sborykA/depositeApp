@@ -4,9 +4,10 @@
             restrict: 'E',
             scope: false,
             templateUrl: 'creationMessageInPopup.html',
-            controller: function ($scope, $location, depositeDataService) {
+            controller: function ($scope) {
                 $scope.closeCreationMessageInPopup = function () {
                     $scope.showCreationMessageInPopup = false;
+                    console.log("used");
                 }
             }
         }
