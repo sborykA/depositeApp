@@ -9,6 +9,7 @@ namespace depositeProject.Models
     {
         public UsersDB() :base("OracleDbContext")
         {
+           
             //Database.SetInitializer(new MigrateDatabaseToLatestVersion<UsersDB, Configuration>("OracleDbContext"));
         }
         /*public UsersDB() :base("DefaultConnection");

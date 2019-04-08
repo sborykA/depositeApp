@@ -30,7 +30,7 @@ namespace depositeProject.Controllers
                     .Include(t => t.DepositeInfo)
                     .Include(p => p.ClientInfo);
                    
-            return unacceptedDeposites.Where(p => p.Status == false);
+            return unacceptedDeposites.Where(p => p.Status == "created");
         }
         [Route("AcceptedDeposites")]
         public IQueryable<Deposite> GetAcceptedDeposites()
@@ -39,7 +39,16 @@ namespace depositeProject.Controllers
                     .Include(t => t.DepositeInfo)
                     .Include(p => p.ClientInfo);
 
-            return acceptedDeposites.Where(p => p.Status == true);
+            return acceptedDeposites.Where(p => p.Status == "accepted");
+        }
+        [Route("NotAcceptedDeposites")]
+        public IQueryable<Deposite> GetNotAcceptedDeposites()
+        {
+            var acceptedDeposites = db.Deposites
+                    .Include(t => t.DepositeInfo)
+                    .Include(p => p.ClientInfo);
+
+            return acceptedDeposites.Where(p => p.Status == "notAccepted");
         }
         [Route("AllDeposites")]
         public IQueryable<Deposite> GetAllDeposites()

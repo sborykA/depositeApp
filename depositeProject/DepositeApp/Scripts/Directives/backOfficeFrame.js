@@ -57,7 +57,7 @@
                             $scope.showMessage = false;
                             $scope.showTable = true;
                         } else {
-                            $scope.message = "Відстуні непідтверджені дупозити";
+                            $scope.message = "Відстуні непідтверджені депозити";
                             $scope.showMessage = true;
                             $scope.showTable = false;
                         }
@@ -77,7 +77,25 @@
                             $scope.showConfirmedTable = false;
                         }
                     }, function errorCallback(response) { });
+                depositeDataService.getNotAcceptedDeposites()
+                    .then(function successCallback(response) {
+                        $scope.notAcceptedDeposites = response.data;
+                        if ($scope.notAcceptedDeposites.length !== 0) {
+                            
+                            $scope.showTable = true;
+                        } 
+                        
+                    }, function errorCallback(response) { });
+                $scope.reloadNotAcceptedDeposites = function () {
+                    depositeDataService.getNotAcceptedDeposites()
+                        .then(function successCallback(response) {
+                            $scope.notAcceptedDeposites = response.data;
+                            if ($scope.notAcceptedDeposites.length !== 0) {
 
+                                $scope.showTable = true;
+                            } 
+                        }, function errorCallback(response) { });
+                }
                 $scope.reloadData = function () {
                     depositeDataService.getUnacceptedDeposites()
                         .then(function successCallback(response) {
@@ -87,7 +105,7 @@
                                 $scope.showMessage = false;
                                 $scope.showTable = true;
                             } else {
-                                $scope.message = "Відстуні непідтверджені дупозити";
+                                $scope.message = "Відстуні непідтверджені депозити";
                                 $scope.showMessage = true;
                                 $scope.showTable = false;
                             }

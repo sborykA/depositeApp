@@ -58,7 +58,7 @@
                     if (isValid) {
                         deposite.CreationDate = new Date();
                         deposite.AcceptionDate = new Date(1754, 0, 1)
-                        deposite.Status = false;
+                        deposite.Status = "created";
                         if ($scope.clientInBase == true) {
 
                             deposite.ClientInfoId = deposite.ClientInfo.Id;

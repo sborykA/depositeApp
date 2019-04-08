@@ -3,7 +3,7 @@ namespace depositeProject.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class migration1 : DbMigration
+    public partial class m1 : DbMigration
     {
         public override void Up()
         {
@@ -34,11 +34,12 @@ namespace depositeProject.Migrations
                         EndDepositeDate = c.DateTime(nullable: false),
                         AmountOfDeposite = c.Decimal(nullable: false, precision: 10, scale: 0),
                         Currency = c.String(maxLength: 2000),
-                        Status = c.Decimal(nullable: false, precision: 1, scale: 0),
+                        Status = c.String(maxLength: 2000),
                         ClientInfoId = c.Decimal(nullable: false, precision: 10, scale: 0),
                         DepositeInfoId = c.Decimal(nullable: false, precision: 10, scale: 0),
                         CreationDate = c.DateTime(nullable: false),
                         AcceptionDate = c.DateTime(nullable: false),
+                        PaymentDate = c.DateTime(nullable: false),
                         Message = c.String(maxLength: 2000),
                     })
                 .PrimaryKey(t => t.DepositeId)

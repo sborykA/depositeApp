@@ -19,6 +19,13 @@
                     <td>{{deposite.Status}}</td>
                     <td><button class="btn btn-sm btn-info btn-block" type="submit" ng-click="openPopUp(deposite)">Переглянути</button></td>
                 </tr>
+                <tr id="notAcceptedRow" ng-repeat="notAcceptedDeposite in  notAcceptedDeposites">
+                    <td>{{notAcceptedDeposite.DepositeId}}</td>
+                    <td>{{notAcceptedDeposite.ClientInfo.Name}}</td>
+                    <td>{{notAcceptedDeposite.DepositeInfo.Name}}</td>
+                    <td>{{notAcceptedDeposite.Status}}</td>
+                    <td><button class="btn btn-sm btn-info btn-block" type="submit" ng-click="openPopUp(notAcceptedDeposite)">Переглянути</button></td>
+                </tr>
             </tbody>
 
         </table>
@@ -47,6 +54,8 @@
                         <td>{{confirmedDeposite.AmountOfDeposite}}</td>
                         <td>{{confirmedDeposite.Currency}}</td>
                     </tr>
+                    
+                   
                     <tr></tr>
                     <tr>
                         <td>Загальна сума вкладу в UAH:</td>

@@ -11,7 +11,7 @@
                         deposite.DepositeInfoId = deposite.DepositeInfo.Id;
                         deposite.DepositeInfo = null;
                         deposite.ClientInfo = null;
-                        deposite.Status = false;
+                        deposite.Status = "created";
                         console.log(deposite);
                         depositeDataService.updateDeposite(deposite)
                             .then(function successCallback(response) {

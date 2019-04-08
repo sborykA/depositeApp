@@ -343,3 +343,6 @@ a.article:hover {
 .ng-submitted {
     border-color: #78FA89;
 }
+#notAcceptedRow td {
+    border: 1px solid tomato;
+}

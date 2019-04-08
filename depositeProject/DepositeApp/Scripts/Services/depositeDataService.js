@@ -13,6 +13,9 @@
             updateDeposite: function (deposite) {
                 return $http.put("/api/Deposites/" + deposite.DepositeId, deposite);
             },
+            getNotAcceptedDeposites: function () {
+                return $http.get("/api/Deposites/NotAcceptedDeposites");
+            },
             getCreatedTodayDeposites: function (date) {
                 return $http.get("/api/Deposites/CreatedTodayDeposites/", { params: { date: date } } );
             },

@@ -69,7 +69,7 @@
                      <div class="row justify-content-around">
                          <label for="inputPhoneNumber" class="col-sm-4 control-label">Номер телефону</label>
                          <div class="col-sm-4">
-                             <input type="text" class="form-control" placeholder="Номер телефону" name="inputPhoneNumber" ng-model="deposite.ClientInfo.PhoneNumber" ng-pattern="/^\+\d{2}\(\d{3}\)\d{7}$/" empty ng-model-options="{ updateOn: 'blur' }">
+                             <input type="text" class="form-control" placeholder="Номер телефону" name="inputPhoneNumber" ng-model="deposite.ClientInfo.PhoneNumber" ng-pattern="/^(\+38)?0[0-9]{9}$/" empty ng-model-options="{ updateOn: 'blur' }">
                              <!--/^(\+38)?0[0-9]{9}$/-->
                          </div>
                      </div>

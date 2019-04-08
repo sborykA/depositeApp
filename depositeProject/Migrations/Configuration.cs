@@ -7,6 +7,7 @@ namespace depositeProject.Migrations
 
     internal sealed class Configuration : DbMigrationsConfiguration<depositeProject.Models.UsersDB>
     {
+       
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
@@ -18,6 +19,7 @@ namespace depositeProject.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
+
             context.Users.AddOrUpdate(
                 m => m.Id,
             new Models.User
@@ -41,7 +43,7 @@ namespace depositeProject.Migrations
                             Name = "name1",
                             Representative = "REPRESENTATIVE1",
                             RegistrationPlace = "Kyiv",
-                            PhoneNumber = "+38(068)1234567",
+                            PhoneNumber = "+380681234567",
                             BankAccount="4149684368346702",
                             BankAccountForDP= "4149684368346702"
                         },
@@ -51,7 +53,7 @@ namespace depositeProject.Migrations
                             Name = "name2",
                             Representative = "REPRESENTATIVE2",
                             RegistrationPlace = "Kyiv",
-                            PhoneNumber = "+38(068)1239876",
+                            PhoneNumber = "+380681239876",
                             BankAccount = "5156345681230893",
                             BankAccountForDP = "5156345681230893"
                         }

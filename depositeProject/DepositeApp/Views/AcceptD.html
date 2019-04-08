@@ -64,7 +64,7 @@
                 <div class="row justify-content-around">
                     <label for="inputDepositeType" class="col-sm-4  col-form-label">Тип депозиту</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" name="inputPhoneNumber" ng-model="deposite.DepositeInfo.Name" disabled>
+                        <input type="text" class="form-control" name="DepositeInfoName" ng-model="deposite.DepositeInfo.Name" disabled>
                     </div>
                 </div>
             </div>
@@ -150,7 +150,7 @@
                         <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="changeStatus(deposite)">Підтвердити</button>
                     </div>
                     <div class="col-md-4">
-                        <button class="btn btn-lg btn-info btn-danger" type="submit" ng-click="closePopUp()">Не підтверджувати</button>
+                        <button class="btn btn-lg btn-info btn-danger" type="submit" ng-click="rejectDeposite(deposite)">Не підтверджувати</button>
                     </div>
                 </div>
             </div>
