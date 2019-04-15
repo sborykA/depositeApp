@@ -22,6 +22,7 @@ namespace depositeProject.Models
         public DateTime CreationDate { get; set; }
         public DateTime AcceptionDate { get; set; }
         public DateTime PaymentDate { get; set; }
+        public double TotalSum { get; set; }
         public string Message { get; set; }
         public virtual ClientInfo ClientInfo { get; set; }
         public virtual DepositeInfo DepositeInfo { get; set; }

@@ -18,6 +18,7 @@ namespace depositeProject.Models
         public string RegistrationPlace { get; set; }
         public string PhoneNumber { get; set; }
         public string BankAccount { get; set; }
+        public DateTime ChangeDate { get; set; }
         public string BankAccountForDP { get; set; }
         public virtual Deposite Deposite { get; set; }
 

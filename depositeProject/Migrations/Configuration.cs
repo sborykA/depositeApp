@@ -44,8 +44,9 @@ namespace depositeProject.Migrations
                             Representative = "REPRESENTATIVE1",
                             RegistrationPlace = "Kyiv",
                             PhoneNumber = "+380681234567",
-                            BankAccount="4149684368346702",
-                            BankAccountForDP= "4149684368346702"
+                            BankAccount = "4149684368346702",
+                            BankAccountForDP = "4149684368346702",
+                            ChangeDate = new DateTime(2015, 7, 20)
                         },
                         new Models.ClientInfo
                         {
@@ -55,7 +56,8 @@ namespace depositeProject.Migrations
                             RegistrationPlace = "Kyiv",
                             PhoneNumber = "+380681239876",
                             BankAccount = "5156345681230893",
-                            BankAccountForDP = "5156345681230893"
+                            BankAccountForDP = "5156345681230893",
+                            ChangeDate = new DateTime(2015, 7, 20)
                         }
 
                     );

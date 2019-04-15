@@ -83,8 +83,8 @@
                         if ($scope.notAcceptedDeposites.length !== 0) {
                             
                             $scope.showTable = true;
-                        } 
-                        
+                        }
+                        console.log($scope.notAcceptedDeposites);
                     }, function errorCallback(response) { });
                 $scope.reloadNotAcceptedDeposites = function () {
                     depositeDataService.getNotAcceptedDeposites()

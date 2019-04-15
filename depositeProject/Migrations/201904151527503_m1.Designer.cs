@@ -13,7 +13,7 @@ namespace depositeProject.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201904082047583_m1"; }
+            get { return "201904151527503_m1"; }
         }
         
         string IMigrationMetadata.Source

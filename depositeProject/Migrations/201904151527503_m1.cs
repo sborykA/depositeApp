@@ -18,6 +18,7 @@ namespace depositeProject.Migrations
                         RegistrationPlace = c.String(maxLength: 2000),
                         PhoneNumber = c.String(maxLength: 2000),
                         BankAccount = c.String(maxLength: 2000),
+                        ChangeDate = c.DateTime(nullable: false),
                         BankAccountForDP = c.String(maxLength: 2000),
                         Deposite_DepositeId = c.Decimal(precision: 10, scale: 0),
                     })
@@ -40,6 +41,7 @@ namespace depositeProject.Migrations
                         CreationDate = c.DateTime(nullable: false),
                         AcceptionDate = c.DateTime(nullable: false),
                         PaymentDate = c.DateTime(nullable: false),
+                        TotalSum = c.Double(nullable: false),
                         Message = c.String(maxLength: 2000),
                     })
                 .PrimaryKey(t => t.DepositeId)
