@@ -210,7 +210,11 @@ namespace depositeProject.Controllers
         [Route("GeneratedСontract")]
         public HttpResponseMessage GetGeneratedСontract(int id)
         {
+            FinalPayment f = new FinalPayment();
             Deposite deposite = db.Deposites.Find(id);
+            f.GetPaymentDate(deposite.EndDepositeDate.ToLocalTime());
+            f.GetTotalRate(deposite.DepositeInfo.Name, deposite.StartDepositeDate.ToLocalTime(), deposite.EndDepositeDate.ToLocalTime(), deposite.AmountOfDeposite, deposite.DepositeInfo.Rate);
+            
             BaseFont baseFont = BaseFont.CreateFont(@"C:\ARIALUNI.TTF", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
             iTextSharp.text.Font font = new iTextSharp.text.Font(baseFont, 14, iTextSharp.text.Font.NORMAL);
             MemoryStream memoryStream = new MemoryStream();
@@ -254,6 +258,10 @@ namespace depositeProject.Controllers
             document.Add(para14);
             Paragraph para15 = new Paragraph("Рахунок для виплати відсотків: " + deposite.ClientInfo.BankAccountForDP, font);
             document.Add(para15);
+            Paragraph para18 = new Paragraph("Дата виплати суми депозиту та повернення коштів: " + ChangeDateFormat(f.PaymentDate), font);
+            document.Add(para18);
+            Paragraph para19 = new Paragraph("Cума коштів нарахованих по відсоткам: " + f.TotalRate, font);
+            document.Add(para19);
             Paragraph para17 = new Paragraph(Conditions, font);
             document.Add(para17);
             Paragraph para16 = new Paragraph("Дата:" + ChangeDateFormat(DateTime.Now) + "           Підпис:", font);

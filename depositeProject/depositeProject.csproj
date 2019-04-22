@@ -232,9 +232,11 @@
       <DependentUpon>201904151527503_m1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\CapitalizationType.cs" />
     <Compile Include="Models\ClientInfo.cs" />
     <Compile Include="Models\Deposite.cs" />
     <Compile Include="Models\DepositeInfo.cs" />
+    <Compile Include="Models\FinalPayment.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\PDFWorker.cs" />
     <Compile Include="Models\Statistics.cs" />
