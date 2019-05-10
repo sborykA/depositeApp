@@ -344,5 +344,6 @@ a.article:hover {
     border-color: #78FA89;
 }
 #notAcceptedRow td {
-    border: 1px solid tomato;
+   
+    background-color: tomato;
 }
