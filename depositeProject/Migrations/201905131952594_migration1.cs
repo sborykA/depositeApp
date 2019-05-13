@@ -3,7 +3,7 @@ namespace depositeProject.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class m1 : DbMigration
+    public partial class migration1 : DbMigration
     {
         public override void Up()
         {
@@ -41,7 +41,9 @@ namespace depositeProject.Migrations
                         CreationDate = c.DateTime(nullable: false),
                         AcceptionDate = c.DateTime(nullable: false),
                         PaymentDate = c.DateTime(nullable: false),
+                        AutoRolloverDate = c.DateTime(nullable: false),
                         TotalSum = c.Double(nullable: false),
+                        TotalRate = c.Double(nullable: false),
                         Message = c.String(maxLength: 2000),
                     })
                 .PrimaryKey(t => t.DepositeId)

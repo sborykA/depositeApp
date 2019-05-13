@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -206,17 +204,35 @@ namespace depositeProject.Controllers
         }
 
 
-        
+
         [Route("GeneratedСontract")]
         public HttpResponseMessage GetGeneratedСontract(int id)
         {
             FinalPayment f = new FinalPayment();
             Deposite deposite = db.Deposites.Find(id);
             f.GetPaymentDate(deposite.EndDepositeDate.ToLocalTime());
-            f.GetTotalRate(deposite.DepositeInfo.Name, deposite.StartDepositeDate.ToLocalTime(), deposite.EndDepositeDate.ToLocalTime(), deposite.AmountOfDeposite, deposite.DepositeInfo.Rate);
+            f.GetTotalSum(deposite.DepositeInfo.Name, deposite.StartDepositeDate.ToLocalTime(), deposite.EndDepositeDate.ToLocalTime(), deposite.AmountOfDeposite, deposite.DepositeInfo.Rate);
+            deposite.PaymentDate = f.PaymentDate;
+            if (deposite.DepositeInfo.AutoRollover == true)
+            {
+                deposite.AutoRolloverDate = deposite.PaymentDate;
+            }
+            deposite.TotalRate = f.TotalRate;
+            deposite.TotalSum = f.TotalSum;
+            db.Entry(deposite).State = EntityState.Modified;
             
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw new Exception();
+            }
+                
+
             BaseFont baseFont = BaseFont.CreateFont(@"C:\ARIALUNI.TTF", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
-            iTextSharp.text.Font font = new iTextSharp.text.Font(baseFont, 14, iTextSharp.text.Font.NORMAL);
+            Font font = new Font(baseFont, 14, Font.NORMAL);
             MemoryStream memoryStream = new MemoryStream();
             Document document = new Document(PageSize.A4, 10, 10, 10, 10);
             PdfWriter writer = PdfWriter.GetInstance(document, memoryStream);
@@ -258,10 +274,12 @@ namespace depositeProject.Controllers
             document.Add(para14);
             Paragraph para15 = new Paragraph("Рахунок для виплати відсотків: " + deposite.ClientInfo.BankAccountForDP, font);
             document.Add(para15);
-            Paragraph para18 = new Paragraph("Дата виплати суми депозиту та повернення коштів: " + ChangeDateFormat(f.PaymentDate), font);
+            Paragraph para18 = new Paragraph("Дата виплати суми депозиту та повернення коштів: " + ChangeDateFormat(deposite.PaymentDate), font);
             document.Add(para18);
-            Paragraph para19 = new Paragraph("Cума коштів нарахованих по відсоткам: " + f.TotalRate, font);
+            Paragraph para19 = new Paragraph("Загальна сума коштів до повернення: " + deposite.TotalSum, font);
             document.Add(para19);
+            Paragraph para20 = new Paragraph("Cума коштів нарахованих по відсоткам: " + deposite.TotalRate, font);
+            document.Add(para20);
             Paragraph para17 = new Paragraph(Conditions, font);
             document.Add(para17);
             Paragraph para16 = new Paragraph("Дата:" + ChangeDateFormat(DateTime.Now) + "           Підпис:", font);

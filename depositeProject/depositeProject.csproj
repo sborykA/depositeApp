@@ -218,18 +218,16 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\clientDeclarationController.cs" />
     <Compile Include="Controllers\ClientInfoesController.cs" />
     <Compile Include="Controllers\DepositeInfoesController.cs" />
     <Compile Include="Controllers\DepositesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201904151527503_m1.cs" />
-    <Compile Include="Migrations\201904151527503_m1.Designer.cs">
-      <DependentUpon>201904151527503_m1.cs</DependentUpon>
+    <Compile Include="Migrations\201905131952594_migration1.cs" />
+    <Compile Include="Migrations\201905131952594_migration1.Designer.cs">
+      <DependentUpon>201905131952594_migration1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CapitalizationType.cs" />
@@ -238,9 +236,7 @@
     <Compile Include="Models\DepositeInfo.cs" />
     <Compile Include="Models\FinalPayment.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\PDFWorker.cs" />
     <Compile Include="Models\Statistics.cs" />
-    <Compile Include="Models\TotalIncome.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UsersDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1194,8 +1190,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201904151527503_m1.resx">
-      <DependentUpon>201904151527503_m1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905131952594_migration1.resx">
+      <DependentUpon>201905131952594_migration1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

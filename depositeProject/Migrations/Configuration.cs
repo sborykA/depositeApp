@@ -5,7 +5,7 @@ namespace depositeProject.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<depositeProject.Models.UsersDB>
+    internal sealed class Configuration : DbMigrationsConfiguration<Models.UsersDB>
     {
        
         public Configuration()
@@ -13,13 +13,8 @@ namespace depositeProject.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(depositeProject.Models.UsersDB context)
+        protected override void Seed(Models.UsersDB context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data.
-
             context.Users.AddOrUpdate(
                 m => m.Id,
             new Models.User
@@ -39,10 +34,10 @@ namespace depositeProject.Migrations
                             m => m.Id,
                         new Models.ClientInfo
                         {
-                            IndentificationCode = "inn1",
-                            Name = "name1",
-                            Representative = "REPRESENTATIVE1",
-                            RegistrationPlace = "Kyiv",
+                            IndentificationCode = "3604234657",
+                            Name = "ТОВ Квіточка",
+                            Representative = "Іванов І.І",
+                            RegistrationPlace = "Київ",
                             PhoneNumber = "+380681234567",
                             BankAccount = "4149684368346702",
                             BankAccountForDP = "4149684368346702",
@@ -50,10 +45,10 @@ namespace depositeProject.Migrations
                         },
                         new Models.ClientInfo
                         {
-                            IndentificationCode = "inn2",
-                            Name = "name2",
-                            Representative = "REPRESENTATIVE2",
-                            RegistrationPlace = "Kyiv",
+                            IndentificationCode = "459670043",
+                            Name = "ТОВ Альянс",
+                            Representative = "Петров П.П",
+                            RegistrationPlace = "Київ",
                             PhoneNumber = "+380681239876",
                             BankAccount = "5156345681230893",
                             BankAccountForDP = "5156345681230893",
@@ -65,16 +60,16 @@ namespace depositeProject.Migrations
                 m => m.Id,
             new Models.DepositeInfo
             {
-                Name = "Депозит з можливістю поповнення",
-                Rate = 3,
+                Name = "Депозит на вимогу",
+                Rate = 12,
                 AutoRollover = true,
-                PossibilityOfReplenishment = true,
+                PossibilityOfReplenishment = false,
                 PossibilityOfTermination = false
             },
             new Models.DepositeInfo
             {
-                Name = "Депозит стандартний",
-                Rate = 7,
+                Name = "Депозит з капіталізацією відсотків",
+                Rate = 4,
                 AutoRollover = false,
                 PossibilityOfReplenishment = false,
                 PossibilityOfTermination = true

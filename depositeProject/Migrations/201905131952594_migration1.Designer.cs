@@ -7,13 +7,13 @@ namespace depositeProject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class m1 : IMigrationMetadata
+    public sealed partial class migration1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(m1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(migration1));
         
         string IMigrationMetadata.Id
         {
-            get { return "201904151527503_m1"; }
+            get { return "201905131952594_migration1"; }
         }
         
         string IMigrationMetadata.Source

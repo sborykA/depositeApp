@@ -64,7 +64,7 @@ namespace depositeProject.Models
         private double SumOfRate(string depositeType, DateTime startDate, DateTime endDate, int amountOfDeposite, int rate)
         {
             int term = (endDate.Date - startDate.Date).Days;
-            if (depositeType == "Депозит з можливістю поповнення")
+            if (depositeType == "Депозит на вимогу")
             {
 
                 return Math.Round(((double)amountOfDeposite * ((double)rate / (double)100) * (double)term) / VisYear(DateTime.Now.Year), 2);

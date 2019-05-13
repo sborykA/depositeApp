@@ -21,11 +21,5 @@ namespace depositeProject.Models
         public DateTime ChangeDate { get; set; }
         public string BankAccountForDP { get; set; }
         public virtual Deposite Deposite { get; set; }
-
-        /*[ForeignKey("Deposite")]
-        public int? DepositeId { get; set; }
-        public Deposite Deposite { get; set; }*/
-        //public DateTime ReleaseDate { get; set; }
-
     }
 }
